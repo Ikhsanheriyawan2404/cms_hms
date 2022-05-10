@@ -18,7 +18,7 @@ class CreateAboutHeadersTable extends Migration
             $table->string('quote');
             $table->string('keyword');
             $table->string('description');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

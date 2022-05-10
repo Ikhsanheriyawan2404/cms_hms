@@ -47,11 +47,6 @@
 
 @endsection
 
-@section('custom-styles')
-<!-- Select2 -->
-<link rel="stylesheet" href="{{ asset('asset') }}/plugins/select2/css/select2.min.css">
-@endsection
-
 @section('custom-scripts')
 <!-- Select2 -->
 <script src="{{ asset('asset') }}/plugins/select2/js/select2.full.min.js"></script>

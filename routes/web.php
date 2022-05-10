@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
         Route::resources(['homepages' => HomepageController::class]);
         Route::resources(['abouts' => AboutController::class]);
         Route::resources(['about_header' => AboutHeaderController::class]);
+        Route::put('about_header/{about_header:id}/update_image', [AboutHeaderController::class, 'updateImage'])->name('about_header.updateImage');
 
         Route::resources(['users' => UserController::class]);
         Route::post('users/{user:id}/status', [UserController::class, 'changeStatus'])->name('users.status');

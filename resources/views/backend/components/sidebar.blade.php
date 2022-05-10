@@ -43,8 +43,8 @@
             <ul class="nav nav-treeview">
                 <li class="nav-item">
                     @can('user-list')
-                    <a href="{{ route('abouts.index') }}" class="nav-link {{ request()->routeIs('abouts.index') ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-abouts"></i>
+                    <a href="{{ route('about_header.index') }}" class="nav-link {{ request()->routeIs('about_header.index') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-about_header"></i>
                     <p>
                         About Header
                     </p>

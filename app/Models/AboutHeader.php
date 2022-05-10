@@ -10,4 +10,9 @@ class AboutHeader extends Model
     use HasFactory;
 
     protected $fillable = ['quote', 'keyword', 'description', 'image'];
+
+    public function getTakeImageAttribute()
+    {
+        return '/storage/' . $this->image;
+    }
 }
