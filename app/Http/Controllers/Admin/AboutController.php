@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\About;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AboutRequest;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -51,13 +52,9 @@ class AboutController extends Controller
         ]);
     }
 
-    public function store()
+    public function store(AboutRequest $request)
     {
-        request()->validate([
-            'title' => 'required|max:255',
-            'contents' => 'required',
-            'image' => 'image|mimes:jpg,jpeg,png|max:2048'
-        ]);
+        $request->validated();
 
         About::create([
             'title' => request('title'),
@@ -79,20 +76,16 @@ class AboutController extends Controller
         ]);
     }
 
-    public function update(About $about)
+    public function update(AboutRequest $request, About $about)
     {
+        $request->validated();
+
         if (request('image')) {
             Storage::delete($about->image);
             $image = request()->file('image')->store('img/abouts');
         } else {
             $image = $about->image;
         }
-
-        request()->validate([
-            'title' => 'required|max:255',
-            'contents' => 'required',
-            'image' => 'image|mimes:jpg,jpeg,png|max:2048'
-        ]);
 
         $about->update([
             'title' => request('title'),

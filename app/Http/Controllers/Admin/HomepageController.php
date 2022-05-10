@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\HomepageRequest;
 use App\Models\Homepage;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
@@ -59,13 +60,9 @@ class HomepageController extends Controller
         ]);
     }
 
-    public function store()
+    public function store(HomepageRequest $request)
     {
-        request()->validate([
-            'title' => 'required|max:255',
-            'sub_title' => 'required',
-            'image' => 'image|mimes:jpg,jpeg,png|max:2058'
-        ]);
+        $request->validated();
 
         Homepage::create([
             'title' => request('title'),
@@ -85,13 +82,9 @@ class HomepageController extends Controller
         ]);
     }
 
-    public function update(Homepage $homepage)
+    public function update(HomepageRequest $request, Homepage $homepage)
     {
-        request()->validate([
-            'title' => 'required|max:255',
-            'sub_title' => 'required',
-            'image' => 'image|mimes:jpg,jpeg,png|max:2058'
-        ]);
+        $request->validated();
 
         if (request('image')) {
             Storage::delete($homepage->image);
