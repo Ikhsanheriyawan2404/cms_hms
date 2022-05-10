@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\HomepageController;
+use App\Http\Controllers\Admin\AboutHeaderController;
 
 // Login Routes ...
 Route::get('', [LoginController::class, 'showLoginForm']);
@@ -21,6 +23,9 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('admin')->group(function () {
         Route::resources(['homepages' => HomepageController::class]);
+        Route::resources(['abouts' => AboutController::class]);
+        Route::resources(['about_header' => AboutHeaderController::class]);
+
         Route::resources(['users' => UserController::class]);
         Route::post('users/{user:id}/status', [UserController::class, 'changeStatus'])->name('users.status');
         Route::resources(['roles' => RoleController::class]);

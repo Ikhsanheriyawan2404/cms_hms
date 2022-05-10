@@ -32,6 +32,39 @@
         </li>
         <li class="nav-item">
             @can('user-list')
+            <a href="{{ route('abouts.index') }}" class="nav-link {{ request()->routeIs('abouts.*') || request()->routeIs('about_headers.*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+                About
+                <i class="right fas fa-angle-left"></i>
+            </p>
+            </a>
+            @endcan
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    @can('user-list')
+                    <a href="{{ route('abouts.index') }}" class="nav-link {{ request()->routeIs('abouts.index') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-abouts"></i>
+                    <p>
+                        About Header
+                    </p>
+                    </a>
+                    @endcan
+                </li>
+                <li class="nav-item">
+                    @can('user-list')
+                    <a href="{{ route('abouts.index') }}" class="nav-link {{ request()->routeIs('abouts.index') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-user-tag"></i>
+                    <p>
+                        About List
+                    </p>
+                    </a>
+                    @endcan
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            @can('user-list')
             <a href="{{ route('users.index') }}" class="nav-link {{ request()->routeIs('users.*') || request()->routeIs('roles.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-user"></i>
             <p>
