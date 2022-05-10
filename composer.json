@@ -15,7 +15,8 @@
         "laravel/ui": "^3.4",
         "realrashid/sweet-alert": "^4.1",
         "spatie/laravel-permission": "^5.5",
-        "wulfheart/pretty_routes": "^0.3.0"
+        "wulfheart/pretty_routes": "^0.3.0",
+        "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

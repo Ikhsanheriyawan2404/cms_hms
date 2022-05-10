@@ -1,11 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ItemController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Admin\HomepageController;
 
 // Login Routes ...
 Route::get('', [LoginController::class, 'showLoginForm']);
@@ -18,8 +17,12 @@ Route::post('logout',  [LoginController::class,'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::resources(['users' => UserController::class]);
-    Route::post('users/{user:id}/status', [UserController::class, 'changeStatus'])->name('users.status');
-    Route::resources(['items' => ItemController::class]);
-    Route::resources(['roles' => RoleController::class]);
+    // Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
+
+    Route::prefix('admin')->group(function () {
+        Route::resources(['homepages' => HomepageController::class]);
+        Route::resources(['users' => UserController::class]);
+        Route::post('users/{user:id}/status', [UserController::class, 'changeStatus'])->name('users.status');
+        Route::resources(['roles' => RoleController::class]);
+    });
 });

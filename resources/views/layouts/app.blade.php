@@ -37,7 +37,7 @@
   </div>
 
   <!-- Navbar -->
-  @include('components.navbar')
+  @include('backend.components.navbar')
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -49,7 +49,7 @@
     </a>
 
     <!-- Sidebar -->
-    @include('components.sidebar')
+    @include('backend.components.sidebar')
     <!-- /.sidebar -->
   </aside>
 
@@ -61,7 +61,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  @include('components.footer')
+  @include('backend.components.footer')
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
