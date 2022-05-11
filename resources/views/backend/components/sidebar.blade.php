@@ -65,6 +65,39 @@
         </li>
         <li class="nav-item">
             @can('user-list')
+            <a href="{{ route('deliveries.index') }}" class="nav-link {{ request()->routeIs('deliveries.*') || request()->routeIs('deliveries.*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+                Delivery
+                <i class="right fas fa-angle-left"></i>
+            </p>
+            </a>
+            @endcan
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    @can('user-list')
+                    <a href="{{ route('delivery_header.index') }}" class="nav-link {{ request()->routeIs('delivery_header.index') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-about_header"></i>
+                    <p>
+                        Delivery Header
+                    </p>
+                    </a>
+                    @endcan
+                </li>
+                <li class="nav-item">
+                    @can('user-list')
+                    <a href="{{ route('deliveries.index') }}" class="nav-link {{ request()->routeIs('deliveries.index') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-user-tag"></i>
+                    <p>
+                        Delivery List
+                    </p>
+                    </a>
+                    @endcan
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            @can('user-list')
             <a href="{{ route('users.index') }}" class="nav-link {{ request()->routeIs('users.*') || request()->routeIs('roles.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-user"></i>
             <p>

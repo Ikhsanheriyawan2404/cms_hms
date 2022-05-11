@@ -5,8 +5,10 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\DeliveryController;
 use App\Http\Controllers\Admin\HomepageController;
 use App\Http\Controllers\Admin\AboutHeaderController;
+use App\Http\Controllers\Admin\DeliveryHeaderController;
 
 // Login Routes ...
 Route::get('', [LoginController::class, 'showLoginForm']);
@@ -26,6 +28,10 @@ Route::middleware('auth')->group(function () {
         Route::resources(['abouts' => AboutController::class]);
         Route::resources(['about_header' => AboutHeaderController::class]);
         Route::put('about_header/{about_header:id}/update_image', [AboutHeaderController::class, 'updateImage'])->name('about_header.updateImage');
+
+        Route::resources(['deliveries' => DeliveryController::class]);
+        Route::resources(['delivery_header' => DeliveryHeaderController::class]);
+        Route::put('delivery_header/{delivery_header:id}/update_image', [DeliveryHeaderController::class, 'updateImage'])->name('delivery_header.updateImage');
 
         Route::resources(['users' => UserController::class]);
         Route::post('users/{user:id}/status', [UserController::class, 'changeStatus'])->name('users.status');
