@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\DeliveryController;
 use App\Http\Controllers\Admin\HomepageController;
 use App\Http\Controllers\Admin\AboutHeaderController;
+use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\DeliveryHeaderController;
 
 // Login Routes ...
@@ -25,6 +26,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('admin')->group(function () {
         Route::resources(['homepages' => HomepageController::class]);
+        Route::resources(['customers' => CustomerController::class]);
         Route::resources(['abouts' => AboutController::class]);
         Route::resources(['about_header' => AboutHeaderController::class]);
         Route::put('about_header/{about_header:id}/update_image', [AboutHeaderController::class, 'updateImage'])->name('about_header.updateImage');

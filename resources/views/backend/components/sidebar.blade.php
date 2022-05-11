@@ -97,6 +97,14 @@
             </ul>
         </li>
         <li class="nav-item">
+            <a href="{{ route('customers.index') }}" class="nav-link {{ request()->routeIs('customers.*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-box"></i>
+            <p>
+                Pelanggan
+            </p>
+            </a>
+        </li>
+        <li class="nav-item">
             @can('user-list')
             <a href="{{ route('users.index') }}" class="nav-link {{ request()->routeIs('users.*') || request()->routeIs('roles.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-user"></i>
