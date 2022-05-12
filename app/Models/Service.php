@@ -5,19 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model
+class Service extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['company', 'address', 'phone_number', 'description', 'image'];
+    protected $fillable = ['title', 'contents', 'image'];
 
     public function getTakeImageAttribute()
     {
         return '/storage/' . $this->image;
-    }
-
-    public function deliveries()
-    {
-        return $this->belongsToMany(Delivery::class);
     }
 }

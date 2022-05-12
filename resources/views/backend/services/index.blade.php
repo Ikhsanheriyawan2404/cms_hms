@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-12">
             {{-- @can('student-create') --}}
-                <a href="{{ route('deliveries.create') }}" class="btn btn-sm btn-primary">Tambah <i class="fa fa-plus"></i></a>
+                <a href="{{ route('services.create') }}" class="btn btn-sm btn-primary">Tambah <i class="fa fa-plus"></i></a>
             {{-- @endcan --}}
         </div>
     </div>
@@ -34,7 +34,7 @@
 <div class="container">
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Data Delivery</h3>
+            <h3 class="card-title">Data About</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -44,8 +44,7 @@
                         <th style="width: 1%">No.</th>
                         <th>Gambar</th>
                         <th>Judul</th>
-                        <th>Deskripsi</th>
-                        <th>Pelanggan</th>
+                        <th>Konten</th>
                         <th class="text-center" style="width: 10%"><i class="fas fa-cogs"></i></th>
                     </tr>
                 </thead>
@@ -86,13 +85,12 @@ $(document).ready(function () {
         serverSide: true,
         responsive: true,
 
-        ajax: "{{ route('deliveries.index') }}",
+        ajax: "{{ route('services.index') }}",
         columns: [
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
             {data: 'image', name: 'image'},
             {data: 'title', name: 'title'},
-            {data: 'description', name: 'description'},
-            {data: 'customer', name: 'customer.company'},
+            {data: 'contents', name: 'contents'},
             {data: 'action', name: 'action', orderable: true, searchable: true},
         ]
     });

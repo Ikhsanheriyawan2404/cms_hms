@@ -9,10 +9,15 @@ class Delivery extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'contents', 'description', 'image'];
+    protected $fillable = ['title', 'customer_id', 'description', 'image'];
 
     public function getTakeImageAttribute()
     {
         return '/storage/' . $this->image;
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
     }
 }

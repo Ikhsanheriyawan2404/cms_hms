@@ -23,7 +23,7 @@
     <div class="row">
         <div class="col-12">
             {{-- @can('student-create') --}}
-                <a href="{{ route('deliveries.index') }}" class="btn btn-sm btn-primary">Kembali <i class="fa fa-arrow-left"></i></a>
+                <a href="{{ route('services.index') }}" class="btn btn-sm btn-primary">Kembali <i class="fa fa-arrow-left"></i></a>
             {{-- @endcan --}}
         </div>
     </div>
@@ -33,14 +33,13 @@
 <!-- general form elements -->
     <div class="card card-primary">
         <div class="card-header">
-        <h3 class="card-title">Edit Data Delivery</h3>
+        <h3 class="card-title">Tambah Data Service</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form action="{{ route('deliveries.update', $delivery->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('services.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            @method('PUT')
-            @include('backend.deliveries.partials.form-control')
+            @include('backend.services.partials.form-control')
         </form>
     </div>
 <!-- /.card -->
@@ -48,14 +47,7 @@
 
 @endsection
 
-@section('custom-styles')
-<!-- Select2 -->
-<link rel="stylesheet" href="{{ asset('asset') }}/plugins/select2/css/select2.min.css">
-@endsection
-
 @section('custom-scripts')
-<!-- Select2 -->
-<script src="{{ asset('asset') }}/plugins/select2/js/select2.full.min.js"></script>
 
 <!-- bs-custom-file-input -->
 <script src="{{ asset('asset') }}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
@@ -65,7 +57,6 @@
 
 <script>
     $(document).ready(function() {
-        $('.select2').select2();
 
         bsCustomFileInput.init();
 

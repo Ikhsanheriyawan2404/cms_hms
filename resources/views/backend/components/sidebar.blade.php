@@ -97,6 +97,39 @@
             </ul>
         </li>
         <li class="nav-item">
+            @can('user-list')
+            <a href="{{ route('services.index') }}" class="nav-link {{ request()->routeIs('services.*') || request()->routeIs('services.*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+                Service
+                <i class="right fas fa-angle-left"></i>
+            </p>
+            </a>
+            @endcan
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    @can('user-list')
+                    <a href="{{ route('service_header.index') }}" class="nav-link {{ request()->routeIs('service_header.index') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-about_header"></i>
+                    <p>
+                        Service Header
+                    </p>
+                    </a>
+                    @endcan
+                </li>
+                <li class="nav-item">
+                    @can('user-list')
+                    <a href="{{ route('services.index') }}" class="nav-link {{ request()->routeIs('services.index') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-user-tag"></i>
+                    <p>
+                        Service List
+                    </p>
+                    </a>
+                    @endcan
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
             <a href="{{ route('customers.index') }}" class="nav-link {{ request()->routeIs('customers.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-box"></i>
             <p>

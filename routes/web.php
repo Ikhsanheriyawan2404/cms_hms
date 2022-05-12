@@ -5,10 +5,11 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\DeliveryController;
 use App\Http\Controllers\Admin\HomepageController;
 use App\Http\Controllers\Admin\AboutHeaderController;
-use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\DeliveryHeaderController;
 
 // Login Routes ...
@@ -27,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('admin')->group(function () {
         Route::resources(['homepages' => HomepageController::class]);
         Route::resources(['customers' => CustomerController::class]);
+
         Route::resources(['abouts' => AboutController::class]);
         Route::resources(['about_header' => AboutHeaderController::class]);
         Route::put('about_header/{about_header:id}/update_image', [AboutHeaderController::class, 'updateImage'])->name('about_header.updateImage');
@@ -34,6 +36,10 @@ Route::middleware('auth')->group(function () {
         Route::resources(['deliveries' => DeliveryController::class]);
         Route::resources(['delivery_header' => DeliveryHeaderController::class]);
         Route::put('delivery_header/{delivery_header:id}/update_image', [DeliveryHeaderController::class, 'updateImage'])->name('delivery_header.updateImage');
+
+        Route::resources(['services' => ServiceController::class]);
+        Route::resources(['service_header' => ServiceHeaderController::class]);
+        Route::put('service_header/{service_header:id}/update_image', [ServiceHeaderController::class, 'updateImage'])->name('service_header.updateImage');
 
         Route::resources(['users' => UserController::class]);
         Route::post('users/{user:id}/status', [UserController::class, 'changeStatus'])->name('users.status');

@@ -15,9 +15,12 @@ class CreateDeliveriesTable extends Migration
     {
         Schema::create('deliveries', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('customer_id');
             $table->string('title');
             $table->text('description');
             $table->string('image');
+
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('CASCADE');
             $table->timestamps();
         });
     }
