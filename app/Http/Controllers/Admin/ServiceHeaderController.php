@@ -12,7 +12,7 @@ class ServiceHeaderController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $service_header = ServiceHeader::all();
+            $service_header = ServiceHeader::latest()->get();
             return DataTables::of($service_header)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {

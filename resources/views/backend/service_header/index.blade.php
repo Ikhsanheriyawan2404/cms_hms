@@ -3,7 +3,6 @@
 @section('content')
 @include('sweetalert::alert')
 
-
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -21,7 +20,7 @@
 </div>
 <!-- /.content-header -->
 
-<div class="container col-md-6">
+{{-- <div class="container col-md-6">
     <div class="card card-primary">
         <div class="card-header">
             <h3 class="card-title">Gambar Service Header</h3>
@@ -53,12 +52,12 @@
         <!-- /.card-body -->
     </div>
     <!-- /.card -->
-</div>
+</div> --}}
 
 <div class="container">
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Data Service Header</h3>
+            <h3 class="card-title">Data About</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -139,68 +138,68 @@
 <script src="{{ asset('asset') }}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
 
-        let table = $('#data-table').DataTable({
-            processing: true,
-            serverSide: true,
-            responsive: true,
+    let table = $('#data-table').DataTable({
+        processing: true,
+        serverSide: true,
+        responsive: true,
 
-            ajax: "{{ route('service_header.index') }}",
-            columns: [
-                {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                {data: 'title', name: 'title'},
-                {data: 'quote', name: 'quote'},
-                {data: 'keyword', name: 'keyword'},
-                {data: 'description', name: 'description'},
-                {data: 'action', name: 'action', orderable: true, searchable: true},
-            ]
-        });
-
-        $('body').on('click', '#editItem', function () {
-            var service_header_id = $(this).data('id');
-            $.get("{{ route('service_header.index') }}" +'/' + service_header_id +'/edit', function (data) {
-                $('#modal-md').modal('show');
-                setTimeout(function () {
-                    $('#quote').focus();
-                }, 1000);
-                $('#modal-title').html("Edit About Header");
-                $('#saveBtn').val("Edit");
-                $('#service_header_id').val(data.id);
-                $('#title').val(data.title);
-                $('#quote').val(data.quote);
-                $('#keyword').val(data.keyword);
-                $('#description').val(data.description);
-            })
-       });
-
-        $('#saveBtn').click(function (e) {
-            e.preventDefault();
-            // $(this).html('Sending..');
-
-            $.ajax({
-                data: $('#itemForm').serialize(),
-                url: "{{ route('service_header.store') }}",
-                type: "POST",
-                // dataType: 'json',
-                success: function (data) {
-                    $('#itemForm').trigger("reset");
-                    $('#modal-md').modal('hide');
-                    table.draw();
-                },
-                error: function (data) {
-                    console.log('Error:', data);
-                    $('#saveBtn').html('Save');
-                }
-            });
-        });
-
-        $(document).on('submit', 'form', function() {
-            $('button').attr('disabled', 'disabled');
-        });
-
-        bsCustomFileInput.init();
+        ajax: "{{ route('service_header.index') }}",
+        columns: [
+            {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+            {data: 'title', name: 'title'},
+            {data: 'quote', name: 'quote'},
+            {data: 'keyword', name: 'keyword'},
+            {data: 'description', name: 'description'},
+            {data: 'action', name: 'action', orderable: true, searchable: true},
+        ]
     });
+
+    $('body').on('click', '#editItem', function () {
+        var service_header_id = $(this).data('id');
+        $.get("{{ route('service_header.index') }}" +'/' + service_header_id +'/edit', function (data) {
+            $('#modal-md').modal('show');
+            setTimeout(function () {
+                $('#title').focus();
+            }, 1000);
+            $('#modal-title').html("Edit About Header");
+            $('#saveBtn').val("Edit");
+            $('#service_header_id').val(data.id);
+            $('#title').val(data.title);
+            $('#quote').val(data.quote);
+            $('#keyword').val(data.keyword);
+            $('#description').val(data.description);
+        })
+    });
+
+    $('#saveBtn').click(function (e) {
+        e.preventDefault();
+        // $(this).html('Sending..');
+
+        $.ajax({
+            data: $('#itemForm').serialize(),
+            url: "{{ route('service_header.store') }}",
+            type: "POST",
+            // dataType: 'json',
+            success: function (data) {
+                $('#itemForm').trigger("reset");
+                $('#modal-md').modal('hide');
+                table.draw();
+            },
+            error: function (data) {
+                console.log('Error:', data);
+                $('#saveBtn').html('Save');
+            }
+        });
+    });
+
+    $(document).on('submit', 'form', function() {
+        $('button').attr('disabled', 'disabled');
+    });
+
+    bsCustomFileInput.init();
+});
 </script>
 
 @endsection
