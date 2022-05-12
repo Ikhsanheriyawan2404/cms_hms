@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\DeliveryController;
 use App\Http\Controllers\Admin\HomepageController;
 use App\Http\Controllers\Admin\AboutHeaderController;
+use App\Http\Controllers\Admin\ServiceHeaderController;
 use App\Http\Controllers\Admin\DeliveryHeaderController;
 
 // Login Routes ...
