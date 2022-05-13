@@ -29,7 +29,7 @@ class VehicleHeaderController extends Controller
                 ->make(true);
         }
 
-        return view('backend.vehicles.index', [
+        return view('backend.vehicle_header.index', [
             'title' => 'Data Kendaraan',
             'vehicle_header' => VehicleHeader::find(1)
         ]);

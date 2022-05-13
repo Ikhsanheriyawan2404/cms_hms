@@ -58,7 +58,7 @@
 <div class="container">
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Data About Header</h3>
+            <h3 class="card-title">Data About</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -122,6 +122,13 @@
 
 @endsection
 
+@section('custom-styles')
+
+<!-- DataTables -->
+<link rel="stylesheet" href="{{ asset('asset')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="{{ asset('asset')}}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+@endsection
+
 @section('custom-scripts')
 
 <!-- DataTables  & Plugins -->
@@ -130,11 +137,9 @@
 <script src="{{ asset('asset')}}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="{{ asset('asset')}}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
-<!-- bs-custom-file-input -->
-<script src="{{ asset('asset') }}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-
 <script>
-$(document).ready(function() {
+
+$(document).ready(function () {
 
     let table = $('#data-table').DataTable({
         processing: true,
@@ -194,6 +199,7 @@ $(document).ready(function() {
 
     bsCustomFileInput.init();
 });
+
 </script>
 
 @endsection

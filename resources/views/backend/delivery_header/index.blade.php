@@ -98,7 +98,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="quote">Quote</label>
-                        <input type="text" class="form-control mr-2" name="quote" id="quote" required autofocus>
+                        <input type="text" class="form-control mr-2" name="quote" id="quote" required>
                     </div>
                     <div class="form-group">
                         <label for="keyword">Keyword</label>
@@ -122,6 +122,13 @@
 
 @endsection
 
+@section('custom-styles')
+
+<!-- DataTables -->
+<link rel="stylesheet" href="{{ asset('asset')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="{{ asset('asset')}}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+@endsection
+
 @section('custom-scripts')
 
 <!-- DataTables  & Plugins -->
@@ -130,70 +137,69 @@
 <script src="{{ asset('asset')}}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="{{ asset('asset')}}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
-<!-- bs-custom-file-input -->
-<script src="{{ asset('asset') }}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-
 <script>
-    $(document).ready(function() {
 
-        let table = $('#data-table').DataTable({
-            processing: true,
-            serverSide: true,
-            responsive: true,
+$(document).ready(function () {
 
-            ajax: "{{ route('delivery_header.index') }}",
-            columns: [
-                {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                {data: 'quote', name: 'quote'},
-                {data: 'keyword', name: 'keyword'},
-                {data: 'description', name: 'description'},
-                {data: 'action', name: 'action', orderable: true, searchable: true},
-            ]
-        });
+    let table = $('#data-table').DataTable({
+        processing: true,
+        serverSide: true,
+        responsive: true,
 
-        $('body').on('click', '#editItem', function () {
-            var delivery_header_id = $(this).data('id');
-            $.get("{{ route('delivery_header.index') }}" +'/' + delivery_header_id +'/edit', function (data) {
-                $('#modal-md').modal('show');
-                setTimeout(function () {
-                    $('#quote').focus();
-                }, 1000);
-                $('#modal-title').html("Edit About Header");
-                $('#saveBtn').val("Edit");
-                $('#delivery_header_id').val(data.id);
-                $('#quote').val(data.quote);
-                $('#keyword').val(data.keyword);
-                $('#description').val(data.description);
-            })
-       });
-
-        $('#saveBtn').click(function (e) {
-            e.preventDefault();
-            // $(this).html('Sending..');
-
-            $.ajax({
-                data: $('#itemForm').serialize(),
-                url: "{{ route('delivery_header.store') }}",
-                type: "POST",
-                // dataType: 'json',
-                success: function (data) {
-                    $('#itemForm').trigger("reset");
-                    $('#modal-md').modal('hide');
-                    table.draw();
-                },
-                error: function (data) {
-                    console.log('Error:', data);
-                    $('#saveBtn').html('Save');
-                }
-            });
-        });
-
-        $(document).on('submit', 'form', function() {
-            $('button').attr('disabled', 'disabled');
-        });
-
-        bsCustomFileInput.init();
+        ajax: "{{ route('delivery_header.index') }}",
+        columns: [
+            {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+            {data: 'quote', name: 'quote'},
+            {data: 'keyword', name: 'keyword'},
+            {data: 'description', name: 'description'},
+            {data: 'action', name: 'action', orderable: true, searchable: true},
+        ]
     });
+
+    $('body').on('click', '#editItem', function () {
+        var delivery_header_id = $(this).data('id');
+        $.get("{{ route('delivery_header.index') }}" +'/' + delivery_header_id +'/edit', function (data) {
+            $('#modal-md').modal('show');
+            setTimeout(function () {
+                $('#quote').focus();
+            }, 1000);
+            $('#modal-title').html("Edit About Header");
+            $('#saveBtn').val("Edit");
+            $('#delivery_header_id').val(data.id);
+            $('#quote').val(data.quote);
+            $('#keyword').val(data.keyword);
+            $('#description').val(data.description);
+        })
+    });
+
+    $('#saveBtn').click(function (e) {
+        e.preventDefault();
+        // $(this).html('Sending..');
+
+        $.ajax({
+            data: $('#itemForm').serialize(),
+            url: "{{ route('delivery_header.store') }}",
+            type: "POST",
+            // dataType: 'json',
+            success: function (data) {
+                $('#itemForm').trigger("reset");
+                $('#modal-md').modal('hide');
+                table.draw();
+            },
+            error: function (data) {
+                console.log('Error:', data);
+                $('#saveBtn').html('Save');
+            }
+        });
+    });
+
+    $(document).on('submit', 'form', function() {
+        $('button').attr('disabled', 'disabled');
+    });
+
+    bsCustomFileInput.init();
+});
+
 </script>
 
 @endsection

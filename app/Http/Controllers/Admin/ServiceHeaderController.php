@@ -19,7 +19,7 @@ class ServiceHeaderController extends Controller
                     $btn =
                         '<div class="d-flex justify-content-center">
 
-                           <a href=" ' . route('service_header.edit', $row->id) . '" class="btn btn-sm btn-primary mr-2"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="javascript:void(0)" data-id="'.$row->id.'" class="btn btn-primary btn-sm mr-2" id="editItem"><i class="fas fa-pencil-alt"></i></a>
 
                         </div>';
 
@@ -31,6 +31,7 @@ class ServiceHeaderController extends Controller
 
         return view('backend.service_header.index', [
             'title' => 'Data Service',
+            'service_header' => ServiceHeader::find(1),
         ]);
     }
 
