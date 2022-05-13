@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             AboutHeaderSeeder::class,
             DeliveryHeaderSeeder::class,
             ServiceHeaderSeeder::class,
+            VehicleHeaderSeeder::class,
         ]);
     }
 }

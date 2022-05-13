@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-12">
             {{-- @can('student-create') --}}
-                <a href="{{ route('services.create') }}" class="btn btn-sm btn-primary">Tambah <i class="fa fa-plus"></i></a>
+                <a href="{{ route('service_header.create') }}" class="btn btn-sm btn-primary">Tambah <i class="fa fa-plus"></i></a>
             {{-- @endcan --}}
         </div>
     </div>
@@ -42,9 +42,10 @@
                 <thead class="table-dark">
                     <tr>
                         <th style="width: 1%">No.</th>
-                        <th>Gambar</th>
                         <th>Judul</th>
-                        <th>Konten</th>
+                        <th>Quote</th>
+                        <th>Keyword</th>
+                        <th>Deskripsi</th>
                         <th class="text-center" style="width: 10%"><i class="fas fa-cogs"></i></th>
                     </tr>
                 </thead>
@@ -85,12 +86,13 @@ $(document).ready(function () {
         serverSide: true,
         responsive: true,
 
-        ajax: "{{ route('services.index') }}",
+        ajax: "{{ route('service_header.index') }}",
         columns: [
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-            {data: 'image', name: 'image'},
             {data: 'title', name: 'title'},
-            {data: 'contents', name: 'contents'},
+            {data: 'quote', name: 'quote'},
+            {data: 'keyword', name: 'keyword'},
+            {data: 'description', name: 'description'},
             {data: 'action', name: 'action', orderable: true, searchable: true},
         ]
     });

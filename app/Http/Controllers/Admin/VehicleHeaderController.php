@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\ServiceHeader;
-use App\Http\Controllers\Controller;
+use App\Models\VehicleHeader;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
-class ServiceHeaderController extends Controller
+class VehicleHeaderController extends Controller
 {
     public function index()
     {
         if (request()->ajax()) {
-            $service_header = ServiceHeader::latest()->get();
-            return DataTables::of($service_header)
+            $vehicles = VehicleHeader::latest()->get();
+            return DataTables::of($vehicles)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $btn =
                         '<div class="d-flex justify-content-center">
 
-                           <a href=" ' . route('service_header.edit', $row->id) . '" class="btn btn-sm btn-primary mr-2"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="javascript:void(0)" data-id="'.$row->id.'" class="btn btn-primary btn-sm mr-2" id="editItem"><i class="fas fa-pencil-alt"></i></a>
 
                         </div>';
 
@@ -29,8 +29,9 @@ class ServiceHeaderController extends Controller
                 ->make(true);
         }
 
-        return view('backend.service_header.index', [
-            'title' => 'Data Service',
+        return view('backend.vehicles.index', [
+            'title' => 'Data Kendaraan',
+            'vehicle_header' => VehicleHeader::find(1)
         ]);
     }
 
@@ -43,8 +44,8 @@ class ServiceHeaderController extends Controller
             'description' => 'required|max:255',
         ]);
 
-        ServiceHeader::updateOrCreate(
-            ['id' => request('service_header_id')],
+        VehicleHeader::updateOrCreate(
+            ['id' => request('vehicle_header_id')],
             [
                 'title' => request('title'),
                 'quote' => request('quote'),
@@ -53,30 +54,30 @@ class ServiceHeaderController extends Controller
             ]
         );
 
-        toast('Data service header berhasil dibuat!', 'success');
+        toast('Data vehicle header berhasil dibuat!', 'success');
 
         return back();
     }
 
-    public function edit(ServiceHeader $service_header)
+    public function edit(VehicleHeader $vehicle_header)
     {
-        return response()->json($service_header);
+        return response()->json($vehicle_header);
     }
 
-    public function updateImage(ServiceHeader $service_header)
+    public function updateImage(VehicleHeader $vehicle_header)
     {
         if (request('image')) {
-            Storage::delete($service_header->image);
-            $image = request()->file('image')->store('img/service_headers');
+            Storage::delete($vehicle_header->image);
+            $image = request()->file('image')->store('img/vehicle_headers');
         } else {
-            $image = $service_header->image;
+            $image = $vehicle_header->image;
         }
 
-        $service_header->update([
+        $vehicle_header->update([
             'image' => $image,
         ]);
 
-        toast('Gambar service header berhasil diupdate!', 'success');
-        return redirect()->route('service_header.index');
+        toast('Gambar vehicle header berhasil diupdate!', 'success');
+        return redirect()->route('vehicle_header.index');
     }
 }

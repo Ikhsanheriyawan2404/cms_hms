@@ -98,6 +98,39 @@
         </li>
         <li class="nav-item">
             @can('user-list')
+            <a href="{{ route('vehicles.index') }}" class="nav-link {{ request()->routeIs('vehicles.*') || request()->routeIs('about_headers.*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+                Vehicle
+                <i class="right fas fa-angle-left"></i>
+            </p>
+            </a>
+            @endcan
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    @can('user-list')
+                    <a href="{{ route('vehicle_header.index') }}" class="nav-link {{ request()->routeIs('vehicle_header.index') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-vehicle_header"></i>
+                    <p>
+                        Vehicle Header
+                    </p>
+                    </a>
+                    @endcan
+                </li>
+                <li class="nav-item">
+                    @can('user-list')
+                    <a href="{{ route('vehicles.index') }}" class="nav-link {{ request()->routeIs('vehicles.index') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-user-tag"></i>
+                    <p>
+                        Vehicle List
+                    </p>
+                    </a>
+                    @endcan
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            @can('user-list')
             <a href="{{ route('services.index') }}" class="nav-link {{ request()->routeIs('services.*') || request()->routeIs('services.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-user"></i>
             <p>

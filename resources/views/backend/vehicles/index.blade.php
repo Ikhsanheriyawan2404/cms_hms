@@ -24,15 +24,15 @@
 <div class="container col-md-6">
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Gambar About Header</h3>
+            <h3 class="card-title">Gambar Vehicle Header</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
             <div class="my-3">
-                <img class="img-fluid img-thumbnail" width="100%" src="{{ $about_header->takeImage }}">
+                <img class="img-fluid img-thumbnail" width="100%" src="{{ $vehicle_header->takeImage }}">
             </div>
 
-            <form action="{{ route('about_header.updateImage', $about_header->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('vehicle_header.updateImage', $vehicle_header->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
@@ -58,7 +58,7 @@
 <div class="container">
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Data About Header</h3>
+            <h3 class="card-title">Data About</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -66,6 +66,7 @@
                 <thead class="table-dark">
                     <tr>
                         <th style="width: 1%">No.</th>
+                        <th>Judul</th>
                         <th>Quote</th>
                         <th>Keyword</th>
                         <th>Deskripsi</th>
@@ -94,8 +95,12 @@
             </div>
             <form method="post" id="itemForm" name="itemForm">
                 @csrf
-                <input type="hidden" name="about_header_id" id="about_header_id">
+                <input type="hidden" name="vehicle_header_id" id="vehicle_header_id">
                 <div class="modal-body">
+                    <div class="form-group">
+                        <label for="title">Judul</label>
+                        <input type="text" class="form-control mr-2" name="title" id="title" required autofocus>
+                    </div>
                     <div class="form-group">
                         <label for="quote">Quote</label>
                         <input type="text" class="form-control mr-2" name="quote" id="quote" required autofocus>
@@ -122,6 +127,13 @@
 
 @endsection
 
+@section('custom-styles')
+
+<!-- DataTables -->
+<link rel="stylesheet" href="{{ asset('asset')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="{{ asset('asset')}}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+@endsection
+
 @section('custom-scripts')
 
 <!-- DataTables  & Plugins -->
@@ -130,20 +142,19 @@
 <script src="{{ asset('asset')}}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="{{ asset('asset')}}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
-<!-- bs-custom-file-input -->
-<script src="{{ asset('asset') }}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-
 <script>
-$(document).ready(function() {
+
+$(document).ready(function () {
 
     let table = $('#data-table').DataTable({
         processing: true,
         serverSide: true,
         responsive: true,
 
-        ajax: "{{ route('about_header.index') }}",
+        ajax: "{{ route('vehicle_header.index') }}",
         columns: [
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+            {data: 'title', name: 'title'},
             {data: 'quote', name: 'quote'},
             {data: 'keyword', name: 'keyword'},
             {data: 'description', name: 'description'},
@@ -152,15 +163,16 @@ $(document).ready(function() {
     });
 
     $('body').on('click', '#editItem', function () {
-        var about_header_id = $(this).data('id');
-        $.get("{{ route('about_header.index') }}" +'/' + about_header_id +'/edit', function (data) {
+        var vehicle_header_id = $(this).data('id');
+        $.get("{{ route('vehicle_header.index') }}" +'/' + vehicle_header_id +'/edit', function (data) {
             $('#modal-md').modal('show');
             setTimeout(function () {
-                $('#quote').focus();
+                $('#title').focus();
             }, 1000);
             $('#modal-title').html("Edit About Header");
             $('#saveBtn').val("Edit");
-            $('#about_header_id').val(data.id);
+            $('#vehicle_header_id').val(data.id);
+            $('#title').val(data.title);
             $('#quote').val(data.quote);
             $('#keyword').val(data.keyword);
             $('#description').val(data.description);
@@ -173,7 +185,7 @@ $(document).ready(function() {
 
         $.ajax({
             data: $('#itemForm').serialize(),
-            url: "{{ route('about_header.store') }}",
+            url: "{{ route('vehicle_header.store') }}",
             type: "POST",
             // dataType: 'json',
             success: function (data) {
@@ -194,6 +206,7 @@ $(document).ready(function() {
 
     bsCustomFileInput.init();
 });
+
 </script>
 
 @endsection
