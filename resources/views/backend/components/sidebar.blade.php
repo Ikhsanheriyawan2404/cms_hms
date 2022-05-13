@@ -127,6 +127,16 @@
                     </a>
                     @endcan
                 </li>
+                <li class="nav-item">
+                    @can('user-list')
+                    <a href="{{ route('album_vehicle.index') }}" class="nav-link {{ request()->routeIs('album_vehicle.index') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-user-tag"></i>
+                    <p>
+                        Album Vehicle
+                    </p>
+                    </a>
+                    @endcan
+                </li>
             </ul>
         </li>
         <li class="nav-item">

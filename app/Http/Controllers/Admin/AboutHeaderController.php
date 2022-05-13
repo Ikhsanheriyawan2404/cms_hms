@@ -47,10 +47,6 @@ class AboutHeaderController extends Controller
                 'description' => request('description'),
             ]
         );
-
-        toast('Data about header berhasil dibuat!', 'success');
-
-        return back();
     }
 
     public function edit(AboutHeader $about_header)

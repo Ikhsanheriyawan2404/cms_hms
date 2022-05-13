@@ -10,9 +10,10 @@ use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\DeliveryController;
 use App\Http\Controllers\Admin\HomepageController;
 use App\Http\Controllers\Admin\AboutHeaderController;
+use App\Http\Controllers\Admin\AlbumVehicleController;
 use App\Http\Controllers\Admin\ServiceHeaderController;
-use App\Http\Controllers\Admin\DeliveryHeaderController;
 use App\Http\Controllers\Admin\VehicleHeaderController;
+use App\Http\Controllers\Admin\DeliveryHeaderController;
 
 // Login Routes ...
 Route::get('', [LoginController::class, 'showLoginForm']);
@@ -40,6 +41,7 @@ Route::middleware('auth')->group(function () {
         Route::put('delivery_header/{delivery_header:id}/update_image', [DeliveryHeaderController::class, 'updateImage'])->name('delivery_header.updateImage');
 
         Route::resources(['vehicles' => VehicleController::class]);
+        Route::resources(['album_vehicle' => AlbumVehicleController::class]);
         Route::resources(['vehicle_header' => VehicleHeaderController::class]);
         Route::put('vehicle_header/{vehicle_header:id}/update_image', [VehicleHeaderController::class, 'updateImage'])->name('vehicle_header.updateImage');
 
