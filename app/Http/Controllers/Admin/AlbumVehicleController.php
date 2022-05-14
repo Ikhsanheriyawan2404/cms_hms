@@ -24,7 +24,7 @@ class AlbumVehicleController extends Controller
 
                             <a href="javascript:void(0)" data-id="'.$row->id.'" class="btn btn-primary btn-sm mr-2" id="editItem"><i class="fas fa-pencil-alt"></i></a>
 
-                           <form action=" ' . route('album_vehicle.destroy', $row->id) . '" method="POST">
+                            <form action=" ' . route('album_vehicle.destroy', $row->id) . '" method="POST">
                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm(\'Apakah yakin ingin menghapus ini?\')"><i class="fas fa-trash"></i></button>
                             ' . csrf_field() . '
                             ' . method_field('DELETE') . '
@@ -78,9 +78,9 @@ class AlbumVehicleController extends Controller
 
     public function destroy(AlbumVehicle $album_vehicle)
     {
-        $album_vehicle->delete();
         Storage::delete($album_vehicle->image);
-        toast('Data album kendaraan berhasil dihapus!', 'success');
+        $album_vehicle->delete();
+        toast('Data album vehicle berhasil dihapus!', 'success');
         return back();
     }
 }

@@ -176,7 +176,7 @@ $(document).ready(function () {
             $('#modal-md').modal('show');
             setTimeout(function () {
                 $('#name').focus();
-            }, 1000);
+            }, 500);
             $('#modal-title').html("Edit album_vehicle");
             $('#saveBtn').val("Edit");
             $('#album_vehicle_id').val(data.id);
