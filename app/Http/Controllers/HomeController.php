@@ -2,14 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\About;
-use App\Models\Service;
-use App\Models\Homepage;
-use App\Models\AlbumVehicle;
-use App\Models\Customer;
-use App\Models\Delivery;
-use App\Models\DeliveryHeader;
-use App\Models\ServiceHeader;
+use App\Models\{About, Service, Vehicle, Customer, Delivery, Homepage, AlbumVehicle, ServiceHeader, DeliveryHeader};
 
 class HomeController extends Controller
 {
@@ -27,6 +20,38 @@ class HomeController extends Controller
             'deliveries' => Delivery::all(),
             'delivery_header' => DeliveryHeader::find(1),
             'customers' => Customer::all(),
+        ]);
+    }
+
+    public function about()
+    {
+        return view('frontend.about', [
+            'title' => 'Halaman About Us',
+            'abouts' => About::all(),
+        ]);
+    }
+
+    public function delivery()
+    {
+        return view('frontend.delivery', [
+            'title' => 'Halaman About Us',
+            'deliveries' => Delivery::all(),
+        ]);
+    }
+
+    public function vehicle()
+    {
+        return view('frontend.vehicle', [
+            'title' => 'Halaman About Us',
+            'vehicles' => Vehicle::all(),
+        ]);
+    }
+
+    public function service()
+    {
+        return view('frontend.service', [
+            'title' => 'Halaman About Us',
+            'services' => Service::all(),
         ]);
     }
 
