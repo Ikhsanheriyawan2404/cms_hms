@@ -120,12 +120,12 @@
                     </div>
 
                     <ul class="footer-links hov">
-                        <li><a href="#">Home <span class="icon icon-arrow-right2"></span></a></li>
-                        <li><a href="#">About <span class="icon icon-arrow-right2"></span></a></li>
-                        <li><a href="#">Deliveries <span class="icon icon-arrow-right2"></span></a></li>
-                        <li><a href="#">Our Vehicle <span class="icon icon-arrow-right2"></span></a></li>
-                        <li><a href="#">Service <span class="icon icon-arrow-right2"></span></a></li>
-                        <li><a href="#">Blog <span class="icon icon-arrow-right2"></span></a></li>
+                        <li><a href="{{ route('home', []) }}">Home <span class="icon icon-arrow-right2"></span></a></li>
+                        <li><a href="{{ route('about', []) }}">About <span class="icon icon-arrow-right2"></span></a></li>
+                        <li><a href="{{ route('delivery', []) }}">Deliveries <span class="icon icon-arrow-right2"></span></a></li>
+                        <li><a href="{{ route('vehicle', []) }}">Our Vehicle <span class="icon icon-arrow-right2"></span></a></li>
+                        <li><a href="{{ route('service', []) }}">Service <span class="icon icon-arrow-right2"></span></a></li>
+                        <li><a href="{{ route('blog', []) }}">Blog <span class="icon icon-arrow-right2"></span></a></li>
                     </ul><!-- end links -->
                 </div><!-- end clearfix -->
             </div><!-- end col -->
