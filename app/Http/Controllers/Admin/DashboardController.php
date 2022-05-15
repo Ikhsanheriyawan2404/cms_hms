@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\{Service, Vehicle, Customer, Delivery};
 use App\Http\Controllers\Controller;
-use App\Models\Homepage;
 
 class DashboardController extends Controller
 {
@@ -11,7 +11,10 @@ class DashboardController extends Controller
     {
         return view('backend.dashboard', [
             'title' => 'Dashboard',
-            'homepages' => Homepage::all(),
+            'vehicles' => Vehicle::all(),
+            'customers' => Customer::all(),
+            'deliveries' => Delivery::all(),
+            'services' => Service::all(),
         ]);
     }
 }

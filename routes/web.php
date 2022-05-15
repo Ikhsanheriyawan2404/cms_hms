@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/service', [HomeController::class, 'service'])->name('service');
     Route::get('/vehicle', [HomeController::class, 'vehicle'])->name('vehicle');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+    Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 
     Route::prefix('admin')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
