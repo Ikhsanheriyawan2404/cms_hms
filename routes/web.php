@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\{RoleController, UserController, AboutController, ServiceController, VehicleController, CustomerController, DeliveryController, HomepageController, DashboardController, AboutHeaderController, AlbumVehicleController, ServiceHeaderController, VehicleHeaderController, DeliveryHeaderController};
 
@@ -14,7 +15,12 @@ Route::post('logout',  [LoginController::class,'logout'])->name('logout');
 // Route::post('register', [RegisterController::class, 'register']);
 
 Route::middleware('auth')->group(function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/about', [HomeController::class, 'about'])->name('about');
+    Route::get('/about/{about:slug}', [HomeController::class, 'aboutDetails'])->name('about.details');
+    Route::get('/delivery', [HomeController::class, 'delivery'])->name('delivery');
+    Route::get('/service', [HomeController::class, 'service'])->name('service');
+    Route::get('/vehicle', [HomeController::class, 'vehicle'])->name('vehicle');
 
     Route::prefix('admin')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');

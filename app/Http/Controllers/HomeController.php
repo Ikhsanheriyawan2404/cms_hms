@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutHeader;
 use App\Models\{About, Service, Vehicle, Customer, Delivery, Homepage, AlbumVehicle, ServiceHeader, DeliveryHeader};
 
 class HomeController extends Controller
@@ -28,6 +29,18 @@ class HomeController extends Controller
         return view('frontend.about', [
             'title' => 'Halaman About Us',
             'abouts' => About::all(),
+            'aboutBySlug' => new About(),
+            'about_header' => AboutHeader::find(1),
+        ]);
+    }
+
+    public function aboutDetails(About $about)
+    {
+        return view('frontend.about', [
+            'title' => 'Halaman About ' . $about->slug,
+            'abouts' => About::all(),
+            'aboutBySlug' => $about,
+            'about_header' => AboutHeader::find(1),
         ]);
     }
 

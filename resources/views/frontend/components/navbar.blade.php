@@ -41,11 +41,11 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="active" href="index.html">Home</a></li>
-                    <li><a href="about-us.html">About us</a></li>
-                    <li><a href="portfolio.html">Deliveries</a></li>
-                    <li><a href="services.html">Our Vehicle</a></li>
-                    <li><a href="features.html">Services</a></li>
+                    <li><a class="{{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home', []) }}">Home</a></li>
+                    <li><a class="{{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about')}}">About us</a></li>
+                    <li><a class="{{ request()->routeIs('delivery') ? 'active' : '' }}" href="{{ route('delivery')}}">Deliveries</a></li>
+                    <li><a class="{{ request()->routeIs('vehicle') ? 'active' : '' }}" href="{{ route('vehicle', []) }}">Our Vehicle</a></li>
+                    <li><a class="{{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service', []) }}">Services</a></li>
                     <li><a href="testimonials.html">Blog</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>

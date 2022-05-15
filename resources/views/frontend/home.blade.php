@@ -1,7 +1,6 @@
 @extends('layouts.frontend', compact('title'))
 
 @section('content')
-@include('sweetalert::alert')
 
 <div class="slider-area">
     <div class="slider-wrapper owl-carousel">
