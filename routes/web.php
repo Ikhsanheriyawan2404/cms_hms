@@ -1,21 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\RoleController;
-use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Admin\AboutController;
-use App\Http\Controllers\Admin\ServiceController;
-use App\Http\Controllers\Admin\VehicleController;
-use App\Http\Controllers\Admin\CustomerController;
-use App\Http\Controllers\Admin\DeliveryController;
-use App\Http\Controllers\Admin\HomepageController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\AboutHeaderController;
-use App\Http\Controllers\Admin\AlbumVehicleController;
-use App\Http\Controllers\Admin\ServiceHeaderController;
-use App\Http\Controllers\Admin\VehicleHeaderController;
-use App\Http\Controllers\Admin\DeliveryHeaderController;
+use App\Http\Controllers\Admin\{RoleController, UserController, LoginController, AboutController, ServiceController, VehicleController, CustomerController, DeliveryController, HomepageController, DashboardController, AboutHeaderController, AlbumVehicleController, ServiceHeaderController, VehicleHeaderController, DeliveryHeaderController};
 
 // Login Routes ...
 Route::get('', [LoginController::class, 'showLoginForm']);
