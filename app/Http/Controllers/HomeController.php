@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutHeader;
-use App\Models\{About, Service, Vehicle, Customer, Delivery, Homepage, AlbumVehicle, ServiceHeader, DeliveryHeader};
+use App\Models\{About, Service, Vehicle, Customer, Delivery, Homepage, AlbumVehicle, ServiceHeader, DeliveryHeader, VehicleHeader};
 
 class HomeController extends Controller
 {
@@ -31,6 +31,7 @@ class HomeController extends Controller
             'abouts' => About::all(),
             'aboutBySlug' => new About(),
             'about_header' => AboutHeader::find(1),
+            'customers' => Customer::all(),
         ]);
     }
 
@@ -41,6 +42,7 @@ class HomeController extends Controller
             'abouts' => About::all(),
             'aboutBySlug' => $about,
             'about_header' => AboutHeader::find(1),
+            'customers' => Customer::all(),
         ]);
     }
 
@@ -49,6 +51,8 @@ class HomeController extends Controller
         return view('frontend.delivery', [
             'title' => 'Halaman About Us',
             'deliveries' => Delivery::all(),
+            'delivery_header' => DeliveryHeader::find(1),
+            'customers' => Customer::all(),
         ]);
     }
 
@@ -57,14 +61,21 @@ class HomeController extends Controller
         return view('frontend.vehicle', [
             'title' => 'Halaman About Us',
             'vehicles' => Vehicle::all(),
+            'customers' => Customer::all(),
+            'vehicle_header' => VehicleHeader::find(1),
+            'album_vehicles' => AlbumVehicle::all(),
+            'vehicles' => Vehicle::all()
         ]);
     }
 
     public function service()
     {
         return view('frontend.service', [
-            'title' => 'Halaman About Us',
+            'title' => 'Halaman Service',
             'services' => Service::all(),
+            'customers' => Customer::all(),
+            'service_header' => ServiceHeader::find(1),
+
         ]);
     }
 

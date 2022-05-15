@@ -31,7 +31,7 @@
                 @endforeach
             </div>
             <div class="col-md-9">
-                @if (!$aboutBySlug)
+                @if ($aboutBySlug)
                 <div class="post-media wow fadeIn">
                     <img src="{{ $aboutBySlug->takeImage }}" alt="" class="img-responsive img-rounded">
                     </br>
