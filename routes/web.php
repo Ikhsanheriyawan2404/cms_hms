@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\VehicleController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\DeliveryController;
 use App\Http\Controllers\Admin\HomepageController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AboutHeaderController;
 use App\Http\Controllers\Admin\AlbumVehicleController;
 use App\Http\Controllers\Admin\ServiceHeaderController;
@@ -27,9 +28,9 @@ Route::post('logout',  [LoginController::class,'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    // Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
 
     Route::prefix('admin')->group(function () {
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::resources(['homepages' => HomepageController::class]);
         Route::resources(['customers' => CustomerController::class]);
 
