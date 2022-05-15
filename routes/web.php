@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Admin\{RoleController, UserController, AboutController, ServiceController, VehicleController, CustomerController, DeliveryController, HomepageController, DashboardController, AboutHeaderController, AlbumVehicleController, ServiceHeaderController, VehicleHeaderController, DeliveryHeaderController};
+use App\Http\Controllers\Admin\{RoleController, UserController, AboutController, ServiceController, VehicleController, CustomerController, DeliveryController, HomepageController, DashboardController, AboutHeaderController, AlbumVehicleController, ContactController, ServiceHeaderController, VehicleHeaderController, DeliveryHeaderController};
+use App\Models\Contact;
 
 // Login Routes ...
 Route::get('', [LoginController::class, 'showLoginForm']);
@@ -21,6 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/delivery', [HomeController::class, 'delivery'])->name('delivery');
     Route::get('/service', [HomeController::class, 'service'])->name('service');
     Route::get('/vehicle', [HomeController::class, 'vehicle'])->name('vehicle');
+    Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
     Route::prefix('admin')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -43,6 +45,8 @@ Route::middleware('auth')->group(function () {
         Route::resources(['services' => ServiceController::class]);
         Route::resources(['service_header' => ServiceHeaderController::class]);
         Route::put('service_header/{service_header:id}/update_image', [ServiceHeaderController::class, 'updateImage'])->name('service_header.updateImage');
+
+        Route::resources(['contacts' => ContactController::class]);
 
         Route::resources(['users' => UserController::class]);
         Route::post('users/{user:id}/status', [UserController::class, 'changeStatus'])->name('users.status');

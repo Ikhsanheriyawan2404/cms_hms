@@ -79,4 +79,13 @@ class HomeController extends Controller
         ]);
     }
 
+    public function contact()
+    {
+        return view('frontend.contact', [
+            'title' => "Halaman Kontak",
+            'about_header' => AboutHeader::find(1),
+            'customers' => Customer::all()
+        ]);
+    }
+
 }

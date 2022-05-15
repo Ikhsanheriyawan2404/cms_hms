@@ -181,6 +181,14 @@
             </a>
         </li>
         <li class="nav-item">
+            <a href="{{ route('contacts.index') }}" class="nav-link {{ request()->routeIs('contacts.*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-address-book"></i>
+            <p>
+                Kontak
+            </p>
+            </a>
+        </li>
+        <li class="nav-item">
             @can('user-list')
             <a href="{{ route('users.index') }}" class="nav-link {{ request()->routeIs('users.*') || request()->routeIs('roles.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-user"></i>

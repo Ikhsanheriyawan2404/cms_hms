@@ -47,7 +47,7 @@
                     <li><a class="{{ request()->routeIs('vehicle') ? 'active' : '' }}" href="{{ route('vehicle', []) }}">Our Vehicle</a></li>
                     <li><a class="{{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service', []) }}">Services</a></li>
                     <li><a href="testimonials.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a class="{{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact', []) }}">Contact</a></li>
                 </ul>
             </div>
         </div>
