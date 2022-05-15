@@ -24,7 +24,7 @@
         </li>
         <li class="nav-item">
             <a href="{{ route('homepages.index') }}" class="nav-link {{ request()->routeIs('homepages.*') ? 'active' : '' }}">
-            <i class="nav-icon fas fa-box"></i>
+            <i class="nav-icon fas fa-home"></i>
             <p>
                 Homepage
             </p>
@@ -32,8 +32,8 @@
         </li>
         <li class="nav-item">
             @can('user-list')
-            <a href="{{ route('abouts.index') }}" class="nav-link {{ request()->routeIs('abouts.*') || request()->routeIs('about_headers.*') ? 'active' : '' }}">
-            <i class="nav-icon fas fa-user"></i>
+            <a href="{{ route('abouts.index') }}" class="nav-link {{ request()->routeIs('abouts.*') || request()->routeIs('about_header.*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-exclamation"></i>
             <p>
                 About
                 <i class="right fas fa-angle-left"></i>
@@ -44,7 +44,7 @@
                 <li class="nav-item">
                     @can('user-list')
                     <a href="{{ route('about_header.index') }}" class="nav-link {{ request()->routeIs('about_header.index') ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-about_header"></i>
+                    <i class="nav-icon fas fa-th-list"></i>
                     <p>
                         About Header
                     </p>
@@ -54,7 +54,7 @@
                 <li class="nav-item">
                     @can('user-list')
                     <a href="{{ route('abouts.index') }}" class="nav-link {{ request()->routeIs('abouts.index') ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-user-tag"></i>
+                    <i class="nav-icon fas fa-list"></i>
                     <p>
                         About List
                     </p>
@@ -65,8 +65,8 @@
         </li>
         <li class="nav-item">
             @can('user-list')
-            <a href="{{ route('deliveries.index') }}" class="nav-link {{ request()->routeIs('deliveries.*') || request()->routeIs('deliveries.*') ? 'active' : '' }}">
-            <i class="nav-icon fas fa-user"></i>
+            <a href="{{ route('deliveries.index') }}" class="nav-link {{ request()->routeIs('deliveries.*') || request()->routeIs('delivery_header.*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-truck"></i>
             <p>
                 Delivery
                 <i class="right fas fa-angle-left"></i>
@@ -77,7 +77,7 @@
                 <li class="nav-item">
                     @can('user-list')
                     <a href="{{ route('delivery_header.index') }}" class="nav-link {{ request()->routeIs('delivery_header.index') ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-about_header"></i>
+                    <i class="nav-icon fas fa-th-list"></i>
                     <p>
                         Delivery Header
                     </p>
@@ -87,7 +87,7 @@
                 <li class="nav-item">
                     @can('user-list')
                     <a href="{{ route('deliveries.index') }}" class="nav-link {{ request()->routeIs('deliveries.index') ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-user-tag"></i>
+                    <i class="nav-icon fas fa-list"></i>
                     <p>
                         Delivery List
                     </p>
@@ -98,8 +98,8 @@
         </li>
         <li class="nav-item">
             @can('user-list')
-            <a href="{{ route('vehicles.index') }}" class="nav-link {{ request()->routeIs('vehicles.*') || request()->routeIs('about_headers.*') ? 'active' : '' }}">
-            <i class="nav-icon fas fa-user"></i>
+            <a href="{{ route('vehicles.index') }}" class="nav-link {{ request()->routeIs('vehicles.*') || request()->routeIs('vehicle_header.*') || request()->routeIs('album_vehicle.*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-car"></i>
             <p>
                 Vehicle
                 <i class="right fas fa-angle-left"></i>
@@ -110,7 +110,7 @@
                 <li class="nav-item">
                     @can('user-list')
                     <a href="{{ route('vehicle_header.index') }}" class="nav-link {{ request()->routeIs('vehicle_header.index') ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-vehicle_header"></i>
+                    <i class="nav-icon fas fa-th-list"></i>
                     <p>
                         Vehicle Header
                     </p>
@@ -120,7 +120,7 @@
                 <li class="nav-item">
                     @can('user-list')
                     <a href="{{ route('vehicles.index') }}" class="nav-link {{ request()->routeIs('vehicles.index') ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-user-tag"></i>
+                    <i class="nav-icon fas fa-list"></i>
                     <p>
                         Vehicle List
                     </p>
@@ -130,7 +130,7 @@
                 <li class="nav-item">
                     @can('user-list')
                     <a href="{{ route('album_vehicle.index') }}" class="nav-link {{ request()->routeIs('album_vehicle.index') ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-user-tag"></i>
+                    <i class="nav-icon fas fa-cogs"></i>
                     <p>
                         Album Vehicle
                     </p>
@@ -141,8 +141,8 @@
         </li>
         <li class="nav-item">
             @can('user-list')
-            <a href="{{ route('services.index') }}" class="nav-link {{ request()->routeIs('services.*') || request()->routeIs('services.*') ? 'active' : '' }}">
-            <i class="nav-icon fas fa-user"></i>
+            <a href="{{ route('services.index') }}" class="nav-link {{ request()->routeIs('services.*') || request()->routeIs('service_header.*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-tools"></i>
             <p>
                 Service
                 <i class="right fas fa-angle-left"></i>
@@ -153,7 +153,7 @@
                 <li class="nav-item">
                     @can('user-list')
                     <a href="{{ route('service_header.index') }}" class="nav-link {{ request()->routeIs('service_header.index') ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-about_header"></i>
+                    <i class="nav-icon fas fa-th-list"></i>
                     <p>
                         Service Header
                     </p>
@@ -163,7 +163,7 @@
                 <li class="nav-item">
                     @can('user-list')
                     <a href="{{ route('services.index') }}" class="nav-link {{ request()->routeIs('services.index') ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-user-tag"></i>
+                    <i class="nav-icon fas fa-list"></i>
                     <p>
                         Service List
                     </p>
@@ -174,7 +174,7 @@
         </li>
         <li class="nav-item">
             <a href="{{ route('customers.index') }}" class="nav-link {{ request()->routeIs('customers.*') ? 'active' : '' }}">
-            <i class="nav-icon fas fa-box"></i>
+            <i class="nav-icon fas fa-user-friends"></i>
             <p>
                 Pelanggan
             </p>

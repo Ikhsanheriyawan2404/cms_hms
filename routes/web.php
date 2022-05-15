@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\{RoleController, UserController, LoginController, AboutController, ServiceController, VehicleController, CustomerController, DeliveryController, HomepageController, DashboardController, AboutHeaderController, AlbumVehicleController, ServiceHeaderController, VehicleHeaderController, DeliveryHeaderController};
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Admin\{RoleController, UserController, AboutController, ServiceController, VehicleController, CustomerController, DeliveryController, HomepageController, DashboardController, AboutHeaderController, AlbumVehicleController, ServiceHeaderController, VehicleHeaderController, DeliveryHeaderController};
 
 // Login Routes ...
 Route::get('', [LoginController::class, 'showLoginForm']);
