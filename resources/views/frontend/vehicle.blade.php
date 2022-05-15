@@ -52,10 +52,11 @@
                         <i class="flaticon-unlink"></i>
                     </div>
                 </a>
+                <a href="https://wa.me/082117088123" class="btn btn-light  btn-brd grd1 btn-block">Booking <i class="fa fa-whatsapp"></i></a>
             </div>
             @endforeach
 
-            <div class="post-media pitem item-w1 item-h1 cat2">
+            {{-- <div class="post-media pitem item-w1 item-h1 cat2">
                 <a href="uploads/portfolio_10.jpg" data-rel="prettyPhoto[gal]">
                     <img src="uploads/portfolio_10.jpg" alt="" class="img-responsive">
                     <div>
@@ -63,7 +64,7 @@
                         <i class="flaticon-unlink"></i>
                     </div>
                 </a>
-            </div>
+            </div> --}}
         </div><!-- end portfolio -->
     </div><!-- end container -->
 </div><!-- end section -->
