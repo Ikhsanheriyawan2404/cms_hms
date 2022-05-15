@@ -1,491 +1,498 @@
-<!doctype html>
-<html lang="en">
+@extends('layouts.frontend', compact('title'))
 
+@section('content')
+@include('sweetalert::alert')
 
-<!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 21:29:18 GMT -->
-
-<head>
-    <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/hms.png" />
-    <link rel="icon" type="image/png" href="assets/img/hms.png" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title><?= $title; ?> | HMS</title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
-    <!-- Canonical SEO -->
-    <link rel="canonical" href="https://www.creative-tim.com/product/material-dashboard-pro" />
-    <!--  Social tags      -->
-    <meta name="keywords" content="material dashboard, bootstrap material admin, bootstrap material dashboard, material design admin, material design, creative tim, html dashboard, html css dashboard, web dashboard, freebie, free bootstrap dashboard, css3 dashboard, bootstrap admin, bootstrap dashboard, frontend, responsive bootstrap dashboard, premiu material design admin">
-    <meta name="description" content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
-    <!-- Schema.org markup for Google+ -->
-    <meta itemprop="name" content="Material Dashboard PRO by Creative Tim | Premium Bootstrap Admin Template">
-    <meta itemprop="description" content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
-    <meta itemprop="image" content="s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg">
-    <!-- Twitter Card data -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@creativetim">
-    <meta name="twitter:title" content="Material Dashboard PRO by Creative Tim | Premium Bootstrap Admin Template">
-    <meta name="twitter:description" content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
-    <meta name="twitter:creator" content="@creativetim">
-    <meta name="twitter:image" content="s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg">
-    <!-- Open Graph data -->
-    <meta property="fb:app_id" content="655968634437471">
-    <meta property="og:title" content="Material Dashboard PRO by Creative Tim | Premium Bootstrap Admin Template" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://www.creative-tim.com/product/material-dashboard-pro" />
-    <meta property="og:image" content="s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg" />
-    <meta property="og:description" content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design." />
-    <meta property="og:site_name" content="Creative Tim" />
-    <!-- Bootstrap core CSS     -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <!--  Material Dashboard CSS    -->
-    <link href="assets/css/material-dashboard.css" rel="stylesheet" />
-    <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="assets/css/demo.css" rel="stylesheet" />
-    <!--     Fonts and icons     -->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <link href="assets/css/google-roboto-300-700.css" rel="stylesheet" />
-    <!--     Datepicker     -->
-    <link href="assets/css/bootstrap-datepicker.min.css" rel="stylesheet" />
-    <!--   Core JS Files   -->
-    <!--     plugin toast     -->
-    <link href="assets/css/jquery.toast.min.css" rel="stylesheet" />
-    <!--     Jquery     -->
-    <script src="assets/js/jquery-3.1.1.min.js" type="text/javascript"></script>
-</head>
-
-<body>
-
-    <!--   Core JS Files   -->
-    <script src="assets/js/jquery-ui.min.js" type="text/javascript"></script>
-    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="assets/js/material.min.js" type="text/javascript"></script>
-    <script src="assets/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
-
-    <!--  DataTables.net Plugin    -->
-    <script src="assets/js/jquery.datatables.js"></script>
-
-    <!-- Select Plugin -->
-    <script src="assets/js/jquery.select-bootstrap.js"></script>
-
-    <div class="wrapper">
-        <div class="sidebar" data-active-color="rose" data-background-color="black" data-image="assets/img/sidebar-3.jpg">
-            <div class="logo">
-                <a href="" class="simple-text">
-                    Harum Manis Logistik
-                </a>
-            </div>
-            <div class="logo logo-mini">
-                <div class="simple-text logo-mini">
-                    <img src="assets/img/hms.png" class="logo-mini" width="55px">
-                </div>
-            </div>
-            <div class="sidebar-wrapper">
-                <div class="user">
-                    <div class="photo">
-                        <img src="uploads/user-image/" />
-                    </div>
-                    <div class="info">
-                        <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                            <b class="caret"></b>
-                        </a>
-                        <div class="collapse" id="collapseExample">
-                            <ul class="nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <span class="sidebar-mini"> MP </span>
-                                        <span class="sidebar-normal"> My Profile </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">Edit Profile</a>
-                                </li>
-                                <li>
-                                    <a href="#">Settings</a>
-                                </li>
-                            </ul>
+<div class="slider-area">
+    <div class="slider-wrapper owl-carousel">
+        @foreach ($homepages as $homepage)
+        <div class="slider-item home-one-slider-otem slider-item-four slider-bg-one" style="background-image: url({{ $homepage->takeImage }})">
+            <div class="container">
+                <div class="row">
+                    <div class="slider-content-area">
+                        <div class="slide-text">
+                            <h1 class="homepage-three-title">{{ $homepage->title }}</h1>
+                            <h2>
+                                {!! $homepage->sub_title !!}
+                            </h2>
+                            <div class="slider-content-btn">
+                                <a class="button btn btn-light btn-radius btn-brd" href="#">Read More</a>
+                                <a class="button btn btn-light btn-radius btn-brd" href="#">Contact</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
 
-                <?php
-                $hal = $this->uri->segment(1);
-                $sub_hal = $this->uri->segment(2);
-                $sublagi_hal = $this->uri->segment(3);
-                ?>
-                <ul class="nav">
-                    <li class="<?= ($sub_hal == 'dashboard') ? 'active' : ''; ?>">
-                        <a href="">
-                            <i class="material-icons">dashboard</i>
-                            <p>Dashboard</p>
-                        </a>
+<div id="about" class="section wb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="message-box">
+                    <h4>About Us</h4>
+                    <h2>{{ $company_profile->title }}</h2>
+                    <p class="lead">{!! $company_profile->contents !!}</p>
+
+                    <a href="#services" class="btn btn-light btn-radius btn-brd grd1">Learn More</a>
+                </div><!-- end messagebox -->
+            </div><!-- end col -->
+
+            <div class="col-md-6">
+                <div class="post-media wow fadeIn">
+                    <img src="{{ $company_profile->takeImage }}" alt="" class="img-responsive img-rounded">
+                    <a href="https://www.youtube.com/watch?v=nhqpWsgqRCk&t=47s" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
+                </div><!-- end media -->
+            </div><!-- end col -->
+        </div><!-- end row -->
+
+        <hr class="hr1">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="post-media wow fadeIn">
+                    <img src="{{ $visi_misi->takeImage }}" alt="" class="img-responsive img-rounded">
+                </div><!-- end media -->
+            </div><!-- end col -->
+
+            <div class="col-md-6">
+                <div class="message-box">
+                    <h4>Who We are</h4>
+                    <h2>{{ $visi_misi->title }}</h2>
+                    <p class="lead">
+                        {!! $visi_misi->contents !!}
+                    </p>
+
+                    <a href="#services" class="btn btn-light btn-radius btn-brd grd1">Learn More</a>
+                </div><!-- end messagebox -->
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div><!-- end section -->
+
+<div class="parallax section parallax-off" data-stellar-background-ratio="0.9" style="background-image:url({{ $company_profile->takeImage }});">
+    <div class="container">
+        <div class="row text-center stat-wrap">
+            @foreach ($album_vehicles as $album_vehicle)
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <span data-scroll class="global-radius icon_wrap effect-1"><i class="flaticon-school-bus"></i></span>
+                <p class="stat_count">{{ $album_vehicles->count()}}</p>
+                <h3>{{ $album_vehicle->name }}</h3>
+            </div><!-- end col -->
+            @endforeach
+
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div><!-- end section -->
+
+<div id="services" class="parallax section lb">
+    <div class="container">
+        <div class="section-title text-center">
+            <h3>Layanan Kami</h3>
+            <p class="lead">{{ $service_header->title }}</p>
+        </div><!-- end title -->
+
+        <div class="owl-services owl-carousel owl-theme">
+            @foreach ($services as $service)
+            <div class="service-widget">
+                <div class="post-media wow fadeIn">
+                    <a href="{{ $service->takeImage }}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+                    <img src="{{ $service->takeImage }}" alt="" class="img-responsive img-rounded">
+                </div>
+                <div class="service-dit">
+                    <h3>{{ $service->title }}</h3>
+                    <p>{!! $service->contents !!}</p>
+                </div>
+            </div>
+            <!-- end service -->
+            @endforeach
+        </div><!-- end row -->
+
+        <hr class="hr1">
+
+        <div class="text-center">
+            <a data-scroll href="#portfolio" class="btn btn-light btn-radius btn-brd">View Our Portfolio</a>
+        </div>
+    </div><!-- end container -->
+</div><!-- end section -->
+
+<div class="parallax section noover" data-stellar-background-ratio="0.7" style="background-image:url('uploads/parallax_05.png');">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-6">
+                <div class="customwidget text-left">
+                    <h1>Beautiful Websites</h1>
+                    <p>Full access control of the background parallax effects, <br>change your awesome background elements and edit colors from style.css or colors.css</p>
+                    <ul class="list-inline">
+                        <li><i class="fa fa-check"></i> Custom Sections</li>
+                        <li><i class="fa fa-check"></i> Parallax's</li>
+                        <li><i class="fa fa-check"></i> Icons & PSD</li>
+                        <li><i class="fa fa-check"></i> Limitless Colors</li>
+                    </ul><!-- end list -->
+                    <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd">Learn More</a>
+                </div>
+            </div><!-- end col -->
+            <div class="col-md-6">
+                <div class="text-center image-center hidden-sm hidden-xs">
+                    <img src="uploads/device_03.png" alt="" class="img-responsive wow fadeInUp">
+                </div>
+            </div>
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div><!-- end section -->
+
+<div id="features" class="section lb">
+    <div class="container">
+        <div class="section-title text-center">
+            <h3>Pengiriman Terakhir</h3>
+            <p class="lead">{{ $delivery_header->quote }}</p>
+        </div><!-- end title -->
+
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <ul class="features-left">
+                    @foreach ($deliveries as $delivery)
+                    <li class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s">
+                        <i class="flaticon-school-bus"></i>
+                        <div class="fl-inner">
+                            <h4>{{ $delivery->title }}</h4>
+                            <p>{!! $delivery->description !!}</p>
+                        </div>
                     </li>
-                    <?php if ($this->fungsi->user_login()->level == 1 || $this->fungsi->user_login()->level == 2) { ?>
-                        <li class="<?= ($sub_hal == 'homepage') ? 'active' : ''; ?>">
-                            <a class="nav-link" href="<?= site_url('admin/homepage') ?>">
-                                <i class="material-icons">home</i>
-                                <p>Homepage</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a data-toggle="collapse" href="#Mnabout">
-                                <i class="material-icons">business</i>
-                                <p>About Us
-                                    <b class="caret"></b>
-                                </p>
-                            </a>
-                            <div class="<?= ($sub_hal == 'about' || $sub_hal == 'about_head') ? 'collapse in' : 'collapse'; ?>" id="Mnabout">
-                                <ul class="nav">
-                                    <li class="<?= ($sub_hal == 'about_head') ? 'active' : ''; ?>">
-                                        <a class="nav-link" href="<?= site_url('admin/about_head') ?>">
-                                            <i class="material-icons">content_paste</i>
-                                            <p>About Header</p>
-                                        </a>
-                                    </li>
-                                    <li class="<?= ($sub_hal == 'about') ? 'active' : ''; ?>">
-                                        <a class="nav-link" href="<?= site_url('admin/about') ?>">
-                                            <i class="material-icons">view_list</i>
-                                            <p>About List</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a data-toggle="collapse" href="#Mndelivery">
-                                <i class="material-icons">local_shipping</i>
-                                <p>Delivery
-                                    <b class="caret"></b>
-                                </p>
-                            </a>
-                            <div class="<?= ($sub_hal == 'deliveried_head' || $sub_hal == 'delivery' || $sub_hal == 'customer') ? 'collapse in' : 'collapse'; ?>" id="Mndelivery">
-                                <ul class="nav">
-                                    <li class="<?= ($sub_hal == 'deliveried_head') ? 'active' : ''; ?>">
-                                        <a class="nav-link" href="<?= site_url('admin/deliveried_head') ?>">
-                                            <i class="material-icons">content_paste</i>
-                                            <p>Deliveried Header</p>
-                                        </a>
-                                    </li>
-                                    <li class="<?= ($sub_hal == 'delivery') ? 'active' : ''; ?>">
-                                        <a class="nav-link" href="<?= site_url('admin/delivery') ?>">
-                                            <i class="material-icons">view_list</i>
-                                            <p>Delivery List</p>
-                                        </a>
-                                    </li>
-                                    <li class="<?= ($sub_hal == 'customer') ? 'active' : ''; ?>">
-                                        <a class="nav-link" href="<?= site_url('admin/customer') ?>">
-                                            <i class="material-icons">groups</i>
-                                            <p>Customer</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a data-toggle="collapse" href="#vehicle">
-                                <i class="material-icons">local_taxi</i>
-                                <p>Our Vehicles
-                                    <b class="caret"></b>
-                                </p>
-                            </a>
-                            <div class="<?= ($sub_hal == 'vehicle_head' || $sub_hal == 'album_vehicle' || $sub_hal == 'gallery_vehicle') ? 'collapse in' : 'collapse'; ?>" id="vehicle">
-                                <ul class="nav">
-                                    <li class="<?= ($sub_hal == 'vehicle_head') ? 'active' : ''; ?>">
-                                        <a class="nav-link" href="<?= site_url('admin/vehicle_head') ?>">
-                                            <i class="material-icons">content_paste</i>
-                                            <p>Vehicle Header</p>
-                                        </a>
-                                    </li>
-                                    <li class="<?= ($sub_hal == 'album_vehicle') ? 'active' : ''; ?>">
-                                        <a class="nav-link" href="<?= site_url('admin/album_vehicle') ?>">
-                                            <i class="material-icons">collections</i>
-                                            <p>Album Vehicle</p>
-                                        </a>
-                                    </li>
-                                    <li class="<?= ($sub_hal == 'gallery_vehicle') ? 'active' : ''; ?>">
-                                        <a class="nav-link" href="<?= site_url('admin/gallery_vehicle') ?>">
-                                            <i class="material-icons">image</i>
-                                            <p>Photo Vehicle</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a data-toggle="collapse" href="#Mnservices">
-                                <i class="material-icons">book_online</i>
-                                <p>Services
-                                    <b class="caret"></b>
-                                </p>
-                            </a>
-                            <div class="<?= ($sub_hal == 'services_head' || $sub_hal == 'services') ? 'collapse in' : 'collapse'; ?>" id="Mnservices">
-                                <ul class="nav">
-                                    <li class="<?= ($sub_hal == 'services_head') ? 'active' : ''; ?>">
-                                        <a class="nav-link" href="<?= site_url('admin/services_head') ?>">
-                                            <i class="material-icons">content_paste</i>
-                                            <p>Services Header</p>
-                                        </a>
-                                    </li>
-                                    <li class="<?= ($sub_hal == 'services') ? 'active' : ''; ?>">
-                                        <a class="nav-link" href="<?= site_url('admin/services') ?>">
-                                            <i class="material-icons">view_list</i>
-                                            <p>Services List</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a data-toggle="collapse" href="#Mpost">
-                                <i class="material-icons">event_note</i>
-                                <p>News
-                                    <b class="caret"></b>
-                                </p>
-                            </a>
-                            <div class="<?= ($sub_hal == 'news_head' || $sub_hal == 'news' || $sub_hal == 'kategori') ? 'collapse in' : 'collapse'; ?>" id="Mpost">
-                                <ul class="nav">
-                                    <li class="<?= ($sub_hal == 'news_head') ? 'active' : ''; ?>">
-                                        <a class="nav-link" href="<?= site_url('admin/news_head') ?>">
-                                            <span class="sidebar-mini"><i class="material-icons">content_paste</i></span>
-                                            <p>News Header</p>
-                                        </a>
-                                    </li>
-                                    <li class="<?= ($sub_hal == 'news') ? 'active' : ''; ?>">
-                                        <a class="nav-link" href="<?= site_url('admin/news') ?>">
-                                            <i class="material-icons">view_list</i>
-                                            <p>News List</p>
-                                        </a>
-                                    </li>
-                                    <li class="<?= ($sub_hal == 'kategori') ? 'active' : ''; ?>">
-                                        <a class="nav-link" href="<?= site_url('admin/kategori') ?>">
-                                            <i class="material-icons">build</i>
-                                            <p>News Kategori</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a data-toggle="collapse" href="#gallery">
-                                <i class="material-icons">camera_alt</i>
-                                <p>Gallery
-                                    <b class="caret"></b>
-                                </p>
-                            </a>
-                            <div class="<?= ($sub_hal == 'album' || $sub_hal == 'gallery') ? 'collapse in' : 'collapse'; ?>" id="gallery">
-                                <ul class="nav">
-                                    <li class="<?= ($sub_hal == 'album') ? 'active' : ''; ?>">
-                                        <a class="nav-link" href="<?= site_url('admin/album') ?>">
-                                            <i class="material-icons">collections</i>
-                                            <p>Album</p>
-                                        </a>
-                                    </li>
-                                    <li class="<?= ($sub_hal == 'gallery') ? 'active' : ''; ?>">
-                                        <a class="nav-link" href="<?= site_url('admin/gallery') ?>">
-                                            <i class="material-icons">image</i>
-                                            <p>Photos</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="<?= ($sub_hal == 'komentar') ? 'active' : ''; ?>">
-                            <a class="nav-link" href="<?= site_url('admin/komentar') ?>">
-                                <i class="material-icons">forum</i>
-                                <p>Komentar</p>
-                            </a>
-                        </li>
-                        <li class="<?= ($hal == 'customer') ? 'active' : ''; ?>">
-                            <a class="nav-link" href="<?= site_url('customer') ?>">
-                                <i class="material-icons">message</i>
-                                <p>Inbox</p>
-                            </a>
-                        </li>
-                    <?php } ?>
-                    <?php if ($this->fungsi->user_login()->level == 1) { ?>
-                        <li class="<?= ($sub_hal == 'pengguna') ? 'active' : ''; ?>">
-                            <a class="nav-link" href="<?= site_url('admin/pengguna') ?>">
-                                <i class="material-icons">persons</i>
-                                <p>Pengguna</p>
-                            </a>
-                        </li>
-                    <?php } ?>
-                    <li class="<?= ($sub_hal == 'backup') ? 'active' : ''; ?>">
-                        <a class="nav-link" href="<?= site_url('admin/backup') ?>">
-                            <i class="material-icons">save</i>
-                            <p>Backup Database</p>
-                        </a>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="col-md-4 hidden-xs hidden-sm">
+                <img src="uploads/ipad.png" class="img-center img-responsive" alt="">
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <ul class="features-right">
+                    <li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">
+                        <i class="flaticon-pantone"></i>
+                        <div class="fr-inner">
+                            <h4>Limitless Colors</h4>
+                            <p>Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. </p>
+                        </div>
+                    </li>
+                    <li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s">
+                        <i class="flaticon-cloud-computing"></i>
+                        <div class="fr-inner">
+                            <h4>Lifetime Update</h4>
+                            <p>Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. </p>
+                        </div>
+                    </li>
+                    <li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.4s">
+                        <i class="flaticon-line-graph"></i>
+                        <div class="fr-inner">
+                            <h4>SEO Friendly</h4>
+                            <p>Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. </p>
+                        </div>
+                    </li>
+                    <li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                        <i class="flaticon-coding"></i>
+                        <div class="fr-inner">
+                            <h4>Simple Clean Code</h4>
+                            <p>Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. </p>
+                        </div>
                     </li>
                 </ul>
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div><!-- end section -->
 
-            </div>
-        </div>
-        <div class="main-panel">
-            <nav class="navbar navbar-warning navbar-light navbar-absolute">
-                <div class="container-fluid">
-                    <div class="navbar-minimize">
-                        <button id="minimizeSidebar" class="btn btn-round btn-white btn-fill btn-just-icon">
-                            <i class="material-icons visible-on-sidebar-regular">more_vert</i>
-                            <i class="material-icons visible-on-sidebar-mini">view_list</i>
-                        </button>
-                    </div>
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#"><?= $title; ?></a>
-                    </div>
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
-                                    <span>
-                                        <?= $this->fungsi->user_login()->name ?>
-                                    </span>
-                                    <i class="material-icons">person</i>
-                                    <p class="hidden-lg hidden-md">Profile</p>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="<?= site_url('administrator/logout') ?>">Keluar</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="<?= site_url('') ?>" class="dropdown-toggle" target="_blank">
-                                    <i class="material-icons">home</i>
-                                    <p class="hidden-lg hidden-md">Home</p>
-                                </a>
-                            </li>
-                            <li class="separator hidden-lg hidden-md"></li>
+<div id="testimonials" class="parallax section db parallax-off" style="background-image:url('uploads/parallax_03.jpg');">
+    <div class="container">
+        <div class="section-title text-center">
+            <h3>Testimonials</h3>
+            <p class="lead">We thanks for all our awesome testimonials! There are hundreds of our happy customers! <br>Let's see what others say about GoodWEB Solutions website template!</p>
+        </div><!-- end title -->
 
-                        </ul>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="testi-carousel owl-carousel owl-theme">
+                    <div class="testimonial clearfix">
+                        <div class="desc">
+                            <h3><i class="fa fa-quote-left"></i> Wonderful Support!</h3>
+                            <p class="lead">They have got my project on time with the competition with a sed highly skilled, and experienced & professional team.</p>
+                        </div>
+                        <div class="testi-meta">
+                            <img src="uploads/testi_01.png" alt="" class="img-responsive alignleft">
+                            <h4>James Fernando <small>- Manager of Racer</small></h4>
+                        </div>
+                        <!-- end testi-meta -->
+                    </div>
+                    <!-- end testimonial -->
+
+                    <div class="testimonial clearfix">
+                        <div class="desc">
+                            <h3><i class="fa fa-quote-left"></i> Awesome Services!</h3>
+                            <p class="lead">Explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you completed.</p>
+                        </div>
+                        <div class="testi-meta">
+                            <img src="uploads/testi_02.png" alt="" class="img-responsive alignleft">
+                            <h4>Jacques Philips <small>- Designer</small></h4>
+                        </div>
+                        <!-- end testi-meta -->
+                    </div>
+                    <!-- end testimonial -->
+
+                    <div class="testimonial clearfix">
+                        <div class="desc">
+                            <h3><i class="fa fa-quote-left"></i> Great & Talented Team!</h3>
+                            <p class="lead">The master-builder of human happines no one rejects, dislikes avoids pleasure itself, because it is very pursue pleasure. </p>
+                        </div>
+                        <div class="testi-meta">
+                            <img src="uploads/testi_03.png" alt="" class="img-responsive alignleft">
+                            <h4>Venanda Mercy <small>- Newyork City</small></h4>
+                        </div>
+                        <!-- end testi-meta -->
+                    </div>
+                    <!-- end testimonial -->
+                    <div class="testimonial clearfix">
+                        <div class="desc">
+                            <h3><i class="fa fa-quote-left"></i> Wonderful Support!</h3>
+                            <p class="lead">They have got my project on time with the competition with a sed highly skilled, and experienced & professional team.</p>
+                        </div>
+                        <div class="testi-meta">
+                            <img src="uploads/testi_01.png" alt="" class="img-responsive alignleft">
+                            <h4>James Fernando <small>- Manager of Racer</small></h4>
+                        </div>
+                        <!-- end testi-meta -->
+                    </div>
+                    <!-- end testimonial -->
+
+                    <div class="testimonial clearfix">
+                        <div class="desc">
+                            <h3><i class="fa fa-quote-left"></i> Awesome Services!</h3>
+                            <p class="lead">Explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you completed.</p>
+                        </div>
+                        <div class="testi-meta">
+                            <img src="uploads/testi_02.png" alt="" class="img-responsive alignleft">
+                            <h4>Jacques Philips <small>- Designer</small></h4>
+                        </div>
+                        <!-- end testi-meta -->
+                    </div>
+                    <!-- end testimonial -->
+
+                    <div class="testimonial clearfix">
+                        <div class="desc">
+                            <h3><i class="fa fa-quote-left"></i> Great & Talented Team!</h3>
+                            <p class="lead">The master-builder of human happines no one rejects, dislikes avoids pleasure itself, because it is very pursue pleasure. </p>
+                        </div>
+                        <div class="testi-meta">
+                            <img src="uploads/testi_03.png" alt="" class="img-responsive alignleft">
+                            <h4>Venanda Mercy <small>- Newyork City</small></h4>
+                        </div>
+                        <!-- end testi-meta -->
+                    </div><!-- end testimonial -->
+                </div><!-- end carousel -->
+            </div><!-- end col -->
+        </div><!-- end row -->
+
+        <hr class="hr1">
+
+        <div class="row logos">
+                @foreach ($customers as $customer)
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="{{ $customer->takeImage }}" alt="" class="img-repsonsive"></a>
+                </div>
+                @endforeach
+        </div><!-- end row -->
+
+    </div><!-- end container -->
+</div><!-- end section -->
+
+
+{{-- <div class="slider-area">
+    <div class="slider-wrapper owl-carousel">
+        <?php foreach ($header_home->result() as $data) { ?>
+            <div class="slider-item home-one-slider-otem slider-item-four slider-bg-one" style="background-image: url(<{{ asset('frontend') }}/homepage-image/<?= $data->gambar; ?>)">
+                <div class="container">
+                    <div class="row">
+                        <div class="slider-content-area">
+                            <div class="slide-text">
+                                <h1 class="homepage-three-title"><?= $data->judul; ?> <br><span>Transportation</span> Services</h1>
+                                <h2><?= limit_words($data->isi, 3) . ' ...'; ?></h2>
+                                <div class="slider-content-btn">
+                                    <a class="button btn btn-light btn-radius btn-brd" href="{{ asset('frontend') }}/More</a>
+                                    <a class="button btn btn-light btn-radius btn-brd" href="<?= site_url('contact'); ?>">Contact</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </nav>
-            <div class="content">
-                <?php echo $contents ?>
             </div>
-            <footer class="footer">
-                <div class="container-fluid">
-                    <nav class="pull-left">
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    PT. Harumanis Logistik
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <p class="copyright pull-right">
-                        &copy;
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script>
-                        <a href="#">Creative Tim</a>, modif By Lukman2787
-                    </p>
-                </div>
-            </footer>
-        </div>
+        <?php } ?>
     </div>
+</div>
 
+<div id="about" class="section wb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="message-box">
+                    <h4>About Us</h4>
+                    <h2>PT Harum Manis Logistik (HMS)</h2>
+                    <p class="lead"><?= $company_profile->judul; ?></p>
+                    <p> <?= limit_words($company_profile->isi, 60); ?> . . . .</p>
+                    <a href="<?= site_url('about/detail_about/') . $company_profile->slug; ?>" class="btn btn-light btn-radius btn-brd grd1">Learn More</a>
+                </div><!-- end messagebox -->
+            </div><!-- end col -->
 
-    <!-- Forms Validations Plugin -->
-    <script src="assets/js/jquery.validate.min.js"></script>
-    <!--  Plugin for Date Time Picker and Full Calendar Plugin-->
-    <script src="assets/js/moment.min.js"></script>
-    <!--  Charts Plugin -->
-    <!-- <script src="assets/js/chartist.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.js"></script>
-    <!--  Plugin for the Wizard -->
-    <script src="assets/js/jquery.bootstrap-wizard.js"></script>
-    <!--  Notifications Plugin    -->
-    <script src="assets/js/bootstrap-notify.js"></script>
-    <!--   Sharrre Library    -->
-    <script src="assets/js/jquery.sharrre.js"></script>
-    <!-- DateTimePicker Plugin -->
-    <script src="assets/js/bootstrap-datetimepicker.js"></script>
-    <!-- Vector Map plugin -->
-    <script src="assets/js/jquery-jvectormap.js"></script>
-    <!-- Sliders Plugin -->
-    <script src="assets/js/nouislider.min.js"></script>
+            <div class="col-md-6">
+                <div class="post-media wow fadeIn">
+                    <img src="{{ asset('frontend') }}/about-image/<?= $company_profile->gambar; ?>" alt="" class="img-responsive img-rounded">
+                    <a href="{{ asset('frontend') }}/http://www.youtube.com/watch?v=waKclt046Mw" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
+                </div><!-- end media -->
+            </div><!-- end col -->
+        </div><!-- end row -->
 
-    <!--  Google Maps Plugin    -->
-    <!--<script src="assets/js/jquery.select-bootstrap.js"></script>-->
-    <!-- Sweet Alert 2 plugin -->
-    <script src="assets/js/sweetalert2.js"></script>
-    <!--  Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-    <script src="assets/js/jasny-bootstrap.min.js"></script>
-    <!--  Full Calendar Plugin    -->
-    <script src="assets/js/fullcalendar.min.js"></script>
-    <!-- TagsInput Plugin -->
-    <script src="assets/js/jquery.tagsinput.js"></script>
-    <!-- Sweet Alert 2 plugin -->
-    <script src="assets/js/select2.full.min.js"></script>
-    <!-- Material Dashboard javascript methods -->
-    <script src="assets/js/material-dashboard.js"></script>
-    <!-- CKeditor -->
-    <script src="assets/ckeditor/ckeditor.js"></script>
-    <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-    <script src="assets/js/demo.js"></script>
-    <!-- Toast Plugin -->
-    <script type="text/javascript" src="assets/js/jquery.toast.min.js"></script>
+        <hr class="hr1">
 
-    <script type="text/javascript" language="javascript">
-        $(document).ready(function() {
-            $('.datepicker').datetimepicker({
-                format: "YYYY-MM-DD",
-                icons: {
-                    time: "fa fa-clock-o",
-                    date: "fa fa-calendar",
-                    up: "fa fa-chevron-up",
-                    down: "fa fa-chevron-down",
-                    previous: 'fa fa-chevron-left',
-                    next: 'fa fa-chevron-right',
-                    today: 'fa fa-screenshot',
-                    clear: 'fa fa-trash',
-                    close: 'fa fa-remove',
-                    inline: true
+        <div class="row">
+            <div class="col-md-6">
+                <div class="post-media wow fadeIn">
+                    <img src="{{ asset('frontend') }}/about-image/<?= $visi_misi->gambar; ?>" alt="" class="img-responsive img-rounded">
+                </div><!-- end media -->
+            </div><!-- end col -->
+
+            <div class="col-md-6">
+                <div class="message-box">
+                    <h4></h4>
+                    <h2><?= $visi_misi->judul; ?></h2>
+                    <p class="lead">PT. Harum Mnis Logistik (HMS)</p>
+                    <p><?= limit_words($visi_misi->isi, 60); ?></p>
+                    <a href="<?= site_url('about/detail_about/') . $visi_misi->slug; ?>" class="btn btn-light btn-radius btn-brd grd1">Learn More</a>
+                </div><!-- end messagebox -->
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div><!-- end section -->
+
+<div class="parallax section parallax-off" data-stellar-background-ratio="0.9" style="background-image:url('{{ asset('frontend') }}/uploads/parallax_04.jpg');">
+    <div class="container">
+        <div class="row text-center stat-wrap">
+            <?php foreach ($album_vehicle as $data_vehicle) {
+                $album_id = $data_vehicle->albumvehicle_id;
+                $query_gallery = $this->db->query("SELECT * FROM gallery_vehicle WHERE albumvehicle_id = '$album_id'");
+                $total_gallery = $query_gallery->num_rows();
+                if ($total_gallery > 0) {
+                    $jml_photo = $total_gallery;
+                } else {
+                    $jml_photo = 0;
                 }
-            });
+            ?>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <span data-scroll class="global-radius icon_wrap effect-1"><i class="flaticon-school-bus"></i></span>
+                    <p class="stat_count"><?= $jml_photo; ?></p>
+                    <h3><?= $data_vehicle->nama; ?></h3>
+                </div><!-- end col -->
+            <?php } ?>
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div><!-- end section -->
 
-            setFormValidation('#FormValidation');
-        });
+<div id="services" class="parallax section lb">
+    <div class="container">
+        <div class="section-title text-center">
+            <h3><?= $quote_services->judul; ?></h3>
+            <p class="lead"><?= $quote_services->quote; ?></p>
+        </div><!-- end title -->
 
+        <div class="owl-services owl-carousel owl-theme">
+            <?php foreach ($our_services as $data_services) { ?>
+                <div class="service-widget">
+                    <div class="post-media wow fadeIn">
+                        <a href="{{ asset('frontend') }}/services-image/<?= $data_services->gambar; ?>" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+                        <img src="{{ asset('frontend') }}/services-image/<?= $data_services->gambar; ?>" alt="" class="img-responsive img-rounded">
+                    </div>
+                    <div class="service-dit">
+                        <h3><?= $data_services->judul; ?></h3>
+                        <p><?= $data_services->isi; ?></p>
+                    </div>
+                </div>
+            <?php } ?>
+            <!-- end service -->
+        </div><!-- end row -->
 
-        $(document).on('click', '.hapus-data', function(e) {
-            e.preventDefault();
-            const href = $(this).attr('href');
-            swal({
-                title: 'Apakah Anda Yakin?',
-                text: "Ingin menghapus permanen data ini !",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonClass: 'btn btn-success',
-                cancelButtonClass: 'btn btn-danger',
-                confirmButtonText: 'Ya, Hapus ini!',
-                buttonsStyling: false
-            }).then(function() {
-                document.location.href = href;
-            });
+        <hr class="hr1">
 
-        });
+        <div class="text-center">
+            <a data-scroll href="<?= site_url('services'); ?>" class="btn btn-light btn-radius btn-brd">Lihat Layanan Kami</a>
+        </div>
+    </div><!-- end container -->
+</div><!-- end section -->
 
-        function setFormValidation(id) {
-            $(id).validate({
-                errorPlacement: function(error, element) {
-                    $(element).parent('div').addClass('has-error');
-                }
-            });
-        }
-    </script>
+<div class="parallax section noover" data-stellar-background-ratio="0.7" style="background-image:url('{{ asset('frontend') }}/uploads/parallax_05.png');">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-6">
+                <div class="customwidget text-left">
+                    <h1>Fast Delivery</h1>
+                    <p>Dengan Sistem GPS Kami, <br>Dapat kontrol pengiriman lebih efektif</p>
+                    <ul class="list-inline">
+                        <li><i class="fa fa-check"></i> Profesional</li>
+                        <li><i class="fa fa-check"></i> One Stop Solution</li>
+                        <li><i class="fa fa-check"></i> Tepat Waktu</li>
+                        <li><i class="fa fa-check"></i> Maintenance Support</li>
+                    </ul><!-- end list -->
+                    <a href="{{ asset('frontend') }}/#services" data-scroll class="btn btn-light btn-radius btn-brd">Learn More</a>
+                </div>
+            </div><!-- end col -->
+            <div class="col-md-6">
+                <div class="text-center image-center hidden-sm hidden-xs">
+                    <img src="{{ asset('frontend') }}/uploads/device_03.png" alt="" class="img-responsive wow fadeInUp">
+                </div>
+            </div>
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div><!-- end section -->
 
+<div id="features" class="section lb">
+    <div class="container">
+        <div class="section-title text-center">
+            <?php foreach ($quote_deliveried as $data_deliveried) { ?>
+                <h3><?= $data_deliveried->judul; ?></h3>
+                <p class="lead"><?= $data_deliveried->quote; ?></p>
+            <?php } ?>
+        </div><!-- end title -->
 
-    <?php $this->view('messages'); ?>
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <ul class="features-left">
+                    <?php foreach ($deliveries_left->result() as $key => $data_deliveries) { ?>
+                        <li class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.<?= $key ?>s">
+                            <i class="flaticon-school-bus"></i>
+                            <div class="fl-inner">
+                                <h4><?= $data_deliveries->perusahaan; ?></h4>
+                                <p><?= $data_deliveries->tujuan; ?></p>
+                            </div>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
+            <div class="col-md-4 hidden-xs hidden-sm">
+                <img src="{{ asset('frontend') }}/uploads/logo_delivery.png" class="img-center img-responsive" alt="">
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <ul class="features-right">
+                    <?php foreach ($deliveries_right->result() as $key => $data_deliveries) { ?>
+                        <li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.<?= $key ?>s">
+                            <i class="flaticon-school-bus"></i>
+                            <div class="fr-inner">
+                                <h4><?= $data_deliveries->perusahaan; ?></h4>
+                                <p><?= $data_deliveries->tujuan; ?></p>
+                            </div>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div><!-- end section --> --}}
 
-</body>
-
-</html>
+@endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Homepage;
 
 class DashboardController extends Controller
 {
@@ -10,6 +11,7 @@ class DashboardController extends Controller
     {
         return view('backend.dashboard', [
             'title' => 'Dashboard',
+            'homepages' => Homepage::all(),
         ]);
     }
 }
