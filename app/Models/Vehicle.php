@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AlbumVehicle extends Model
+class Vehicle extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'image'];
+    protected $fillable = ['name', 'description', 'image', 'album_vehicle_id'];
 
     public function getTakeImageAttribute()
     {
         return '/storage/' . $this->image;
     }
 
-    public function vehicles()
+    public function album_vehicle()
     {
-        return $this->belongsToMany(Vehicle::class);
+        return $this->belongsTo(AlbumVehicle::class);
     }
 }
