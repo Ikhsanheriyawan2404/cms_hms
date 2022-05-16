@@ -46,7 +46,7 @@
                     <li><a class="{{ request()->routeIs('delivery') ? 'active' : '' }}" href="{{ route('delivery')}}">Deliveries</a></li>
                     <li><a class="{{ request()->routeIs('vehicle') ? 'active' : '' }}" href="{{ route('vehicle', []) }}">Our Vehicle</a></li>
                     <li><a class="{{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service', []) }}">Services</a></li>
-                    <li><a href="testimonials.html">Blog</a></li>
+                    <li><a class="{{ request()->routeIs('blog') ? 'active' : '' }}" href="{{ route('blog', []) }}">Blog</a></li>
                     <li><a class="{{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact', []) }}">Contact</a></li>
                 </ul>
             </div>

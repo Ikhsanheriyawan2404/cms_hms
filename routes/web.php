@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\{HomeController, BlogController};
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\{RoleController, UserController, AboutController, ServiceController, VehicleController, CustomerController, DeliveryController, HomepageController, DashboardController, AboutHeaderController, AlbumVehicleController, CategoryController, ContactController, ServiceHeaderController, VehicleHeaderController, DeliveryHeaderController, PostController};
 use App\Models\Contact;
@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/service', [HomeController::class, 'service'])->name('service');
     Route::get('/vehicle', [HomeController::class, 'vehicle'])->name('vehicle');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-    Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
+    Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 
     Route::prefix('admin')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');

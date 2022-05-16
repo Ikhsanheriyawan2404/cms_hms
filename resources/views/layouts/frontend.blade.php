@@ -26,6 +26,24 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('frontend') }}/css/hms-style.css">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/flaticon.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/slick.css">
+    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/nice-select.css">
+    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/all.css">
+    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/intlInputPhone.min.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/style.css">
+
     <!-- Modernizer for Portfolio -->
     <script src="{{ asset('frontend') }}/js/modernizer.js"></script>
 
