@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             VehicleHeaderSeeder::class,
             AboutSeeder::class,
             HomepageSeeder::class,
+            CategorySeeder::class,
         ]);
     }
 }
