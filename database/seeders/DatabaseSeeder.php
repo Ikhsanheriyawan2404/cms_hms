@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             AboutSeeder::class,
             HomepageSeeder::class,
             CategorySeeder::class,
+            PostHeaderSeeder::class,
         ]);
     }
 }

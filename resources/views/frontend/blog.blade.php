@@ -18,103 +18,90 @@
     </div>
 </div>
 
-<!-- breadcrumb start-->
-<section class="breadcrumb breadcrumb_bg">
+<section class="main_blog_area">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="breadcrumb_iner text-center">
-                    <div class="breadcrumb_iner_item">
-                        <h2>Blog</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- breadcrumb start-->
-
-<!--================Blog Area =================-->
-<section class="blog_area blog_padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mb-5 mb-lg-0">
-                <div class="blog_left_sidebar">
-                @foreach ($posts as $post)
-                    <article class="blog_item">
-                        <div class="blog_item_img">
-                            <img class="card-img rounded-0" width="100" src="{{ $post->takeImage }}" alt="">
-                            <a href="#" class="blog_item_date">
-                                <h3>{{ $post->created_at }}</h3>
-                                <p>{{ $post->created_at }}</p>
-                            </a>
-                        </div>
-                        <div class="blog_details">
-                            <a class="d-inline-block" href="#">
-                                <h2>{{ $post->title }}</h2>
-                            </a>
-                            <p>{!! Str::limit($post->contents, 200) !!}</p>
-                            <ul class="blog-info-link">
-                                <li><a href="#"><i class="far fa-user"></i>{{ $post->user->name }}</a></li>
-                                {{-- <li><a href="#"><i class="far fa-user"></i>{{ $post->category->name }}</a></li> --}}
-                                {{-- <li><a href="#"><i class="far fa-eye"></i><?=$data->views;?></a></li> --}}
-                            </ul>
-                        </div>
-                    </article>
-                @endforeach
-                    <center>{{ $posts->links() }}</center>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="blog_right_sidebar">
-                    <aside class="single_sidebar_widget search_widget">
-                        <form action="#">
-                            <div class="form-group">
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder='Search Keyword'
-                                        onfocus="this.placeholder = ''"
-                                        onblur="this.placeholder = 'Search Keyword'">
-                                    <div class="input-group-append">
-                                        <button class="btn" type="button"><i class="ti-search"></i></button>
-                                    </div>
-                                </div>
+        <div class="row main_blog_inner">
+            <div class="col-md-9">
+                <div class="main_blog_items">
+                    @foreach ($posts as $post)
+                        <div class="main_blog_item">
+                            <div class="main_blog_image">
+                                <img src="{{ $post->takeImage }}" alt="">
                             </div>
-                            <button class="button rounded-0 primary-bg text-white w-100 btn_4" type="submit">Search</button>
-                        </form>
-                    </aside>
-
-                    <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title">Category</h4>
-                        <ul class="list cat-list">
-                            @foreach ($categories as $category)
-                            <li>
-                                <a href="{{ $category->slug }}" class="d-flex">
-                                    <p>{{ $category->name }}</p>
+                            <div class="main_blog_text">
+                                <a href="">
+                                    <h2>{{ $post->title }}</h2>
                                 </a>
-                            </li>
+                                <div class="blog_author_area">
+                                    <a href="#"><i class="fa fa-user"></i>By : <span>{{ $post->user->name }}</span></a>
+                                    {{-- <a href="#"><i class="fa fa-tag"></i><span>{{ $post->category }}</span></a> --}}
+                                    {{-- <a href="#"><i class="fa fa-comments-o"></i>Comments: <?= $jml_comment; ?></a> --}}
+                                </div>
+                                {{ Str::limit($post->contents, 100)}}
+                                </p>
+                                <a href="#" data-scroll class="btn btn-light btn-radius btn-brd">Read more</a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <nav aria-label="Page navigation" class="blog_pagination">
+                    <div class="text-center">{{ $posts->links() }}</div>
+                </nav>
+            </div>
+            <div class="col-md-3">
+                <div class="sidebar_area">
+                    <aside class="r_widget search_widget">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter Search Keywords">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </aside>
+                    <aside class="r_widget categories_widget">
+                        <div class="r_widget_title">
+                            <h3>Categories</h3>
+                        </div>
+                        <ul>
+                            @foreach ($categories as $category)
+
+                            <li><a href="#">{{ $category->name }} <span>({{ $categories->counts() }})</span> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+
                             @endforeach
                         </ul>
                     </aside>
-
-                    <aside class="single_sidebar_widget popular_post_widget">
-                        <h3 class="widget_title">Recent Post</h3>
-                        <@foreach ($posts as $post)
-                            <div class="media post_item">
-                                <div class="media-body">
-                                    <a href="single-blog.html">
-                                        <h3>{{ $post->title }}</h3>
-                                    </a>
-                                    <p>{{ $post->created_at }}</p>
-                                </div>
+                    <aside class="r_widget recent_widget">
+                        <div class="r_widget_title">
+                            <h3>Berita Terbaru</h3>
+                        </div>
+                        <div class="recent_inner">
+                            @foreach ($posts as $post)
+                            <div class="recent_item">
+                                <a href="#">
+                                    <h4>{{ $post->title }}</h4>
+                                </a>
+                                <h5><?= $recent_news->tanggal; ?></h5>
                             </div>
-                        @endforeach
+                            @endforeach
+                        </div>
+                    </aside>
+                    <aside class="r_widget tage_widget">
+                        <div class="r_widget_title">
+                            <h3>Tages</h3>
+                        </div>
+                        <ul>
+                            <li><a href="#">Investment</a></li>
+                            <li><a href="#">Mutual Funds</a></li>
+                            <li><a href="#">Business</a></li>
+                            <li><a href="#">investment</a></li>
+                            <li><a href="#">Consulting</a></li>
+                            <li><a href="#">Growth</a></li>
+                        </ul>
                     </aside>
                 </div>
             </div>
         </div>
     </div>
-
 </section>
-<!--================Blog Area =================-->
 
 @endsection
