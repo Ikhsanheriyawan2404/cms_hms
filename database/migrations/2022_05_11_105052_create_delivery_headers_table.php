@@ -15,6 +15,7 @@ class CreateDeliveryHeadersTable extends Migration
     {
         Schema::create('delivery_headers', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->string('quote');
             $table->string('keyword');
             $table->string('description');

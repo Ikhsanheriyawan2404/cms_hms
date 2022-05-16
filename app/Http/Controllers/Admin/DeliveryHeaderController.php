@@ -34,6 +34,7 @@ class DeliveryHeaderController extends Controller
     public function store()
     {
         request()->validate([
+            'title' => 'required',
             'quote' => 'required',
             'keyword' => 'required',
             'description' => 'required',
@@ -44,6 +45,7 @@ class DeliveryHeaderController extends Controller
                 'id' => request('delivery_header_id')
             ],
             [
+                'title' => request('title'),
                 'quote' => request('quote'),
                 'keyword' => request('keyword'),
                 'description' => request('description'),

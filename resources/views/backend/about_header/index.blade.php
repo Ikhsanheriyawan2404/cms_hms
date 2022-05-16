@@ -66,6 +66,7 @@
                 <thead class="table-dark">
                     <tr>
                         <th style="width: 1%">No.</th>
+                        <th>Judul</th>
                         <th>Quote</th>
                         <th>Keyword</th>
                         <th>Deskripsi</th>
@@ -96,6 +97,10 @@
                 @csrf
                 <input type="hidden" name="about_header_id" id="about_header_id">
                 <div class="modal-body">
+                    <div class="form-group">
+                        <label for="title">Judul</label>
+                        <input type="text" class="form-control mr-2" name="title" id="title" required autofocus>
+                    </div>
                     <div class="form-group">
                         <label for="quote">Quote</label>
                         <input type="text" class="form-control mr-2" name="quote" id="quote" required autofocus>
@@ -152,6 +157,7 @@ $(document).ready(function () {
         ajax: "{{ route('about_header.index') }}",
         columns: [
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+            {data: 'title', name: 'title'},
             {data: 'quote', name: 'quote'},
             {data: 'keyword', name: 'keyword'},
             {data: 'description', name: 'description'},
@@ -164,12 +170,13 @@ $(document).ready(function () {
         $.get("{{ route('about_header.index') }}" +'/' + about_header_id +'/edit', function (data) {
             $('#modal-md').modal('show');
             setTimeout(function () {
-                $('#quote').focus();
-            }, 1000);
+                $('#title').focus();
+            }, 500);
             $('#modal-title').html("Edit About Header");
             $('#saveBtn').html("Simpan");
             $('#saveBtn').removeAttr('disabled');
             $('#about_header_id').val(data.id);
+            $('#title').val(data.title);
             $('#quote').val(data.quote);
             $('#keyword').val(data.keyword);
             $('#description').val(data.description);

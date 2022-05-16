@@ -34,6 +34,7 @@ class AboutHeaderController extends Controller
     public function store()
     {
         request()->validate([
+            'title' => 'required',
             'quote' => 'required',
             'keyword' => 'required',
             'description' => 'required',
@@ -42,6 +43,7 @@ class AboutHeaderController extends Controller
         AboutHeader::updateOrCreate(
             ['id' => request('about_header_id')],
             [
+                'title' => request('title'),
                 'quote' => request('quote'),
                 'keyword' => request('keyword'),
                 'description' => request('description'),

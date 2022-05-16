@@ -9,7 +9,7 @@ class AboutHeader extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['quote', 'keyword', 'description', 'image'];
+    protected $fillable = ['title', 'quote', 'keyword', 'description', 'image'];
 
     public function getTakeImageAttribute()
     {
