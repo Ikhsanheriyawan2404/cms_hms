@@ -163,7 +163,8 @@ $(document).ready(function () {
         setTimeout(function () {
             $('#name').focus();
         }, 1000);
-        $('#saveBtn').val("Add");
+        $('#saveBtn').removeAttr('disabled');
+        $('#saveBtn').html("Simpan");
         $('#album_vehicle_id').val('');
         $('#itemForm').trigger("reset");
         $('#modal-title').html("Tambah Album Vehicle");
@@ -178,8 +179,8 @@ $(document).ready(function () {
                 $('#name').focus();
             }, 500);
             $('#modal-title').html("Edit album_vehicle");
-            $('#saveBtn').val("Simpan");
             $('#saveBtn').removeAttr('disabled');
+            $('#saveBtn').html("Simpan");
             $('#album_vehicle_id').val(data.id);
             $('#name').val(data.name);
             $('#image').val(data.image);
