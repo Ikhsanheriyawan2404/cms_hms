@@ -3,7 +3,7 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label for="title">Judul <span class="text-danger">*</span></label>
-                <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="Masukan judul" value="{{ $about->title ?? old('title') }}">
+                <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="Masukan judul" value="{{ $service->title ?? old('title') }}">
                 @error('title')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -27,7 +27,7 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label for="contents">Isi Konten <span class="text-danger">*</span></label>
-                <textarea name="contents" id="contents" class="form-control @error('contents') is-invalid @enderror">{{ $about->contents ?? old('contents') }}</textarea>
+                <textarea name="contents" id="contents" class="form-control @error('contents') is-invalid @enderror">{{ $service->contents ?? old('contents') }}</textarea>
                 @error('contents')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

@@ -30,7 +30,7 @@ class ServiceHeaderController extends Controller
         }
 
         return view('backend.service_header.index', [
-            'title' => 'Data Service',
+            'title' => 'Service Header',
             'service_header' => ServiceHeader::find(1),
         ]);
     }
@@ -66,6 +66,10 @@ class ServiceHeaderController extends Controller
 
     public function updateImage(ServiceHeader $service_header)
     {
+        request()->validate([
+            'image' => 'image|mimes:jpeg,jpg,png|max:2048'
+        ]);
+
         if (request('image')) {
             Storage::delete($service_header->image);
             $image = request()->file('image')->store('img/service_headers');

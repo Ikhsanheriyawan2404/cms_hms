@@ -59,7 +59,7 @@
 <div class="container">
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Data About</h3>
+            <h3 class="card-title">Data Service Header</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -96,7 +96,7 @@
             </div>
             <form method="post" id="itemForm" name="itemForm">
                 @csrf
-                <input type="hidden" name="vehicle_header_id" id="vehicle_header_id">
+                <input type="hidden" name="service_header_id" id="service_header_id">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="title">Judul</label>
@@ -169,7 +169,7 @@ $(document).ready(function () {
             $('#modal-md').modal('show');
             setTimeout(function () {
                 $('#title').focus();
-            }, 1000);
+            }, 500);
             $('#modal-title').html("Edit About Header");
             $('#saveBtn').val("Edit");
             $('#service_header_id').val(data.id);
