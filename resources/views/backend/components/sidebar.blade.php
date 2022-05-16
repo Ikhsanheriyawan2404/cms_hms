@@ -173,6 +173,49 @@
             </ul>
         </li>
         <li class="nav-item">
+            @can('user-list')
+            <a href="{{ route('posts.index') }}" class="nav-link {{ request()->routeIs('posts.*') || request()->routeIs('post_header.*') || request()->routeIs('categories.*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-newspaper"></i>
+            <p>
+                Blog
+                <i class="right fas fa-angle-left"></i>
+            </p>
+            </a>
+            @endcan
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    @can('user-list')
+                    <a href="{{ route('post_header.index') }}" class="nav-link {{ request()->routeIs('post_header.index') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-th-list"></i>
+                    <p>
+                        Blog Header
+                    </p>
+                    </a>
+                    @endcan
+                </li>
+                <li class="nav-item">
+                    @can('user-list')
+                    <a href="{{ route('posts.index') }}" class="nav-link {{ request()->routeIs('posts.index') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-list"></i>
+                    <p>
+                        Blog List
+                    </p>
+                    </a>
+                    @endcan
+                </li>
+                <li class="nav-item">
+                    @can('user-list')
+                    <a href="{{ route('categories.index') }}" class="nav-link {{ request()->routeIs('categories.index') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-cogs"></i>
+                    <p>
+                        Category
+                    </p>
+                    </a>
+                    @endcan
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
             <a href="{{ route('customers.index') }}" class="nav-link {{ request()->routeIs('customers.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-user-friends"></i>
             <p>

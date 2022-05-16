@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Admin\{RoleController, UserController, AboutController, ServiceController, VehicleController, CustomerController, DeliveryController, HomepageController, DashboardController, AboutHeaderController, AlbumVehicleController, ContactController, ServiceHeaderController, VehicleHeaderController, DeliveryHeaderController};
+use App\Http\Controllers\Admin\{RoleController, UserController, AboutController, ServiceController, VehicleController, CustomerController, DeliveryController, HomepageController, DashboardController, AboutHeaderController, AlbumVehicleController, CategoryController, ContactController, ServiceHeaderController, VehicleHeaderController, DeliveryHeaderController, PostController};
 use App\Models\Contact;
 
 // Login Routes ...
@@ -46,6 +46,11 @@ Route::middleware('auth')->group(function () {
         Route::resources(['services' => ServiceController::class]);
         Route::resources(['service_header' => ServiceHeaderController::class]);
         Route::put('service_header/{service_header:id}/update_image', [ServiceHeaderController::class, 'updateImage'])->name('service_header.updateImage');
+
+        Route::resources(['posts' => PostController::class]);
+        Route::resources(['categories' => CategoryController::class]);
+        Route::resources(['post_header' => PostHeaderController::class]);
+        Route::put('post_header/{post_header:id}/update_image', [PostHeaderController::class, 'updateImage'])->name('post_header.updateImage');
 
         Route::resources(['contacts' => ContactController::class]);
 
