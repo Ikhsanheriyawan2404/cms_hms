@@ -19,4 +19,14 @@ class BlogController extends Controller
             'customers' => Customer::all()
         ]);
     }
+
+    public function show(Post $post)
+    {
+        return view('frontend.blog_details', [
+            'title' => $post->title,
+            'post' => $post,
+            'post_header' => PostHeader::find(1),
+            'comments' => Comment::all(),
+        ]);
+    }
 }

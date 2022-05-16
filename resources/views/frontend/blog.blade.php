@@ -29,7 +29,7 @@
                                 <img src="{{ $post->takeImage }}" alt="">
                             </div>
                             <div class="main_blog_text">
-                                <a href="">
+                                <a href="{{ route('blog.show', $post->slug) }}">
                                     <h2>{{ $post->title }}</h2>
                                 </a>
                                 <div class="blog_author_area">
@@ -37,7 +37,7 @@
                                     {{-- <a href="#"><i class="fa fa-tag"></i><span>{{ $post->category }}</span></a> --}}
                                     {{-- <a href="#"><i class="fa fa-comments-o"></i>Comments: <?= $jml_comment; ?></a> --}}
                                 </div>
-                                {{ Str::limit($post->contents, 100)}}
+                                {!! Str::limit($post->contents, 200) !!}
                                 </p>
                                 <a href="#" data-scroll class="btn btn-light btn-radius btn-brd">Read more</a>
                             </div>
@@ -65,7 +65,7 @@
                         <ul>
                             @foreach ($categories as $category)
 
-                            <li><a href="#">{{ $category->name }} <span>({{ $categories->counts() }})</span> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                            <li><a href="#">{{ $category->name }} <span>({{ $categories->count() }})</span> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
 
                             @endforeach
                         </ul>
@@ -80,12 +80,12 @@
                                 <a href="#">
                                     <h4>{{ $post->title }}</h4>
                                 </a>
-                                <h5><?= $recent_news->tanggal; ?></h5>
+                                <h5>{{ $post->created_at }}</h5>
                             </div>
                             @endforeach
                         </div>
                     </aside>
-                    <aside class="r_widget tage_widget">
+                    {{-- <aside class="r_widget tage_widget">
                         <div class="r_widget_title">
                             <h3>Tages</h3>
                         </div>
@@ -97,7 +97,7 @@
                             <li><a href="#">Consulting</a></li>
                             <li><a href="#">Growth</a></li>
                         </ul>
-                    </aside>
+                    </aside> --}}
                 </div>
             </div>
         </div>
