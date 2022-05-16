@@ -16,7 +16,7 @@
                             </h2>
                             <div class="slider-content-btn">
                                 <a class="button btn btn-light btn-radius btn-brd" href="#">Read More</a>
-                                <a class="button btn btn-light btn-radius btn-brd" href="#">Contact</a>
+                                <a class="button btn btn-light btn-radius btn-brd" href="{{ route('contact') }}">Contact</a>
                             </div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                     <h2>{{ $company_profile->title }}</h2>
                     <p class="lead">{!! $company_profile->contents !!}</p>
 
-                    <a href="#services" class="btn btn-light btn-radius btn-brd grd1">Learn More</a>
+                    <a href="{{ route('about') }}" class="btn btn-light btn-radius btn-brd grd1">Learn More</a>
                 </div><!-- end messagebox -->
             </div><!-- end col -->
 
@@ -65,14 +65,14 @@
                         {!! $visi_misi->contents !!}
                     </p>
 
-                    <a href="#services" class="btn btn-light btn-radius btn-brd grd1">Learn More</a>
+                    <a href="{{ route('about') }}" class="btn btn-light btn-radius btn-brd grd1">Learn More</a>
                 </div><!-- end messagebox -->
             </div><!-- end col -->
         </div><!-- end row -->
     </div><!-- end container -->
 </div><!-- end section -->
 
-<div class="parallax section parallax-off" data-stellar-background-ratio="0.9" style="background-image:url({{ $company_profile->takeImage }});">
+<div class="parallax section parallax-off" data-stellar-background-ratio="0.9" style="background-image:url({{ asset('img') }}/parallax_05.png);">
     <div class="container">
         <div class="row text-center stat-wrap">
             @foreach ($album_vehicles as $album_vehicle)
@@ -113,12 +113,12 @@
         <hr class="hr1">
 
         <div class="text-center">
-            <a data-scroll href="#portfolio" class="btn btn-light btn-radius btn-brd">View Our Portfolio</a>
+            <a data-scroll href="{{ route('service', []) }}" class="btn btn-light btn-radius btn-brd">Lihat Layanan Kami</a>
         </div>
     </div><!-- end container -->
 </div><!-- end section -->
 
-<div class="parallax section noover" data-stellar-background-ratio="0.7" style="background-image:url('uploads/parallax_05.png');">
+<div class="parallax section noover" data-stellar-background-ratio="0.7" style="background-image:url({{ asset('img') }}/parallax_05.png);">
     <div class="container">
         <div class="row text-center">
             <div class="col-md-6">
@@ -131,12 +131,12 @@
                         <li><i class="fa fa-check"></i> Icons & PSD</li>
                         <li><i class="fa fa-check"></i> Limitless Colors</li>
                     </ul><!-- end list -->
-                    <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd">Learn More</a>
+                    <a href="{{ route('blog') }}" data-scroll class="btn btn-light btn-radius btn-brd">Learn More</a>
                 </div>
             </div><!-- end col -->
             <div class="col-md-6">
                 <div class="text-center image-center hidden-sm hidden-xs">
-                    <img src="uploads/device_03.png" alt="" class="img-responsive wow fadeInUp">
+                    <img src="" alt="" class="img-responsive wow fadeInUp">
                 </div>
             </div>
         </div><!-- end row -->

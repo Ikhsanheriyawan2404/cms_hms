@@ -1,11 +1,11 @@
 <div id="testimonials" class="parallax section db parallax-off" style="background-image:url('uploads/parallax_03.jpg');">
     <div class="container">
         <div class="section-title text-center">
-            <h3>Testimonials</h3>
+            <h3>Mitra Kami</h3>
             <p class="lead">We thanks for all our awesome testimonials! There are hundreds of our happy customers! <br>Let's see what others say about GoodWEB Solutions website template!</p>
         </div><!-- end title -->
 
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="testi-carousel owl-carousel owl-theme">
                     <div class="testimonial clearfix">
@@ -85,7 +85,7 @@
                     </div><!-- end testimonial -->
                 </div><!-- end carousel -->
             </div><!-- end col -->
-        </div><!-- end row -->
+        </div><!-- end row --> --}}
 
         <hr class="hr1">
 
@@ -106,10 +106,9 @@
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="widget clearfix">
                     <div class="widget-title">
-                        <img src="images/logos/logo-2.png" alt="" />
+                        <img src="{{ asset('img') }}/logoheader_hms.png" alt="" />
                     </div>
-                    <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
-                    <p>Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
+                    <p>Jl. Raya Brigjen Dharsono Gg. Randu Alas No. 9 Kedawung - Cirebon</p>
                 </div><!-- end clearfix -->
             </div><!-- end col -->
 

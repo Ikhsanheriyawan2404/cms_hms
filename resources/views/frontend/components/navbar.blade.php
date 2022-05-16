@@ -4,7 +4,7 @@
             <div class="col-md-6 col-sm-6">
                 <div class="left-top">
                     <div class="email-box">
-                        <a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> youremail@gmail.com</a>
+                        <a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> hms@gmail.com</a>
                     </div>
                     <div class="phone-box">
                         <a href="tel:1234567890"><i class="fa fa-phone" aria-hidden="true"></i> +1 234 567 890</a>
@@ -37,7 +37,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><img src="images/logos/logo.png" alt="image"></a>
+                <a class="navbar-brand" href="#"><img src="{{ asset('img') }}/logoheader_hms.png" alt="image"></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
