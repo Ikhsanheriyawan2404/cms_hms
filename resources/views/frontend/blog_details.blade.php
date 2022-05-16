@@ -1,6 +1,7 @@
 @extends('layouts.frontend', compact('title'))
 
 @section('content')
+@include('sweetalert::alert')
 
 <div class="banner-area banner-bg-1" style="background-image: url({{ $post_header->takeImage }})">
     <div class="container">
@@ -64,15 +65,32 @@
                     <div class="s_comment_area">
                         <h3>Tinggalkan Komentar</h3>
                         <div class="s_comment_inner">
-                            <form class="row contact_us_form" action="contact_process.php" method="post" id="commentForm" novalidate="novalidate">
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span> <br>
+                            @enderror
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span> <br>
+                            @enderror
+                            @error('messages')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span> <br>
+                            @enderror
+                            <form class="row contact_us_form" action="{{ route('comments.store') }}" method="post" id="commentForm" novalidate="novalidate">
+                                @csrf
+                                <input type="hidden" value="{{ $post->id }}" name="post_id">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address" required>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <textarea class="form-control" name="message" id="message" rows="1" placeholder="Wrtie message"></textarea>
+                                    <textarea class="form-control" name="messages" id="messages" rows="1" placeholder="Wrtie message" required></textarea>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <button type="submit" value="submit" class="btn submit_blue form-control">submit now</button>

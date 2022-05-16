@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Comment;
 use App\Models\Category;
 use App\Models\Customer;
 use App\Models\PostHeader;
@@ -25,8 +26,12 @@ class BlogController extends Controller
         return view('frontend.blog_details', [
             'title' => $post->title,
             'post' => $post,
+            'posts' => Post::all(),
+            'categories' => Category::all(),
             'post_header' => PostHeader::find(1),
             'comments' => Comment::all(),
+            'customers' => Customer::all()
+
         ]);
     }
 }

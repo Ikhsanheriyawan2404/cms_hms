@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\PostHeaderController;
 use App\Http\Controllers\{HomeController, BlogController};
-use App\Http\Controllers\Admin\{RoleController, UserController, AboutController, ServiceController, VehicleController, CustomerController, DeliveryController, HomepageController, DashboardController, AboutHeaderController, AlbumVehicleController, CategoryController, ContactController, ServiceHeaderController, VehicleHeaderController, DeliveryHeaderController, PostController};
+use App\Http\Controllers\Admin\{RoleController, UserController, AboutController, ServiceController, VehicleController, CustomerController, DeliveryController, HomepageController, DashboardController, AboutHeaderController, AlbumVehicleController, CategoryController, CommentController, ContactController, ServiceHeaderController, VehicleHeaderController, DeliveryHeaderController, PostController};
 
 // Login Routes ...
 Route::get('', [LoginController::class, 'showLoginForm']);
@@ -26,11 +26,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
     Route::get('/blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
+    Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+
 
     Route::prefix('admin')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::resources(['homepages' => HomepageController::class]);
-        Route::resources(['customers' => CustomerController::class]);
+        Route::resources(['customers' => CommentController::class]);
 
         Route::resources(['abouts' => AboutController::class]);
         Route::resources(['about_header' => AboutHeaderController::class]);

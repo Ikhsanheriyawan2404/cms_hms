@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="banner">
-                    <h2>Service</h2>
+                    <h2>Blog</h2>
                     <ul class="page-title-link">
                         <li><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="{{ route('blog', []) }}">Blog</a></li>
@@ -39,7 +39,7 @@
                                 </div>
                                 {!! Str::limit($post->contents, 200) !!}
                                 </p>
-                                <a href="#" data-scroll class="btn btn-light btn-radius btn-brd">Read more</a>
+                                <a href="{{ route('blog.show', $post->slug) }}" data-scroll class="btn btn-light btn-radius btn-brd">Read more</a>
                             </div>
                         </div>
                     @endforeach
