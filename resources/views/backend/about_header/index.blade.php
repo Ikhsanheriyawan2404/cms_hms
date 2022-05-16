@@ -131,6 +131,9 @@
 
 @section('custom-scripts')
 
+<!-- bs-custom-file-input -->
+<script src="{{ asset('asset') }}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
 <!-- DataTables  & Plugins -->
 <script src="{{ asset('asset')}}/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="{{ asset('asset')}}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -164,7 +167,8 @@ $(document).ready(function () {
                 $('#quote').focus();
             }, 1000);
             $('#modal-title').html("Edit About Header");
-            $('#saveBtn').val("Edit");
+            $('#saveBtn').html("Simpan");
+            $('#saveBtn').removeAttr('disabled');
             $('#about_header_id').val(data.id);
             $('#quote').val(data.quote);
             $('#keyword').val(data.keyword);
@@ -182,11 +186,14 @@ $(document).ready(function () {
             type: "POST",
             // dataType: 'json',
             success: function (data) {
+                $('#saveBtn').attr('disabled', 'disabled');
+                $('#saveBtn').html('Simpan...');
                 $('#itemForm').trigger("reset");
                 $('#modal-md').modal('hide');
                 table.draw();
             },
             error: function (data) {
+                alert('Data ada yang kosong!');
                 console.log('Error:', data);
                 $('#saveBtn').html('Save');
             }

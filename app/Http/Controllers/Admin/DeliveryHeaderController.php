@@ -61,6 +61,10 @@ class DeliveryHeaderController extends Controller
 
     public function updateImage(DeliveryHeader $delivery_header)
     {
+        request()->validate([
+            'image' => 'image|mimes:png,jpeg,jpg|max:2048'
+        ]);
+
         if (request('image')) {
             Storage::delete($delivery_header->image);
             $image = request()->file('image')->store('img/delivery_headers');

@@ -70,7 +70,7 @@ class CustomerController extends Controller
     public function edit(Customer $customer)
     {
         return view('backend.customers.edit',[
-            'title' => 'Edit Data customer',
+            'title' => 'Edit Data Customer',
             'customer' => $customer,
         ]);
     }

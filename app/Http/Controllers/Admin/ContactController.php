@@ -37,7 +37,7 @@ class ContactController extends Controller
         }
 
         return view('backend.contacts.index', [
-            'title' => ' Data About',
+            'title' => ' Contacts',
         ]);
     }
 

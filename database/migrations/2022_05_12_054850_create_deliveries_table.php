@@ -18,7 +18,7 @@ class CreateDeliveriesTable extends Migration
             $table->unsignedBigInteger('customer_id');
             $table->string('title');
             $table->text('description');
-            $table->string('image');
+            $table->string('image')->nullable();
 
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('CASCADE');
             $table->timestamps();

@@ -17,6 +17,10 @@ class AboutController extends Controller
             $abouts = About::latest()->get();
             return DataTables::of($abouts)
                 ->addIndexColumn()
+                ->addColumn('contents', function ($about) {
+                    return Str::limit($about->contents, 100);
+                })
+                ->addColumn('action', 'path.to.view')
                 ->addColumn('image', function($request) {
                     return "<img src='$request->takeImage' class='img-fluid' />";
                 })
@@ -35,7 +39,7 @@ class AboutController extends Controller
 
                     return $btn;
                 })
-                ->rawColumns(['image', 'action'])
+                ->rawColumns(['contents', 'image', 'action'])
                 ->make(true);
         }
 

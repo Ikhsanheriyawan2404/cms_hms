@@ -43,7 +43,7 @@ class DeliveryController extends Controller
         }
 
         return view('backend.deliveries.index', [
-            'title' => ' Data Delivery',
+            'title' => ' Delivery / Pengiriman',
         ]);
     }
 

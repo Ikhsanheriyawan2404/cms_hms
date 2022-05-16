@@ -30,7 +30,7 @@ class VehicleHeaderController extends Controller
         }
 
         return view('backend.vehicle_header.index', [
-            'title' => 'Data Kendaraan',
+            'title' => 'Vehicle Header',
             'vehicle_header' => VehicleHeader::find(1)
         ]);
     }
@@ -66,6 +66,10 @@ class VehicleHeaderController extends Controller
 
     public function updateImage(VehicleHeader $vehicle_header)
     {
+        request()->validate([
+            'image' => 'image|mimes:jpg,png,jpeg|max:2048'
+        ]);
+
         if (request('image')) {
             Storage::delete($vehicle_header->image);
             $image = request()->file('image')->store('img/vehicle_headers');

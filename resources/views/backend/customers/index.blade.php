@@ -44,8 +44,8 @@
                         <th style="width: 1%">No.</th>
                         <th>Gambar</th>
                         <th>Perusahaan</th>
-                        <th>Phone Number</th>
-                        <th>Address</th>
+                        <th>Nomor HP</th>
+                        <th>Alamat</th>
                         <th>Deskripsi</th>
                         <th class="text-center" style="width: 10%"><i class="fas fa-cogs"></i></th>
                     </tr>

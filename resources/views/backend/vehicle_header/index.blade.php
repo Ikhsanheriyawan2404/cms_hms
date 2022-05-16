@@ -58,7 +58,7 @@
 <div class="container">
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Data About</h3>
+            <h3 class="card-title">Data Vehicle Header</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -168,9 +168,10 @@ $(document).ready(function () {
             $('#modal-md').modal('show');
             setTimeout(function () {
                 $('#title').focus();
-            }, 1000);
+            }, 500);
             $('#modal-title').html("Edit About Header");
-            $('#saveBtn').val("Edit");
+            $('#saveBtn').html("Simpan");
+            $('#saveBtn').removeAttr('disabled');
             $('#vehicle_header_id').val(data.id);
             $('#title').val(data.title);
             $('#quote').val(data.quote);
@@ -189,13 +190,15 @@ $(document).ready(function () {
             type: "POST",
             // dataType: 'json',
             success: function (data) {
+                $('#saveBtn').attr('disabled', 'disabled');
+                $('#saveBtn').html('Simpan...');
                 $('#itemForm').trigger("reset");
                 $('#modal-md').modal('hide');
                 table.draw();
             },
             error: function (data) {
+                alert('Data ada yang kosong!');
                 console.log('Error:', data);
-                $('#saveBtn').html('Save');
             }
         });
     });

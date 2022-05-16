@@ -35,7 +35,7 @@
             <a href="{{ route('abouts.index') }}" class="nav-link {{ request()->routeIs('abouts.*') || request()->routeIs('about_header.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-exclamation"></i>
             <p>
-                About
+                Abouts
                 <i class="right fas fa-angle-left"></i>
             </p>
             </a>
@@ -68,7 +68,7 @@
             <a href="{{ route('deliveries.index') }}" class="nav-link {{ request()->routeIs('deliveries.*') || request()->routeIs('delivery_header.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-truck"></i>
             <p>
-                Delivery
+                Deliveries
                 <i class="right fas fa-angle-left"></i>
             </p>
             </a>
@@ -101,7 +101,7 @@
             <a href="{{ route('vehicles.index') }}" class="nav-link {{ request()->routeIs('vehicles.*') || request()->routeIs('vehicle_header.*') || request()->routeIs('album_vehicle.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-car"></i>
             <p>
-                Vehicle
+                Vehicles
                 <i class="right fas fa-angle-left"></i>
             </p>
             </a>
@@ -144,7 +144,7 @@
             <a href="{{ route('services.index') }}" class="nav-link {{ request()->routeIs('services.*') || request()->routeIs('service_header.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-tools"></i>
             <p>
-                Service
+                Services
                 <i class="right fas fa-angle-left"></i>
             </p>
             </a>
@@ -176,7 +176,7 @@
             <a href="{{ route('customers.index') }}" class="nav-link {{ request()->routeIs('customers.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-user-friends"></i>
             <p>
-                Pelanggan
+                Customers
             </p>
             </a>
         </li>
@@ -184,7 +184,7 @@
             <a href="{{ route('contacts.index') }}" class="nav-link {{ request()->routeIs('contacts.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-address-book"></i>
             <p>
-                Kontak
+                Contacts
             </p>
             </a>
         </li>

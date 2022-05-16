@@ -56,6 +56,10 @@ class AboutHeaderController extends Controller
 
     public function updateImage(AboutHeader $about_header)
     {
+        request()->validate([
+            'image' => 'image|mimes:png,jpeg,jpg|max:2048'
+        ]);
+
         if (request('image')) {
             Storage::delete($about_header->image);
             $image = request()->file('image')->store('img/about_headers');

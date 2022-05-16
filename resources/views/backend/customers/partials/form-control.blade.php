@@ -11,7 +11,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="customFile">Gambar <span class="text-danger">*</span></label>
+                <label for="customFile">Gambar <small class="text-danger">Abaikan jika tidak menambahakan gambar</small></label>
 
                 <div class="custom-file">
                     <input type="file" name="image" class="custom-file-input @error('image') is-invalid @enderror" id="customFile">

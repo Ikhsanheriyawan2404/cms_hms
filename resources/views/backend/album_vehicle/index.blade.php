@@ -109,7 +109,7 @@
                     </div> --}}
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Save</button>
+                    <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Simpan</button>
                 </div>
             </form>
         </div>
@@ -178,7 +178,8 @@ $(document).ready(function () {
                 $('#name').focus();
             }, 500);
             $('#modal-title').html("Edit album_vehicle");
-            $('#saveBtn').val("Edit");
+            $('#saveBtn').val("Simpan");
+            $('#saveBtn').removeAttr('disabled');
             $('#album_vehicle_id').val(data.id);
             $('#name').val(data.name);
             $('#image').val(data.image);
@@ -198,6 +199,8 @@ $(document).ready(function () {
             type: "POST",
             // dataType: 'json',
             success: function (data) {
+                $('#saveBtn').attr('disabled', 'disabled');
+                $('#saveBtn').html('Simpan ...');
                 $('#itemForm').trigger("reset");
                 $('#modal-md').modal('hide');
                 table.draw();
@@ -205,7 +208,6 @@ $(document).ready(function () {
             error: function (data) {
                 alert("Data masih kosong");
                 console.log('Error:', data);
-                $('#saveBtn').html('Save');
             }
         });
     });
