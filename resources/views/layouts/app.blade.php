@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ $title ?? config('app.name') }}</title>
 
+  <!-- Site Icons -->
+  <link rel="shortcut icon" href="{{ asset('frontend') }}/images/hms.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="{{ asset('frontend') }}/images/apple-touch-icon.png">
+
   @yield('custom-styles')
 
   <!-- Google Font: Source Sans Pro -->
@@ -33,7 +37,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="{{ asset('asset') }}/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__shake" src="{{ asset('img') }}/hms.PNG" alt="AdminLTELogo" height="60" width="60">
   </div>
 
   <!-- Navbar -->
@@ -44,8 +48,8 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ route('home') }}" class="brand-link">
-      <img src="{{ asset('asset') }}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Accounting</span>
+      <img src="{{ asset('img') }}/hms.PNG" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">CMS HMS</span>
     </a>
 
     <!-- Sidebar -->

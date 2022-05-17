@@ -34,16 +34,18 @@
                             </a>
                             <div class="blog_author_area">
                                 <a href="#"><i class="fa fa-user"></i>By : <span>{{ $post->user->name }}</span></a>
-                                {{-- <a href="#"><i class="fa fa-tag"></i><span><?= $single_blog->nama_kategori; ?></span></a>
-                                <a href="#"><i class="fa fa-comments-o"></i>Komentar: <?= $jml_komen; ?></a> --}}
+                                @foreach ($post->categories as $category)
+                                <a href="#"><i class="fa fa-tag"></i><span>{{ $category->name }}</span></a>
+                                @endforeach
+                                <a href="#"><i class="fa fa-comments-o"></i>Comments: {{ $post->comments->count() }}</a>
                             </div>
                             {!! $post->contents !!}
                         </div>
                     </div>
                     <div class="s_comment_list">
-                        {{-- <h3>Komentar <?= $jml_komen; ?></h3> --}}
+                        <h3>Komentar {{ $post->comments->count() }}</h3>
                         <div class="s_comment_list_inner">
-                            @foreach ($comments as $comment)
+                            @foreach ($post->comments as $comment)
                                 <div class="media">
                                     <div class="media-left">
                                         <img src="img/comment/comment-1.jpg" alt="">
@@ -118,7 +120,7 @@
                         <ul>
                             @foreach ($categories as $category)
 
-                            <li><a href="#">{{ $category->name }} <span>({{ $categories->count() }})</span> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                            <li><a href="{{ route('blog.category', $category->slug) }}">{{ $category->name }} <span>({{ $category->posts->count() }})</span> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
 
                             @endforeach
                         </ul>
@@ -130,7 +132,7 @@
                         <div class="recent_inner">
                             @foreach ($posts as $post)
                             <div class="recent_item">
-                                <a href="#">
+                                <a href="{{ route('blog.show', $post->slug) }}">
                                     <h4>{{ $post->title }}</h4>
                                 </a>
                                 <h5>{{ $post->created_at }}</h5>

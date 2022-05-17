@@ -23,7 +23,7 @@
         <div class="row main_blog_inner">
             <div class="col-md-9">
                 <div class="main_blog_items">
-                    @foreach ($posts as $post)
+                    @foreach ($post_most_viewed as $post)
                         <div class="main_blog_item">
                             <div class="main_blog_image">
                                 <img src="{{ $post->takeImage }}" alt="">
@@ -81,7 +81,7 @@
                         <div class="recent_inner">
                             @foreach ($posts as $post)
                             <div class="recent_item">
-                                <a href="#">
+                                <a href="{{ route('blog.show', $post->slug) }}">
                                     <h4>{{ $post->title }}</h4>
                                 </a>
                                 <h5>{{ $post->created_at }}</h5>

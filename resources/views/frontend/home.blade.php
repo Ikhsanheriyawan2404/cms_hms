@@ -36,7 +36,7 @@
                     <h2>{{ $company_profile->title }}</h2>
                     <p class="lead">{!! $company_profile->contents !!}</p>
 
-                    <a href="{{ route('about') }}" class="btn btn-light btn-radius btn-brd grd1">Learn More</a>
+                    <a href="{{ route('about.details', $company_profile->slug) }}" class="btn btn-light btn-radius btn-brd grd1">Learn More</a>
                 </div><!-- end messagebox -->
             </div><!-- end col -->
 
@@ -65,7 +65,7 @@
                         {!! $visi_misi->contents !!}
                     </p>
 
-                    <a href="{{ route('about') }}" class="btn btn-light btn-radius btn-brd grd1">Learn More</a>
+                    <a href="{{ route('about.details', $visi_misi->slug) }}" class="btn btn-light btn-radius btn-brd grd1">Learn More</a>
                 </div><!-- end messagebox -->
             </div><!-- end col -->
         </div><!-- end row -->
@@ -136,7 +136,7 @@
             </div><!-- end col -->
             <div class="col-md-6">
                 <div class="text-center image-center hidden-sm hidden-xs">
-                    <img src="" alt="" class="img-responsive wow fadeInUp">
+                    <img src="{{ asset('img') }}/parallax_06.png" alt="" class="img-responsive wow fadeInUp">
                 </div>
             </div>
         </div><!-- end row -->

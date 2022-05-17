@@ -26,24 +26,6 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('frontend') }}/css/hms-style.css">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/bootstrap.min.css">
-    <!-- animate CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/animate.css">
-    <!-- owl carousel CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/owl.carousel.min.css">
-    <!-- themify CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/themify-icons.css">
-    <!-- flaticon CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/flaticon.css">
-    <!-- swiper CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/slick.css">
-    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/nice-select.css">
-    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/all.css">
-    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/intlInputPhone.min.css">
-    <!-- style CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend') }}theme/css/style.css">
-
     <!-- Modernizer for Portfolio -->
     <script src="{{ asset('frontend') }}/js/modernizer.js"></script>
 
@@ -83,35 +65,6 @@
     <script src="{{ asset('frontend') }}/js/custom.js"></script>
     <script src="{{ asset('frontend') }}/js/portfolio.js"></script>
     <script src="{{ asset('frontend') }}/js/hoverdir.js"></script>
-
-    <!-- jquery plugins here-->
-    <!-- jquery -->
-    <script src="{{ asset('frontend') }}/js/jquery-1.12.1.min.js"></script>
-    <!-- popper js -->
-    <script src="{{ asset('frontend') }}/js/popper.min.js"></script>
-    <!-- bootstrap js -->
-    <script src="{{ asset('frontend') }}/js/bootstrap.min.js"></script>
-    <!-- easing js -->
-    <script src="{{ asset('frontend') }}/js/jquery.magnific-popup.js"></script>
-    <!-- swiper js -->
-    <script src="{{ asset('frontend') }}/js/swiper.min.js"></script>
-    <!-- swiper js -->
-    <script src="{{ asset('frontend') }}/js/masonry.pkgd.js"></script>
-    <!-- particles js -->
-    <script src="{{ asset('frontend') }}/js/owl.carousel.min.js"></script>
-    <!-- swiper js -->
-    <script src="{{ asset('frontend') }}/js/slick.min.js"></script>
-    <script src="{{ asset('frontend') }}/js/gijgo.min.js"></script>
-    <script src="{{ asset('frontend') }}/js/jquery.nice-select.min.js"></script>
-    <script src="{{ asset('frontend') }}/js/intlInputPhone.min.js"></script>
-    <!-- contact js -->
-    <script src="{{ asset('frontend') }}/js/jquery.ajaxchimp.min.js"></script>
-    <script src="{{ asset('frontend') }}/js/jquery.form.js"></script>
-    <script src="{{ asset('frontend') }}/js/jquery.validate.min.js"></script>
-    <script src="{{ asset('frontend') }}/js/mail-script.js"></script>
-    <script src="{{ asset('frontend') }}/js/contact.js"></script>
-    <!-- custom js -->
-    <script src="{{ asset('frontend') }}/js/custom.js"></script>
 
     @yield('custom-scripts')
 

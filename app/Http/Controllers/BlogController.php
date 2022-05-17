@@ -14,7 +14,8 @@ class BlogController extends Controller
     {
         return view('frontend.blog', [
             'title' => 'Halaman Blog',
-            'posts' => Post::latest()->paginate(3),
+            'posts' => Post::latest()->paginate(5),
+            'post_most_viewed' => Post::with('comments')->withCount('comments')->orderBy('comments_count', 'DESC')->limit(5)->get(),
             'categories' => Category::all(),
             'post_header' => PostHeader::find(1),
             'customers' => Customer::all()
@@ -26,7 +27,8 @@ class BlogController extends Controller
         return view('frontend.blog_details', [
             'title' => $post->title,
             'post' => $post,
-            'posts' => Post::all(),
+            'posts' => Post::latest()->paginate(5),
+            'post_most_viewed' => Post::with('comments')->withCount('comments')->orderBy('comments_count', 'DESC')->limit(5)->get(),
             'categories' => Category::all(),
             'post_header' => PostHeader::find(1),
             'comments' => Comment::all(),

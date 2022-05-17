@@ -4,10 +4,10 @@
             <div class="col-md-6 col-sm-6">
                 <div class="left-top">
                     <div class="email-box">
-                        <a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> hms@gmail.com</a>
+                        <a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> cvharumanis@yahoo.co.id</a>
                     </div>
                     <div class="phone-box">
-                        <a href="tel:1234567890"><i class="fa fa-phone" aria-hidden="true"></i> +1 234 567 890</a>
+                        <a href="tel:1234567890"><i class="fa fa-phone" aria-hidden="true"></i> +62 852-2453-3384</a>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                     <li><a class="{{ request()->routeIs('delivery') ? 'active' : '' }}" href="{{ route('delivery')}}">Deliveries</a></li>
                     <li><a class="{{ request()->routeIs('vehicle') ? 'active' : '' }}" href="{{ route('vehicle', []) }}">Our Vehicle</a></li>
                     <li><a class="{{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service', []) }}">Services</a></li>
-                    <li><a class="{{ request()->routeIs('blog.*') ? 'active' : '' }}" href="{{ route('blog', []) }}">Blog</a></li>
+                    <li><a class="{{ request()->routeIs('blog') ? 'active' : '' }} || {{ request()->routeIs('blog.*') ? 'active' : '' }}" href="{{ route('blog', []) }}">Blog</a></li>
                     <li><a class="{{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact', []) }}">Contact</a></li>
                 </ul>
             </div>
