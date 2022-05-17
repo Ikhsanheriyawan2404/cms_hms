@@ -174,7 +174,7 @@
         </li>
         <li class="nav-item">
             @can('user-list')
-            <a href="{{ route('posts.index') }}" class="nav-link {{ request()->routeIs('posts.*') || request()->routeIs('post_header.*') || request()->routeIs('categories.*') ? 'active' : '' }}">
+            <a href="{{ route('posts.index') }}" class="nav-link {{ request()->routeIs('posts.*') || request()->routeIs('post_header.*') || request()->routeIs('categories.*') || request()->routeIs('comments.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-newspaper"></i>
             <p>
                 Blog
@@ -209,6 +209,16 @@
                     <i class="nav-icon fas fa-cogs"></i>
                     <p>
                         Category
+                    </p>
+                    </a>
+                    @endcan
+                </li>
+                <li class="nav-item">
+                    @can('user-list')
+                    <a href="{{ route('comments.index') }}" class="nav-link {{ request()->routeIs('comments.index') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-comment"></i>
+                    <p>
+                        Comments
                     </p>
                     </a>
                     @endcan

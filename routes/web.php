@@ -60,6 +60,8 @@ Route::middleware('auth')->group(function () {
 
         Route::resources(['contacts' => ContactController::class]);
 
+        Route::resources(['comments' => CommentController::class]);
+
         Route::resources(['users' => UserController::class]);
         Route::post('users/{user:id}/status', [UserController::class, 'changeStatus'])->name('users.status');
         Route::resources(['roles' => RoleController::class]);
