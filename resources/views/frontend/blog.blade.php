@@ -34,8 +34,10 @@
                                 </a>
                                 <div class="blog_author_area">
                                     <a href="#"><i class="fa fa-user"></i>By : <span>{{ $post->user->name }}</span></a>
-                                    {{-- <a href="#"><i class="fa fa-tag"></i><span>{{ $post->category }}</span></a> --}}
-                                    {{-- <a href="#"><i class="fa fa-comments-o"></i>Comments: <?= $jml_comment; ?></a> --}}
+                                    @foreach ($post->categories as $category)
+                                    <a href="#"><i class="fa fa-tag"></i><span>{{ $category->name }}</span></a>
+                                    @endforeach
+                                    <a href="#"><i class="fa fa-comments-o"></i>Comments: {{ $post->comments->count() }}</a>
                                 </div>
                                 {!! Str::limit($post->contents, 200) !!}
                                 </p>
@@ -52,9 +54,11 @@
                 <div class="sidebar_area">
                     <aside class="r_widget search_widget">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Enter Search Keywords">
+                            <form action="{{ route('blog.search', []) }}" method="get" id="search-form">
+                            </form>
+                            <input type="text" class="form-control" name="search" placeholder="Enter Search Keywords">
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                                <button class="btn btn-default" type="submit" onclick="event.preventDefault();document.getElementById('search-form').submit();"><i class="fa fa-search"></i></button>
                             </span>
                         </div>
                     </aside>
@@ -65,7 +69,7 @@
                         <ul>
                             @foreach ($categories as $category)
 
-                            <li><a href="#">{{ $category->name }} <span>({{ $category->posts->count() }})</span> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                            <li><a href="{{ route('blog.category', $category->slug) }}">{{ $category->name }} <span>({{ $category->posts->count() }})</span> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
 
                             @endforeach
                         </ul>

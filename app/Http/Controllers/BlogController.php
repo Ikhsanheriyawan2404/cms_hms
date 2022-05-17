@@ -14,7 +14,7 @@ class BlogController extends Controller
     {
         return view('frontend.blog', [
             'title' => 'Halaman Blog',
-            'posts' => Post::latest()->paginate(5),
+            'posts' => Post::latest()->paginate(3),
             'categories' => Category::all(),
             'post_header' => PostHeader::find(1),
             'customers' => Customer::all()
@@ -31,7 +31,31 @@ class BlogController extends Controller
             'post_header' => PostHeader::find(1),
             'comments' => Comment::all(),
             'customers' => Customer::all()
+        ]);
+    }
 
+    public function category(Category $category)
+    {
+        $posts = $category->posts()->with('user')->latest()->paginate(5);
+        return view('frontend.blog', [
+            'title' => 'Kategori Postingan',
+            'category' => $category,
+            'posts' => $posts,
+            'categories' => Category::all(),
+            'post_header' => PostHeader::find(1),
+            'customers' => Customer::all()
+        ]);
+    }
+
+    public function search()
+    {
+        $query = request('search');
+        return view('frontend.blog', [
+            'title' => 'Hasil untuk ' . $query,
+            'posts' => Post::where("title", "like", "%$query%")->latest()->paginate(5),
+            'categories' => Category::get(),
+            'post_header' => PostHeader::find(1),
+            'customers' => Customer::all()
         ]);
     }
 }
