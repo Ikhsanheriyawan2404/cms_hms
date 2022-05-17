@@ -65,7 +65,7 @@
                         <ul>
                             @foreach ($categories as $category)
 
-                            <li><a href="#">{{ $category->name }} <span>({{ $categories->count() }})</span> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                            <li><a href="#">{{ $category->name }} <span>({{ $category->posts->count() }})</span> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
 
                             @endforeach
                         </ul>

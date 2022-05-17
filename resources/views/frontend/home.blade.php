@@ -78,7 +78,7 @@
             @foreach ($album_vehicles as $album_vehicle)
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <span data-scroll class="global-radius icon_wrap effect-1"><i class="flaticon-school-bus"></i></span>
-                <p class="stat_count">{{ $album_vehicles->count()}}</p>
+                <p class="stat_count">{{ $album_vehicle->vehicles->count()}}</p>
                 <h3>{{ $album_vehicle->name }}</h3>
             </div><!-- end col -->
             @endforeach
