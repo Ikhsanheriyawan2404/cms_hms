@@ -16,6 +16,12 @@ class VehicleController extends Controller
             $vehicles = Vehicle::latest()->get();
             return DataTables::of($vehicles)
                 ->addIndexColumn()
+                ->addColumn('cmb', function (Vehicle $vehicle) {
+                    return $vehicle->length * $vehicle->width * $vehicle->height / 1000000 . ' &#13221;';
+                })
+                ->addColumn('weight', function (Vehicle $vehicle) {
+                    return $vehicle->weight . ' Ton';
+                })
                 ->editColumn('album_vehicle', function (Vehicle $vehicle) {
                     return $vehicle->album_vehicle->name;
                 })
@@ -37,7 +43,7 @@ class VehicleController extends Controller
 
                     return $btn;
                 })
-                ->rawColumns(['image', 'action'])
+                ->rawColumns(['cmb', 'image', 'action'])
                 ->make(true);
         }
 
@@ -66,7 +72,10 @@ class VehicleController extends Controller
 
         request()->validate([
             'name' => 'required|max:255',
-            'description' => 'required',
+            'length' => 'max:255',
+            'width' => 'max:255',
+            'height' => 'max:255',
+            'weight' => 'max:255',
             'album_vehicle_id' => 'required',
             'image' => 'image|mimes:jpg,jpeg,png|max:2048',
         ]);
@@ -75,6 +84,10 @@ class VehicleController extends Controller
             ['id' => request('vehicle_id')],
             [
                 'name' => request('name'),
+                'length' => request('length'),
+                'width' => request('width'),
+                'height' => request('height'),
+                'weight' => request('weight'),
                 'description' => request('description'),
                 'album_vehicle_id' => request('album_vehicle_id'),
                 'image' => $image,

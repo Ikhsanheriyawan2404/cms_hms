@@ -28,7 +28,7 @@ class BlogController extends Controller
             'title' => $post->title,
             'post' => $post,
             'posts' => Post::latest()->paginate(5),
-            'post_most_viewed' => Post::with('comments')->withCount('comments')->orderBy('comments_count', 'DESC')->limit(5)->get(),
+            // 'post_most_viewed' => Post::with('comments')->withCount('comments')->orderBy('comments_count', 'DESC')->limit(5)->get(),
             'categories' => Category::all(),
             'post_header' => PostHeader::find(1),
             'comments' => Comment::all(),
@@ -43,6 +43,7 @@ class BlogController extends Controller
             'title' => 'Kategori Postingan',
             'category' => $category,
             'posts' => $posts,
+            'post_most_viewed' => Post::with('comments')->withCount('comments')->orderBy('comments_count', 'DESC')->limit(5)->get(),
             'categories' => Category::all(),
             'post_header' => PostHeader::find(1),
             'customers' => Customer::all()
@@ -54,6 +55,7 @@ class BlogController extends Controller
         $query = request('search');
         return view('frontend.blog', [
             'title' => 'Hasil untuk ' . $query,
+            'post_most_viewed' => Post::with('comments')->withCount('comments')->orderBy('comments_count', 'DESC')->limit(5)->get(),
             'posts' => Post::where("title", "like", "%$query%")->latest()->paginate(5),
             'categories' => Category::get(),
             'post_header' => PostHeader::find(1),

@@ -16,8 +16,12 @@ class CreateVehiclesTable extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('image');
-            $table->text('description');
+            $table->string('image')->nullable();
+            $table->string('length')->nullable();
+            $table->string('width')->nullable();
+            $table->string('height')->nullable();
+            $table->string('weight')->nullable();
+            $table->text('description')->nullable();
             $table->unsignedBigInteger('album_vehicle_id');
 
             $table->foreign('album_vehicle_id')->references('id')->on('album_vehicles')->onDelete('CASCADE');

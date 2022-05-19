@@ -9,7 +9,7 @@ class Vehicle extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'image', 'album_vehicle_id'];
+    protected $fillable = ['name', 'length','width', 'height', 'weight', 'description', 'image', 'album_vehicle_id'];
 
     public function getTakeImageAttribute()
     {

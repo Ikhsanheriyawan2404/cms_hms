@@ -126,7 +126,7 @@ $(document).ready(function () {
     $('#createNewItem').click(function () {
         setTimeout(function () {
             $('#name').focus();
-        }, 1000);
+        }, 500);
         $('#saveBtn').removeAttr('disabled');
         $('#saveBtn').html("Simpan");
         $('#category_id').val('');

@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\PostHeaderController;
@@ -8,7 +7,7 @@ use App\Http\Controllers\{HomeController, BlogController};
 use App\Http\Controllers\Admin\{RoleController, UserController, AboutController, ServiceController, VehicleController, CustomerController, DeliveryController, HomepageController, DashboardController, AboutHeaderController, AlbumVehicleController, CategoryController, CommentController, ContactController, ServiceHeaderController, VehicleHeaderController, DeliveryHeaderController, PostController};
 
 // Login Routes ...
-Route::get('', [LoginController::class, 'showLoginForm']);
+Route::get('login', [LoginController::class, 'showLoginForm']);
 Route::post('login', [LoginController::class,'login'])->name('login');
 Route::post('logout',  [LoginController::class,'logout'])->name('logout');
 
@@ -16,25 +15,24 @@ Route::post('logout',  [LoginController::class,'logout'])->name('logout');
 // Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 // Route::post('register', [RegisterController::class, 'register']);
 
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/about/{about:slug}', [HomeController::class, 'aboutDetails'])->name('about.details');
+Route::get('/delivery', [HomeController::class, 'delivery'])->name('delivery');
+Route::get('/service', [HomeController::class, 'service'])->name('service');
+Route::get('/vehicle', [HomeController::class, 'vehicle'])->name('vehicle');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/blog/search', [BlogController::class, 'search'])->name('blog.search');
+Route::get('/blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/blog/category/{category:slug}', [BlogController::class, 'category'])->name('blog.category');
+Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+
 Route::middleware('auth')->group(function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
-    Route::get('/about', [HomeController::class, 'about'])->name('about');
-    Route::get('/about/{about:slug}', [HomeController::class, 'aboutDetails'])->name('about.details');
-    Route::get('/delivery', [HomeController::class, 'delivery'])->name('delivery');
-    Route::get('/service', [HomeController::class, 'service'])->name('service');
-    Route::get('/vehicle', [HomeController::class, 'vehicle'])->name('vehicle');
-    Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-    Route::get('/blog', [BlogController::class, 'index'])->name('blog');
-    Route::get('/blog/search', [BlogController::class, 'search'])->name('blog.search');
-    Route::get('/blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
-    Route::get('/blog/category/{category:slug}', [BlogController::class, 'category'])->name('blog.category');
-    Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
-
-
     Route::prefix('admin')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::resources(['homepages' => HomepageController::class]);
-        Route::resources(['customers' => CommentController::class]);
+        Route::resources(['customers' => CustomerController::class]);
 
         Route::resources(['abouts' => AboutController::class]);
         Route::resources(['about_header' => AboutHeaderController::class]);

@@ -45,6 +45,8 @@
                         <th style="width: 1%">No.</th>
                         <th>Gambar</th>
                         <th>Nama</th>
+                        <th>CBM</th>
+                        <th>Berat</th>
                         <th>Description</th>
                         <th>Album</th>
                         <th class="text-center" style="width: 10%"><i class="fas fa-cogs"></i></th>
@@ -61,8 +63,8 @@
 </div>
 
 <!-- MODAL -->
-<div class="modal fade" id="modal-md">
-    <div class="modal-dialog modal-md">
+<div class="modal fade" id="modal-lg">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="modal-title"></h4>
@@ -78,13 +80,41 @@
                         <label for="name">Nama Kendaraan</label>
                         <input type="text" class="form-control mr-2" name="name" id="name" required>
                     </div>
+                    <label for="length">Panjang</label>
+                    <div class="input-group mb-2">
+                        <input type="number" class="form-control mr-2" name="length" id="length" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">Cm</span>
+                        </div>
+                    </div>
+                    <label for="width">Lebar</label>
+                    <div class="input-group mb-2">
+                        <input type="number" class="form-control mr-2" name="width" id="width" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">Cm</span>
+                        </div>
+                    </div>
+                    <label for="height">Tinggi</label>
+                    <div class="input-group mb-2">
+                        <input type="number" class="form-control mr-2" name="height" id="height" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">Cm</span>
+                        </div>
+                    </div>
+                    <label for="weight">Berat</label>
+                    <div class="input-group mb-2">
+                        <input type="number" class="form-control mr-2" name="weight" id="weight" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">Ton</span>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="description">Deskripsi</label>
                         <textarea type="text" class="form-control mr-2" name="description" id="description"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="album_vehicle_id">Album</label>
-                        <select name="album_vehicle_id" id="album_vehicle_id" class="form-control select2" data-style="select-with-transition" data-size="7" data-live-search="true" required>
+                        <select name="album_vehicle_id" id="album_vehicle_id" class="form-control select2" required>
                             <option selected disabled>Pilih album kendaraan</option>
                             @foreach ($albums as $album)
                                 <option value="{{ $album->id }}">{{ $album->name }}</option>
@@ -178,7 +208,7 @@ $(document).ready(function () {
 
     // $('.select2').select2();
 
-    $('.select2').selectpicker();
+    // $('.select2').selectpicker();
 
     // CKEDITOR.replace('description');
 
@@ -205,6 +235,8 @@ $(document).ready(function () {
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
             {data: 'image', name: 'image'},
             {data: 'name', name: 'name'},
+            {data: 'cmb', name: 'cmb'},
+            {data: 'weight', name: 'weight'},
             {data: 'description', name: 'description'},
             {data: 'album_vehicle', name: 'album_vehicle.name'},
             {data: 'action', name: 'action', orderable: true, searchable: true},
@@ -215,32 +247,39 @@ $(document).ready(function () {
         setTimeout(function () {
             $('#name').focus();
         }, 500);
-        $('#saveBtn').val("Add");
+        $('#saveBtn').removeAttr('disabled');
+        $('#saveBtn').html("Simpan");
         $('#vehicle_id').val('');
         $('#itemForm').trigger("reset");
-        $('#modal-title').html("Tambah Album Vehicle");
-        $('#modal-md').modal('show');
+        $('#modal-title').html("Tambah Album Kendaraan");
+        $('#modal-lg').modal('show');
         CKclear();
     });
 
     $('body').on('click', '#editItem', function () {
         var vehicle_id = $(this).data('id');
         $.get("{{ route('vehicles.index') }}" +'/' + vehicle_id +'/edit', function (data) {
-            $('#modal-md').modal('show');
+            $('#modal-lg').modal('show');
             setTimeout(function () {
                 $('#name').focus();
             }, 500);
-            $('#modal-title').html("Edit vehicles");
-            $('#saveBtn').val("Edit");
+            $('#modal-title').html("Edit Kendaraan");
+            $('#saveBtn').removeAttr('disabled');
+            $('#saveBtn').html("Simpan");
             $('#vehicle_id').val(data.id);
             $('#name').val(data.name);
+            $('#length').val(data.length);
+            $('#width').val(data.width);
+            $('#height').val(data.height);
+            $('#weight').val(data.weight);
             $('#image').val(data.image);
-            $('#description').text(data.description);
+            $('#description').html(data.description);
+            alert($('#album_vehicle_id').data(data.album_vehicle_id));
             // $('#album_vehicle_id').select2(data.album_vehicle_id);
             // $('#album_vehicle_id').select2();
-            $('#album_vehicle_id').selectpicker('val', data.album_vehicle_id);
-            CKupdate();
-            CKEDITOR.instances['description'].setData(description);
+            // $('#album_vehicle_id').selectpicker('val', data.album_vehicle_id);
+            // CKupdate();
+            // CKEDITOR.instances['description'].setData(description);
         })
     });
 
@@ -257,14 +296,15 @@ $(document).ready(function () {
             type: "POST",
             // dataType: 'json',
             success: function (data) {
+                $('#saveBtn').attr('disabled', 'disabled');
+                $('#saveBtn').html('Simpan ...');
                 $('#itemForm').trigger("reset");
-                $('#modal-md').modal('hide');
+                $('#modal-lg').modal('hide');
                 table.draw();
             },
             error: function (data) {
                 alert("Data masih kosong");
                 console.log('Error:', data);
-                $('#saveBtn').html('Save');
             }
         });
     });

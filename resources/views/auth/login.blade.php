@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ $title }} | {{ config('app.name')  }}</title>
 
+  <!-- Site Icons -->
+  <link rel="shortcut icon" href="{{ asset('frontend') }}/images/hms.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="{{ asset('frontend') }}/images/apple-touch-icon.png">
+
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -19,7 +23,7 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="{{ asset('asset') }}/index2.html" class="h1"><b>Management Users</b></a>
+      <a href="{{ route('home', []) }}" class="h1"><b>HMS CMS</b></a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Masukan email dan password</p>
