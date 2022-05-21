@@ -33,7 +33,7 @@
                     <ul>
                         <li><a class="btn btn-dark btn-radius btn-brd active" href="#" data-filter="*"><span class="oi hidden-xs" data-glyph="grid-three-up"></span> All</a></li>
                         @foreach ($album_vehicles as $album_vehicle)
-                        <li><a class="btn btn-dark btn-radius btn-brd" data-toggle="tooltip" data-placement="top" title="{{ $album_vehicles->count() }}" href="#" data-filter=".cat{{ $album_vehicle->id }}">{{ $album_vehicle->name }}</a></li>
+                        <li><a class="btn btn-dark btn-radius btn-brd" data-toggle="tooltip" data-placement="top" title="{{ $album_vehicle->vehicles->count() }}" href="#" data-filter=".cat{{ $album_vehicle->id }}">{{ $album_vehicle->name }}</a></li>
                         @endforeach
                     </ul>
                 </nav>

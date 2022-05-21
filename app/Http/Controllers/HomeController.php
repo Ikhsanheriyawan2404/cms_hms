@@ -50,7 +50,7 @@ class HomeController extends Controller
     {
         return view('frontend.delivery', [
             'title' => 'Halaman About Us',
-            'deliveries' => Delivery::all(),
+            'deliveries' => Delivery::limit(5)->get(),
             'delivery_header' => DeliveryHeader::find(1),
             'customers' => Customer::all(),
         ]);

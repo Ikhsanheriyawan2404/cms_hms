@@ -49,8 +49,7 @@ class VehicleController extends Controller
 
         return view('backend.vehicles.index', [
             'title' => 'Data Kendaraan',
-            'albums' => AlbumVehicle::all(),
-            'vehicle' => new Vehicle(),
+            'album_vehicles' => AlbumVehicle::all(),
         ]);
     }
 

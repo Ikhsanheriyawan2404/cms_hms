@@ -116,8 +116,8 @@
                         <label for="album_vehicle_id">Album</label>
                         <select name="album_vehicle_id" id="album_vehicle_id" class="form-control select2" required>
                             <option selected disabled>Pilih album kendaraan</option>
-                            @foreach ($albums as $album)
-                                <option value="{{ $album->id }}">{{ $album->name }}</option>
+                            @foreach ($album_vehicles as $album_vehicle)
+                                <option value="{{ $album_vehicle->id }}">{{ $album_vehicle->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -172,21 +172,9 @@
 <link rel="stylesheet" href="{{ asset('asset')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="{{ asset('asset')}}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
-
-<!-- Select2 -->
-<link rel="stylesheet" href="{{ asset('asset') }}/plugins/select2/css/select2.min.css">
-
 @endsection
 
 @section('custom-scripts')
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-
-<!-- Select2 -->
-<script src="{{ asset('asset') }}/plugins/select2/js/select2.full.min.js"></script>
 
 <!-- bs-custom-file-input -->
 <script src="{{ asset('asset') }}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
@@ -253,7 +241,6 @@ $(document).ready(function () {
         $('#itemForm').trigger("reset");
         $('#modal-title').html("Tambah Album Kendaraan");
         $('#modal-lg').modal('show');
-        CKclear();
     });
 
     $('body').on('click', '#editItem', function () {
@@ -272,14 +259,9 @@ $(document).ready(function () {
             $('#width').val(data.width);
             $('#height').val(data.height);
             $('#weight').val(data.weight);
-            $('#image').val(data.image);
             $('#description').html(data.description);
-            alert($('#album_vehicle_id').data(data.album_vehicle_id));
-            // $('#album_vehicle_id').select2(data.album_vehicle_id);
-            // $('#album_vehicle_id').select2();
-            // $('#album_vehicle_id').selectpicker('val', data.album_vehicle_id);
-            // CKupdate();
-            // CKEDITOR.instances['description'].setData(description);
+            $('#album_vehicle_id').val(data.album_vehicle_id);
+            $('#image').val(data.image);
         })
     });
 
