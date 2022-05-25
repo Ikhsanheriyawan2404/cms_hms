@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AboutHeader;
-use App\Models\{About, Service, Vehicle, Customer, Delivery, Homepage, AlbumVehicle, ServiceHeader, DeliveryHeader, VehicleHeader};
+use App\Models\{About, AboutHeader, Service, Vehicle, Customer, Delivery, Homepage, AlbumVehicle, ServiceHeader, DeliveryHeader, VehicleHeader};
 
 class HomeController extends Controller
 {
     public function index()
     {
         return view('frontend.home', [
-            'title' => 'Dashboard',
+            'title' => 'Halaman Home',
             'homepages' => Homepage::all(),
             'abouts' => About::all(),
             'services' => Service::all(),
@@ -18,7 +17,8 @@ class HomeController extends Controller
             'company_profile' => About::find(1),
             'visi_misi' => About::find(2),
             'album_vehicles' => AlbumVehicle::all(),
-            'deliveries' => Delivery::all(),
+            'delivery_left' => Delivery::limit(5)->offset(0)->latest()->get(),
+            'delivery_right' => Delivery::limit(5)->offset(5)->latest()->get(),
             'delivery_header' => DeliveryHeader::find(1),
             'customers' => Customer::all(),
         ]);
@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function about()
     {
         return view('frontend.about', [
-            'title' => 'Halaman About Us',
+            'title' => 'Halaman Tentang Kami',
             'abouts' => About::all(),
             'aboutBySlug' => new About(),
             'about_header' => AboutHeader::find(1),
@@ -38,7 +38,7 @@ class HomeController extends Controller
     public function aboutDetails(About $about)
     {
         return view('frontend.about', [
-            'title' => 'Halaman About ' . $about->slug,
+            'title' => 'Halaman Tentang ' . $about->slug,
             'abouts' => About::all(),
             'aboutBySlug' => $about,
             'about_header' => AboutHeader::find(1),
@@ -49,8 +49,9 @@ class HomeController extends Controller
     public function delivery()
     {
         return view('frontend.delivery', [
-            'title' => 'Halaman About Us',
-            'deliveries' => Delivery::limit(5)->get(),
+            'title' => 'Halaman Pengiriman',
+            'delivery_left' => Delivery::limit(5)->offset(0)->latest()->get(),
+            'delivery_right' => Delivery::limit(5)->offset(5)->latest()->get(),
             'delivery_header' => DeliveryHeader::find(1),
             'customers' => Customer::all(),
         ]);
@@ -59,7 +60,7 @@ class HomeController extends Controller
     public function vehicle()
     {
         return view('frontend.vehicle', [
-            'title' => 'Halaman About Us',
+            'title' => 'Halaman Kendaraan Kami',
             'vehicles' => Vehicle::all(),
             'customers' => Customer::all(),
             'vehicle_header' => VehicleHeader::find(1),
@@ -71,7 +72,7 @@ class HomeController extends Controller
     public function service()
     {
         return view('frontend.service', [
-            'title' => 'Halaman Service',
+            'title' => 'Halaman Layanan',
             'services' => Service::all(),
             'customers' => Customer::all(),
             'service_header' => ServiceHeader::find(1),

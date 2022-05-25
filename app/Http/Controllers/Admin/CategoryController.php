@@ -9,6 +9,11 @@ use Yajra\DataTables\Facades\DataTables;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:category-crud', ['only' => ['index', 'show', 'create', 'edit', 'update', 'destroy']]);
+    }
+
     public function index(Category $category)
     {
         if (request()->ajax()) {

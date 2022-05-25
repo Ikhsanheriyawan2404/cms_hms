@@ -11,6 +11,11 @@ use Yajra\DataTables\Facades\DataTables;
 
 class DeliveryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:delivery-crud', ['only' => ['index', 'show', 'create', 'edit', 'update', 'destroy']]);
+    }
+
     public function index()
     {
         if (request()->ajax()) {

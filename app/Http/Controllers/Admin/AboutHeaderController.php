@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Storage;
 
 class AboutHeaderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:about-crud', ['only' => ['index', 'show', 'create', 'edit', 'update', 'destroy']]);
+    }
+
     public function index()
     {
         if (request()->ajax()) {

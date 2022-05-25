@@ -15,7 +15,7 @@
                                 {!! $homepage->sub_title !!}
                             </h2>
                             <div class="slider-content-btn">
-                                <a class="button btn btn-light btn-radius btn-brd" href="#">Read More</a>
+                                <a class="button btn btn-light btn-radius btn-brd" href="{{ route('about', []) }}">Read More</a>
                                 <a class="button btn btn-light btn-radius btn-brd" href="{{ route('contact') }}">Contact</a>
                             </div>
                         </div>
@@ -153,7 +153,7 @@
         <div class="row">
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <ul class="features-left">
-                    @foreach ($deliveries as $delivery)
+                    @foreach ($delivery_left as $delivery)
                     <li class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s">
                         <i class="flaticon-school-bus"></i>
                         <div class="fl-inner">
@@ -169,34 +169,15 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <ul class="features-right">
+                    @foreach ($delivery_right as $delivery)
                     <li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">
                         <i class="flaticon-pantone"></i>
                         <div class="fr-inner">
-                            <h4>Limitless Colors</h4>
-                            <p>Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. </p>
+                            <h4>{{ $delivery->title }}</h4>
+                            <p>{!! $delivery->description !!}</p>
                         </div>
                     </li>
-                    <li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s">
-                        <i class="flaticon-cloud-computing"></i>
-                        <div class="fr-inner">
-                            <h4>Lifetime Update</h4>
-                            <p>Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. </p>
-                        </div>
-                    </li>
-                    <li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.4s">
-                        <i class="flaticon-line-graph"></i>
-                        <div class="fr-inner">
-                            <h4>SEO Friendly</h4>
-                            <p>Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. </p>
-                        </div>
-                    </li>
-                    <li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                        <i class="flaticon-coding"></i>
-                        <div class="fr-inner">
-                            <h4>Simple Clean Code</h4>
-                            <p>Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. </p>
-                        </div>
-                    </li>
+                    @endforeach
                 </ul>
             </div><!-- end col -->
         </div><!-- end row -->

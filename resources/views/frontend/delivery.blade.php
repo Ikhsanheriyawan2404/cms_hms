@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <ul class="features-left">
-                    @foreach ($deliveries as $delivery)
+                    @foreach ($delivery_left as $delivery)
                     <li class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s">
                         <i class="flaticon-school-bus"></i>
                         <div class="fl-inner">
@@ -44,7 +44,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <ul class="features-right">
-                    @foreach ($deliveries as $delivery)
+                    @foreach ($delivery_right as $delivery)
                     <li class="wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">
                         <i class="flaticon-school-bus"></i>
                         <div class="fr-inner">

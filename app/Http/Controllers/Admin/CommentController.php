@@ -9,6 +9,11 @@ use Yajra\DataTables\Facades\DataTables;
 
 class CommentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:comment-crud', ['only' => ['index', 'show', 'create', 'edit', 'update', 'destroy']]);
+    }
+
     public function index()
     {
         if (request()->ajax()) {

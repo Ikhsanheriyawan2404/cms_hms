@@ -19,13 +19,8 @@ class RoleSeeder extends Seeder
             'guard_name' => 'web'
         ]);
 
-        Role::create([
-            'name' => 'Admin',
-            'guard_name' => 'web'
-        ]);
-
-        Role::create([
-            'name' => 'User',
+        $author = Role::create([
+            'name' => 'Author',
             'guard_name' => 'web'
         ]);
 
@@ -38,10 +33,27 @@ class RoleSeeder extends Seeder
             'role-create',
             'role-edit',
             'role-delete',
-            'item-list',
-            'item-create',
-            'item-edit',
-            'item-delete',
+            'homepage-crud',
+            'vehicle-crud',
+            'about-crud',
+            'delivery-crud',
+            'service-crud',
+            'customer-crud',
+            'contact-crud',
+            'vehicle-crud',
+            'blog-list',
+            'blog-create',
+            'blog-edit',
+            'blog-delete',
+            'category-crud',
+            'comment-crud',
+        ]);
+
+        $author->givePermissionTo([
+            'blog-list',
+            'blog-create',
+            'blog-edit',
+            'blog-delete',
         ]);
     }
 }

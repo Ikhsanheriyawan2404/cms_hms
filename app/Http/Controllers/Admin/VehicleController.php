@@ -10,6 +10,10 @@ use Yajra\DataTables\Facades\DataTables;
 
 class VehicleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:vehicle-crud', ['only' => ['index', 'show', 'create', 'edit', 'update', 'destroy']]);
+    }
     public function index()
     {
         if (request()->ajax()) {

@@ -23,15 +23,17 @@
             </a>
         </li>
         <li class="nav-item">
+            @can('homepage-crud')
             <a href="{{ route('homepages.index') }}" class="nav-link {{ request()->routeIs('homepages.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-home"></i>
             <p>
                 Homepage
             </p>
             </a>
+            @endcan
         </li>
         <li class="nav-item">
-            @can('user-list')
+            @can('about-crud')
             <a href="{{ route('abouts.index') }}" class="nav-link {{ request()->routeIs('abouts.*') || request()->routeIs('about_header.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-exclamation"></i>
             <p>
@@ -64,7 +66,7 @@
             </ul>
         </li>
         <li class="nav-item">
-            @can('user-list')
+            @can('delivery-crud')
             <a href="{{ route('deliveries.index') }}" class="nav-link {{ request()->routeIs('deliveries.*') || request()->routeIs('delivery_header.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-truck"></i>
             <p>
@@ -97,7 +99,7 @@
             </ul>
         </li>
         <li class="nav-item">
-            @can('user-list')
+            @can('vehicle-crud')
             <a href="{{ route('vehicles.index') }}" class="nav-link {{ request()->routeIs('vehicles.*') || request()->routeIs('vehicle_header.*') || request()->routeIs('album_vehicle.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-car"></i>
             <p>
@@ -140,7 +142,7 @@
             </ul>
         </li>
         <li class="nav-item">
-            @can('user-list')
+            @can('service-crud')
             <a href="{{ route('services.index') }}" class="nav-link {{ request()->routeIs('services.*') || request()->routeIs('service_header.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-tools"></i>
             <p>
@@ -173,7 +175,7 @@
             </ul>
         </li>
         <li class="nav-item">
-            @can('user-list')
+            @can('blog-list')
             <a href="{{ route('posts.index') }}" class="nav-link {{ request()->routeIs('posts.*') || request()->routeIs('post_header.*') || request()->routeIs('categories.*') || request()->routeIs('comments.*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-newspaper"></i>
             <p>
@@ -184,7 +186,7 @@
             @endcan
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    @can('user-list')
+                    @can('blog-list')
                     <a href="{{ route('post_header.index') }}" class="nav-link {{ request()->routeIs('post_header.index') ? 'active' : '' }}">
                     <i class="nav-icon fas fa-th-list"></i>
                     <p>
@@ -194,7 +196,7 @@
                     @endcan
                 </li>
                 <li class="nav-item">
-                    @can('user-list')
+                    @can('blog-list')
                     <a href="{{ route('posts.index') }}" class="nav-link {{ request()->routeIs('posts.index') ? 'active' : '' }}">
                     <i class="nav-icon fas fa-list"></i>
                     <p>
@@ -204,7 +206,7 @@
                     @endcan
                 </li>
                 <li class="nav-item">
-                    @can('user-list')
+                    @can('category-crud')
                     <a href="{{ route('categories.index') }}" class="nav-link {{ request()->routeIs('categories.index') ? 'active' : '' }}">
                     <i class="nav-icon fas fa-cogs"></i>
                     <p>
@@ -214,7 +216,7 @@
                     @endcan
                 </li>
                 <li class="nav-item">
-                    @can('user-list')
+                    @can('comment-crud')
                     <a href="{{ route('comments.index') }}" class="nav-link {{ request()->routeIs('comments.index') ? 'active' : '' }}">
                     <i class="nav-icon fas fa-comment"></i>
                     <p>
@@ -226,20 +228,24 @@
             </ul>
         </li>
         <li class="nav-item">
+            @can('customer-crud')
             <a href="{{ route('customers.index') }}" class="nav-link {{ request()->routeIs('customers.*') ? 'active' : '' }}">
-            <i class="nav-icon fas fa-user-friends"></i>
-            <p>
-                Customers
-            </p>
+                <i class="nav-icon fas fa-user-friends"></i>
+                <p>
+                    Customers
+                </p>
             </a>
+            @endcan
         </li>
         <li class="nav-item">
+            @can('contact-crud')
             <a href="{{ route('contacts.index') }}" class="nav-link {{ request()->routeIs('contacts.*') ? 'active' : '' }}">
-            <i class="nav-icon fas fa-address-book"></i>
-            <p>
-                Contacts
-            </p>
+                <i class="nav-icon fas fa-address-book"></i>
+                <p>
+                    Contacts
+                </p>
             </a>
+            @endcan
         </li>
         <li class="nav-item">
             @can('user-list')

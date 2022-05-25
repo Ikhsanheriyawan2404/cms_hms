@@ -23,14 +23,24 @@ class PermissionSeeder extends Seeder
             'role-create',
             'role-edit',
             'role-delete',
-            'item-list',
-            'item-create',
-            'item-edit',
-            'item-delete',
-         ];
+            'blog-list',
+            'blog-create',
+            'blog-edit',
+            'blog-delete',
+            'homepage-crud',
+            'vehicle-crud',
+            'about-crud',
+            'delivery-crud',
+            'service-crud',
+            'customer-crud',
+            'contact-crud',
+            'category-crud',
+            'comment-crud',
+        ];
 
-         foreach ($permissions as $permission) {
-              Permission::create(['name' => $permission]);
-         }
+
+        foreach ($permissions as $permission) {
+            Permission::create(['name' => $permission]);
+        }
     }
 }

@@ -10,6 +10,11 @@ use Yajra\DataTables\Facades\DataTables;
 
 class ServiceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:service-crud', ['only' => ['index', 'show', 'create', 'edit', 'update', 'destroy']]);
+    }
+
     public function index()
     {
         if (request()->ajax()) {

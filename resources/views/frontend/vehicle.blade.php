@@ -44,27 +44,26 @@
 
         <div id="da-thumbs" class="da-thumbs portfolio">
             @foreach ($vehicles as $vehicle)
-            <div class="post-media pitem item-w1 item-h1 cat{{ $vehicle->album_vehicle_id }}">
-                <a href="{{ $vehicle->takeImage }}" data-rel="prettyPhoto[gal]">
-                    <img src="{{ $vehicle->takeImage }}" alt="" class="img-responsive">
-                    <div>
-                        <h3>{{ $vehicle->name }} <small>{{ $vehicle->description }}</small></h3>
-                        <i class="flaticon-unlink"></i>
-                    </div>
-                </a>
-                <a href="https://wa.me/082117088123" class="btn btn-light  btn-brd grd1 btn-block">Booking <i class="fa fa-whatsapp"></i></a>
+            <div class="container">
+                {{-- <div class="col-md-12"> --}}
+                    <div class="post-media pitem item-w1 item-h1 cat{{ $vehicle->album_vehicle_id }}">
+                        <a href="{{ $vehicle->takeImage }}" data-rel="prettyPhoto[gal]">
+                            <img src="{{ $vehicle->takeImage }}" alt="" class="img-responsive">
+                            <div>
+                                <h3>{{ $vehicle->name }}
+                                    <small>Panjang : {{ $vehicle->length }} cm</small>
+                                    <small>Lebar : {{ $vehicle->width }} cm</small>
+                                    <small>Tinggi : {{ $vehicle->height }} cm</small>
+                                    <small>Berat : {{ $vehicle->weight }} ton</small>
+                                </h3>
+                                <i class="flaticon-unlink"></i>
+                            </div>
+                        </a>
+                        <a href="https://wa.me/082117088123" class="btn btn-light  btn-brd grd1 btn-block">Booking <i class="fa fa-whatsapp"></i></a>
+                    {{-- </div> --}}
+                </div>
             </div>
             @endforeach
-
-            {{-- <div class="post-media pitem item-w1 item-h1 cat2">
-                <a href="uploads/portfolio_10.jpg" data-rel="prettyPhoto[gal]">
-                    <img src="uploads/portfolio_10.jpg" alt="" class="img-responsive">
-                    <div>
-                        <h3>Danny Jeffers <small>Web Design</small></h3>
-                        <i class="flaticon-unlink"></i>
-                    </div>
-                </a>
-            </div> --}}
         </div><!-- end portfolio -->
     </div><!-- end container -->
 </div><!-- end section -->
