@@ -55,11 +55,14 @@
                     <aside class="r_widget search_widget">
                         <div class="input-group">
                             <form action="{{ route('blog.search', []) }}" method="get" id="search-form">
+                                <input type="text" class="form-control" name="search" placeholder="Enter Search Keywords">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                                </span>
                             </form>
-                            <input type="text" class="form-control" name="search" placeholder="Enter Search Keywords">
-                            <span class="input-group-btn">
+                            {{-- <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit" onclick="event.preventDefault();document.getElementById('search-form').submit();"><i class="fa fa-search"></i></button>
-                            </span>
+                            </span> --}}
                         </div>
                     </aside>
                     <aside class="r_widget categories_widget">
@@ -89,19 +92,6 @@
                             @endforeach
                         </div>
                     </aside>
-                    {{-- <aside class="r_widget tage_widget">
-                        <div class="r_widget_title">
-                            <h3>Tages</h3>
-                        </div>
-                        <ul>
-                            <li><a href="#">Investment</a></li>
-                            <li><a href="#">Mutual Funds</a></li>
-                            <li><a href="#">Business</a></li>
-                            <li><a href="#">investment</a></li>
-                            <li><a href="#">Consulting</a></li>
-                            <li><a href="#">Growth</a></li>
-                        </ul>
-                    </aside> --}}
                 </div>
             </div>
         </div>

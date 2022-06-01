@@ -56,7 +56,7 @@
                                         </a>
                                         <p>{{ $comment->messages }}</p>
                                         <div class="date_rep">
-                                            <a href="#">{{ $comment->created_at }}></a>
+                                            <a href="#">{{ $comment->created_at->diffForHumans() }}</a>
                                             <a href="#commentForm">Reply</a>
                                         </div>
                                     </div>

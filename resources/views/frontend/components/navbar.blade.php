@@ -42,7 +42,7 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a class="{{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home', []) }}">Home</a></li>
-                    <li><a class="{{ request()->routeIs('about.*') ? 'active' : '' }}" href="{{ route('about')}}">About us</a></li>
+                    <li><a class="{{ request()->routeIs('about') || request()->routeIs('about.details') ? 'active' : '' }}" href="{{ route('about')}}">About us</a></li>
                     <li><a class="{{ request()->routeIs('delivery') ? 'active' : '' }}" href="{{ route('delivery')}}">Deliveries</a></li>
                     <li><a class="{{ request()->routeIs('vehicle') ? 'active' : '' }}" href="{{ route('vehicle', []) }}">Our Vehicle</a></li>
                     <li><a class="{{ request()->routeIs('service') ? 'active' : '' }}" href="{{ route('service', []) }}">Services</a></li>
