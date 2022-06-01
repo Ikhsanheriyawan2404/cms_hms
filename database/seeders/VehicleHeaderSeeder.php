@@ -15,10 +15,10 @@ class VehicleHeaderSeeder extends Seeder
     public function run()
     {
         VehicleHeader::create([
-            'title' => 'Ikhsan',
-            'quote' => 'Ikhsan',
-            'keyword' => 'Ikhsan',
-            'description' => 'Ikhsan',
+            'title' => 'Judul vehicle header',
+            'quote' => 'Space untuk kalimat promo halaman vehicle',
+            'keyword' => 'Test keyword halaman vehicle',
+            'description' => 'Test deskripsi halaman vehicle',
         ]);
     }
 }

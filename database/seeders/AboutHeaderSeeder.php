@@ -15,7 +15,7 @@ class AboutHeaderSeeder extends Seeder
     public function run()
     {
         AboutHeader::create([
-            'title' => 'Judul about header',
+            'title' => 'Halaman about',
             'quote' => 'Space untuk kalimat promo halaman about',
             'keyword' => 'Test keyword halaman about',
             'description' => 'Test deskripsi halaman about',

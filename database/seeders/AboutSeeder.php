@@ -33,7 +33,6 @@ class AboutSeeder extends Seeder
             Melaksanakan budaya kerja yang berlandaskan profesionalitas.
             Berperan Aktif dalam pendistribusian barang untuk wilayah di Pulau Jawa.
             MOTO PERUSAHAAN : Delivery On Time & Perfect Conditions, Definisi : Berkomitmen untuk memberikan Pelayanan sepenuh hati.
-
             ',
             'slug' => Str::slug($title),
         ]);
