@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             HomepageSeeder::class,
             CategorySeeder::class,
             PostHeaderSeeder::class,
+            AlbumVehicleSeeder::class,
         ]);
     }
 }
