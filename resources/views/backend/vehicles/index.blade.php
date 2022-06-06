@@ -108,6 +108,13 @@
                             <span class="input-group-text">Ton</span>
                         </div>
                     </div>
+                    <label for="cbm">CBM</label>
+                    <div class="input-group mb-2">
+                        <input type="number" class="form-control mr-2" name="cbm" id="cbm" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">&#13221</span>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="description">Deskripsi</label>
                         <textarea type="text" class="form-control mr-2" name="description" id="description"></textarea>
@@ -134,24 +141,6 @@
                             @enderror
                         </div>
                     </div>
-                    {{-- <div class="form-group">
-                        <label for="image" class="col-sm-4 label-on-left">Photo :</label>
-                        <div class="col-sm-8 fileinput fileinput-new text-left" data-provides="fileinput">
-                            <div class="fileinput-new thumbnail">
-                                <span id="view_cover"></span>
-                            </div>
-                            <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                            <div>
-                                <span class="btn btn-round btn-rose btn-file">
-                                    <span class="fileinput-new" id="proses_image"></span>
-                                    <span class="fileinput-exists">Change</span>
-                                    <input type="file" name="image" id="image" accept="image/*" />
-                                </span>
-                                <br />
-                                <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Save</button>
@@ -194,25 +183,6 @@ $(document).ready(function () {
 
     bsCustomFileInput.init();
 
-    // $('.select2').select2();
-
-    // $('.select2').selectpicker();
-
-    // CKEDITOR.replace('description');
-
-    // function CKclear() {
-    //     for (instance in CKEDITOR.instances) {
-    //         CKEDITOR.instances[instance].updateElement();
-    //         CKEDITOR.instances[instance].setData('');
-    //     }
-    // }
-
-    // function CKupdate() {
-    //     for (instance in CKEDITOR.instance) {
-    //         CKEDITOR.instances['description'].updateElement();
-    //     }
-    // }
-
     let table = $('#data-table').DataTable({
         processing: true,
         serverSide: true,
@@ -223,7 +193,7 @@ $(document).ready(function () {
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
             {data: 'image', name: 'image'},
             {data: 'name', name: 'name'},
-            {data: 'cmb', name: 'cmb'},
+            {data: 'cbm', name: 'cbm'},
             {data: 'weight', name: 'weight'},
             {data: 'description', name: 'description'},
             {data: 'album_vehicle', name: 'album_vehicle.name'},
@@ -259,6 +229,7 @@ $(document).ready(function () {
             $('#width').val(data.width);
             $('#height').val(data.height);
             $('#weight').val(data.weight);
+            $('#cbm').val(data.cbm);
             $('#description').html(data.description);
             $('#album_vehicle_id').val(data.album_vehicle_id);
             $('#image').val(data.image);

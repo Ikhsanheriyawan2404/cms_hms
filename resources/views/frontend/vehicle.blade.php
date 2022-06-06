@@ -51,10 +51,8 @@
                             <img src="{{ $vehicle->takeImage }}" alt="" class="img-responsive">
                             <div>
                                 <h3>{{ $vehicle->name }}
-                                    <small>Panjang : {{ $vehicle->length }} cm</small>
-                                    <small>Lebar : {{ $vehicle->width }} cm</small>
-                                    <small>Tinggi : {{ $vehicle->height }} cm</small>
                                     <small>Berat : {{ $vehicle->weight }} ton</small>
+                                    <small>CBM : {{ $vehicle->cbm }} &#13221</small>
                                 </h3>
                                 <i class="flaticon-unlink"></i>
                             </div>

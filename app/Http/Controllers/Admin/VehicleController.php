@@ -20,9 +20,6 @@ class VehicleController extends Controller
             $vehicles = Vehicle::latest()->get();
             return DataTables::of($vehicles)
                 ->addIndexColumn()
-                ->addColumn('cmb', function (Vehicle $vehicle) {
-                    return $vehicle->length * $vehicle->width * $vehicle->height / 1000000 . ' &#13221;';
-                })
                 ->addColumn('weight', function (Vehicle $vehicle) {
                     return $vehicle->weight . ' Ton';
                 })
@@ -79,6 +76,7 @@ class VehicleController extends Controller
             'width' => 'max:255',
             'height' => 'max:255',
             'weight' => 'max:255',
+            'cbm' => 'max:255',
             'album_vehicle_id' => 'required',
             'image' => 'image|mimes:jpg,jpeg,png|max:2048',
         ]);
@@ -91,6 +89,7 @@ class VehicleController extends Controller
                 'width' => request('width'),
                 'height' => request('height'),
                 'weight' => request('weight'),
+                'cbm' => request('cbm'),
                 'description' => request('description'),
                 'album_vehicle_id' => request('album_vehicle_id'),
                 'image' => $image,

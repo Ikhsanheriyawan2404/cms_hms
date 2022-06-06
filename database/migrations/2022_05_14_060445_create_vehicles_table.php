@@ -21,6 +21,7 @@ class CreateVehiclesTable extends Migration
             $table->string('width')->nullable();
             $table->string('height')->nullable();
             $table->string('weight')->nullable();
+            $table->string('cbm')->nullable();
             $table->text('description')->nullable();
             $table->unsignedBigInteger('album_vehicle_id');
 
