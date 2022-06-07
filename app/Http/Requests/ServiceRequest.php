@@ -26,7 +26,7 @@ class ServiceRequest extends FormRequest
         return [
             'title' => 'required|max:255',
             'contents' => 'required',
-            'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'image' => 'image|mimes:jpg,jpeg,png|max:2048',
         ];
     }
 }

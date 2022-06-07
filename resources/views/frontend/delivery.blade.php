@@ -32,7 +32,7 @@
                     <li class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s">
                         <i class="flaticon-school-bus"></i>
                         <div class="fl-inner">
-                            <h4>{{ $delivery->title }}</h4>
+                            <h4>{{ $delivery->customer->company }}</h4>
                             <p>{!! $delivery->description !!}</p>
                         </div>
                     </li>
