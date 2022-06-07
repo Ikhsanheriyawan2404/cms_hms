@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="banner-area banner-bg-1" style="background-image: url({{ $service_header->takeImage }})">
+<div class="banner-area banner-bg-1" style="background-image: url({{ $page_header->takeImage }})">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -22,7 +22,7 @@
     <div class="container">
         <div class="section-title text-center">
             <h3>Layanan Kami</h3>
-            <p class="lead">{{ $service_header->title }}</p>
+            <p class="lead">{{ $page_header->title }}</p>
         </div><!-- end title -->
 
         <div class="owl-services owl-carousel owl-theme">
@@ -43,9 +43,9 @@
 
         <hr class="hr1">
 
-        <div class="text-center">
+        {{-- <div class="text-center">
             <a data-scroll href="#portfolio" class="btn btn-light btn-radius btn-brd">View Our Portfolio</a>
-        </div>
+        </div> --}}
     </div><!-- end container -->
 </div><!-- end section -->
 

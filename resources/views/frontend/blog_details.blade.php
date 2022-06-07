@@ -3,12 +3,12 @@
 @section('content')
 @include('sweetalert::alert')
 
-<div class="banner-area banner-bg-1" style="background-image: url({{ $post_header->takeImage }})">
+<div class="banner-area banner-bg-1" style="background-image: url({{ $page_header->takeImage }})">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="banner">
-                    <h2>Service</h2>
+                    <h2>Blog Detail</h2>
                     <ul class="page-title-link">
                         <li><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="{{ route('blog', []) }}">Blog</a></li>
@@ -26,26 +26,26 @@
                 <div class="main_blog_items">
                     <div class="main_blog_item">
                         <div class="main_blog_image">
-                            <img src="{{ $post->takeImage }}" alt="">
+                            <img src="{{ $page_header->takeImage }}" alt="">
                         </div>
                         <div class="main_blog_text">
                             <a href="#">
-                                <h2>{{ $post->title }}</h2>
+                                <h2>{{ $page_header->title }}</h2>
                             </a>
                             <div class="blog_author_area">
-                                <a href="#"><i class="fa fa-user"></i>By : <span>{{ $post->user->name }}</span></a>
-                                @foreach ($post->categories as $category)
+                                <a href="#"><i class="fa fa-user"></i>By : <span>{{ $page_header->user->name }}</span></a>
+                                @foreach ($page_header->categories as $category)
                                 <a href="#"><i class="fa fa-tag"></i><span>{{ $category->name }}</span></a>
                                 @endforeach
-                                <a href="#"><i class="fa fa-comments-o"></i>Comments: {{ $post->comments->count() }}</a>
+                                <a href="#"><i class="fa fa-comments-o"></i>Comments: {{ $page_header->comments->count() }}</a>
                             </div>
-                            {!! $post->contents !!}
+                            {!! $page_header->contents !!}
                         </div>
                     </div>
                     <div class="s_comment_list">
-                        <h3>Komentar {{ $post->comments->count() }}</h3>
+                        <h3>Komentar {{ $page_header->comments->count() }}</h3>
                         <div class="s_comment_list_inner">
-                            @foreach ($post->comments as $comment)
+                            @foreach ($page_header->comments as $comment)
                                 <div class="media">
                                     <div class="media-left">
                                         <img src="img/comment/comment-1.jpg" alt="">
@@ -84,7 +84,7 @@
                             @enderror
                             <form class="row contact_us_form" action="{{ route('comments.store') }}" method="post" id="commentForm" novalidate="novalidate">
                                 @csrf
-                                <input type="hidden" value="{{ $post->id }}" name="post_id">
+                                <input type="hidden" value="{{ $page_header->id }}" name="post_id">
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
                                 </div>

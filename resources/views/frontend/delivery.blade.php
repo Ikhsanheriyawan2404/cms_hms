@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="banner-area banner-bg-1" style="background-image: url({{ $delivery_header->takeImage }})">
+<div class="banner-area banner-bg-1" style="background-image: url({{ $page_header->takeImage }})">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -22,7 +22,7 @@
     <div class="container">
         <div class="section-title text-center">
             <h3>Pengiriman Terakhir</h3>
-            <p class="lead">{{ $delivery_header->quote }}</p>
+            <p class="lead">{{ $page_header->quote }}</p>
         </div><!-- end title -->
 
         <div class="row">

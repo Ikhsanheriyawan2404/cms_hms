@@ -31,7 +31,7 @@ class HomeController extends Controller
             'title' => 'Halaman Tentang Kami',
             'abouts' => About::all(),
             'aboutBySlug' => new About(),
-            'about_header' => AboutHeader::find(1),
+            'page_header' => AboutHeader::find(1),
             'customers' => Customer::all(),
         ]);
     }
@@ -42,7 +42,7 @@ class HomeController extends Controller
             'title' => 'Halaman Tentang ' . $about->slug,
             'abouts' => About::all(),
             'aboutBySlug' => $about,
-            'about_header' => AboutHeader::find(1),
+            'page_header' => AboutHeader::find(1),
             'customers' => Customer::all(),
         ]);
     }
@@ -53,7 +53,7 @@ class HomeController extends Controller
             'title' => 'Halaman Pengiriman',
             'delivery_left' => Delivery::limit(5)->offset(0)->latest()->get(),
             'delivery_right' => Delivery::limit(5)->offset(5)->latest()->get(),
-            'delivery_header' => DeliveryHeader::find(1),
+            'page_header' => DeliveryHeader::find(1),
             'customers' => Customer::all(),
         ]);
     }
@@ -64,7 +64,7 @@ class HomeController extends Controller
             'title' => 'Halaman Kendaraan Kami',
             'vehicles' => Vehicle::all(),
             'customers' => Customer::all(),
-            'vehicle_header' => VehicleHeader::find(1),
+            'page_header' => VehicleHeader::find(1),
             'album_vehicles' => AlbumVehicle::all(),
             'vehicles' => Vehicle::all()
         ]);
@@ -76,7 +76,7 @@ class HomeController extends Controller
             'title' => 'Halaman Layanan',
             'services' => Service::all(),
             'customers' => Customer::all(),
-            'service_header' => ServiceHeader::find(1),
+            'page_header' => ServiceHeader::find(1),
 
         ]);
     }
@@ -85,7 +85,7 @@ class HomeController extends Controller
     {
         return view('frontend.contact', [
             'title' => "Halaman Kontak",
-            'about_header' => AboutHeader::find(1),
+            'page_header' => AboutHeader::find(1),
             'customers' => Customer::all()
         ]);
     }

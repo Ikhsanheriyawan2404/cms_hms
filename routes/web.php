@@ -23,7 +23,7 @@ Route::get('/service', [HomeController::class, 'service'])->name('service');
 Route::get('/vehicle', [HomeController::class, 'vehicle'])->name('vehicle');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
-Route::get('/blog/search', [BlogController::class, 'search'])->name('blog.search');
+Route::get('/blog/results', [BlogController::class, 'search'])->name('blog.search');
 Route::get('/blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/blog/category/{category:slug}', [BlogController::class, 'category'])->name('blog.category');
 Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');

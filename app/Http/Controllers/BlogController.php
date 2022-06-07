@@ -13,7 +13,7 @@ class BlogController extends Controller
             'posts' => Post::latest()->paginate(5),
             'post_most_viewed' => Post::with('comments')->withCount('comments')->orderBy('comments_count', 'DESC')->paginate(5),
             'categories' => Category::all(),
-            'post_header' => PostHeader::find(1),
+            'page_header' => PostHeader::find(1),
             'customers' => Customer::all()
         ]);
     }
@@ -22,10 +22,9 @@ class BlogController extends Controller
     {
         return view('frontend.blog_details', [
             'title' => $post->title,
-            'post' => $post,
+            'page_header' => $post,
             'posts' => Post::latest()->paginate(5),
             'categories' => Category::all(),
-            'post_header' => PostHeader::find(1),
             'comments' => Comment::all(),
             'customers' => Customer::all()
         ]);
@@ -40,7 +39,7 @@ class BlogController extends Controller
             'post_most_viewed' => $posts,
             'posts' => Post::latest()->paginate(5),
             'categories' => Category::all(),
-            'post_header' => PostHeader::find(1),
+            'page_header' => PostHeader::find(1),
             'customers' => Customer::all()
         ]);
     }
@@ -53,7 +52,7 @@ class BlogController extends Controller
             'post_most_viewed' => Post::where("title", "like", "%$query%")->latest()->paginate(5),
             'posts' => Post::latest()->paginate(5),
             'categories' => Category::get(),
-            'post_header' => PostHeader::find(1),
+            'page_header' => PostHeader::find(1),
             'customers' => Customer::all()
         ]);
     }

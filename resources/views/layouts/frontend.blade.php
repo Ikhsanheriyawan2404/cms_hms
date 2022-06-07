@@ -10,9 +10,9 @@
     <!-- Site Metas -->
     <title>{{ $title ?? config('app.name') }}</title>
 
-    <meta name="title" content="{{ $post->title ?? 'Harum Manis Logistik' }}">
-    <meta name="description" content="{{ $post->description ?? 'Sebuah Perusahaan Tranportasi Angkutan Barang' }}">
-    <meta name="keyword" content="{{ $post->keyword ?? 'Transportasi, Logistik, Truk' }}">
+    <meta name="title" content="{{ $page_header->title ?? 'Harum Manis Logistik' }}">
+    <meta name="description" content="{{ $page_header->description ?? 'Sebuah Perusahaan Tranportasi Angkutan Barang' }}">
+    <meta name="keyword" content="{{ $page_header->keyword ?? 'Transportasi, Logistik, Truk' }}">
 
     <!-- Site Icons -->
     <link rel="shortcut icon" href="{{ asset('frontend') }}/images/hms.ico" type="image/x-icon" />

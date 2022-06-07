@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="banner-area banner-bg-1" style="background-image: url({{ $about_header->takeImage }})">
+<div class="banner-area banner-bg-1" style="background-image: url({{ $page_header->takeImage }})">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
