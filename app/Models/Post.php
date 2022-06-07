@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'slug', 'contents', 'image', 'meta_description', 'meta_title', 'meta_keyword'];
+    protected $fillable = ['title', 'slug', 'contents', 'image', 'description', 'keyword'];
 
     public function getTakeImageAttribute()
     {

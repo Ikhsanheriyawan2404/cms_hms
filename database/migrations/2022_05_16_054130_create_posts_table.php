@@ -20,9 +20,8 @@ class CreatePostsTable extends Migration
             $table->text('contents');
             $table->string('image')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->string('meta_title')->nullable();
-            $table->string('meta_description')->nullable();
-            $table->string('meta_keyword')->nullable();
+            $table->string('description')->nullable();
+            $table->string('keyword')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
             $table->timestamps();

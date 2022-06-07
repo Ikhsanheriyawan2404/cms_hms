@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{About, AboutHeader, Service, Vehicle, Customer, Delivery, Homepage, AlbumVehicle, ServiceHeader, DeliveryHeader, VehicleHeader};
+use App\Models\{About, AboutHeader, Service, Vehicle, Customer, Delivery, Homepage, AlbumVehicle, Category, ServiceHeader, DeliveryHeader, VehicleHeader};
 
 class HomeController extends Controller
 {
@@ -20,6 +20,7 @@ class HomeController extends Controller
             'delivery_left' => Delivery::limit(5)->offset(0)->latest()->get(),
             'delivery_right' => Delivery::limit(5)->offset(5)->latest()->get(),
             'delivery_header' => DeliveryHeader::find(1),
+            'categories' => Category::all(),
             'customers' => Customer::all(),
         ]);
     }

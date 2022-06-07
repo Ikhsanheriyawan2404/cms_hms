@@ -10,11 +10,9 @@
     <!-- Site Metas -->
     <title>{{ $title ?? config('app.name') }}</title>
 
-    @yield('meta')
-
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="title" content="{{ $post->title ?? 'Harum Manis Logistik' }}">
+    <meta name="description" content="{{ $post->description ?? 'Sebuah Perusahaan Tranportasi Angkutan Barang' }}">
+    <meta name="keyword" content="{{ $post->keyword ?? 'Transportasi, Logistik, Truk' }}">
 
     <!-- Site Icons -->
     <link rel="shortcut icon" href="{{ asset('frontend') }}/images/hms.ico" type="image/x-icon" />

@@ -60,6 +60,35 @@
     <!-- /.card -->
 </div>
 
+<!-- MODAL -->
+<div class="modal fade" id="modal-lg">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-title">Body Posts</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div>
+                <input type="hidden" name="post_id" id="post_id">
+                <div class="modal-body">
+                    <div>Meta Keyword : <a id="meta_keyword"></a></div>
+                    <div>Meta Description : <a id="meta_description"></a></div>
+                    <div>Dibuat : <a id="created_at"></a></div>
+                    <h4 id="title"></h4>
+                    <div id="contents"></div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-right">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 
 @endsection
 
@@ -99,13 +128,16 @@
 
        $('body').on('click', '#showItem', function () {
             var post_id = $(this).data('id');
-            $.get("{{ route('posts.index') }}" +'/' + post_id +'/show', function (data) {
+            $.get("{{ route('posts.index') }}" +'/' + post_id, function (data) {
                 $('#modal-lg').modal('show');
                 $('#modal-title').html("Post Info");
                 $('#post_id').val(data.id);
                 $('#title').html(data.title);
-                $('#meta_description').html(data.meta_description);
-                $('#body').html(data.body);
+                $('#meta_title').html(data.title);
+                $('#meta_keyword').html(data.keyword);
+                $('#meta_description').html(data.description);
+                $('#created_at').html(data.created_at);
+                $('#contents').html(data.contents);
             })
        });
     });

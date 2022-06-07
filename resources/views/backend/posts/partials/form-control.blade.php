@@ -37,18 +37,18 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="meta_keyword">Meta Keyword</label>
-                <input type="text" name="meta_keyword" class="form-control @error('meta_keyword') is-invalid @enderror" placeholder="" value="{{ $post->meta_keyword ?? old('meta_keyword') }}">
-                @error('meta_keyword')
+                <label for="keyword">Meta Keyword</label>
+                <input type="text" name="keyword" class="form-control @error('keyword') is-invalid @enderror" placeholder="cth: Keyword1, Keyword2, Keyword3" value="{{ $post->keyword ?? old('keyword') }}">
+                @error('keyword')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
             </div>
             <div class="form-group">
-                <label for="meta_description">Meta Description</label>
-                <input type="text" name="meta_description" class="form-control @error('meta_description') is-invalid @enderror" placeholder="" value="{{ $post->meta_description ?? old('meta_description') }}">
-                @error('meta_description')
+                <label for="description">Meta Description</label>
+                <input type="text" name="description" class="form-control @error('description') is-invalid @enderror" value="{{ $post->description ?? old('description') }}">
+                @error('description')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>

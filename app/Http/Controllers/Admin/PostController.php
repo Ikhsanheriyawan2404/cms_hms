@@ -59,6 +59,11 @@ class PostController extends Controller
         ]);
     }
 
+    public function show(Post $post)
+    {
+        return response()->json($post);
+    }
+
     public function create()
     {
         return view('backend.posts.create', [
@@ -82,9 +87,8 @@ class PostController extends Controller
         $attr = [
             'title' => request('title'),
             'slug' => Str::slug(request('title')),
-            'meta_title' => request('title'),
-            'meta_description' => request('meta_description'),
-            'meta_keyword' => request('meta_keyword'),
+            'description' => request('description'),
+            'keyword' => request('keyword'),
             'image' => request('image') ? request()->file('image')->store('img/posts') : null,
             'contents' => request('contents'),
         ];
@@ -129,9 +133,8 @@ class PostController extends Controller
         $post->update([
             'title' => request('title'),
             'slug' => Str::slug(request('title')),
-            'meta_title' => request('title'),
-            'meta_description' => request('meta_description'),
-            'meta_keyword' => request('meta_keyword'),
+            'description' => request('description'),
+            'keyword' => request('keyword'),
             'image' => $image,
             'contents' => request('contents'),
         ]);

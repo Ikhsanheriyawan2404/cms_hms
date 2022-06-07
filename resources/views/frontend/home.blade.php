@@ -123,13 +123,12 @@
         <div class="row text-center">
             <div class="col-md-6">
                 <div class="customwidget text-left">
-                    <h1>Beautiful Websites</h1>
+                    <h1>Tersedia Blog</h1>
                     <p>Full access control of the background parallax effects, <br>change your awesome background elements and edit colors from style.css or colors.css</p>
                     <ul class="list-inline">
-                        <li><i class="fa fa-check"></i> Custom Sections</li>
-                        <li><i class="fa fa-check"></i> Parallax's</li>
-                        <li><i class="fa fa-check"></i> Icons & PSD</li>
-                        <li><i class="fa fa-check"></i> Limitless Colors</li>
+                        @foreach ($categories as $category)
+                            <li><i class="fa fa-check"></i> {{ $category->name }}</li>
+                        @endforeach
                     </ul><!-- end list -->
                     <a href="{{ route('blog') }}" data-scroll class="btn btn-light btn-radius btn-brd">Learn More</a>
                 </div>
