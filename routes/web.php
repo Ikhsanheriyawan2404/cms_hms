@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Post;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\PostHeaderController;
@@ -16,6 +19,23 @@ Route::post('logout',  [LoginController::class,'logout'])->name('logout');
 // Route::post('register', [RegisterController::class, 'register']);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/sitemap', function(){
+    $sitemap = Sitemap::create()
+    ->add(Url::create('/about'))
+    ->add(Url::create('/delivery'))
+    ->add(Url::create('/service'))
+    ->add(Url::create('/vehicle'))
+    ->add(Url::create('/contact'))
+    ->add(Url::create('/blog'));
+
+    $post = Post::all();
+    foreach ($post as $post) {
+        $sitemap->add(Url::create("/blog/{$post->slug}"));
+    }
+    $sitemap->writeToFile(public_path('sitemap.xml'));
+});
+
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/about/{about:slug}', [HomeController::class, 'aboutDetails'])->name('about.details');
 Route::get('/delivery', [HomeController::class, 'delivery'])->name('delivery');
