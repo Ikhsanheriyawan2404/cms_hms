@@ -98,9 +98,9 @@ class DeliveryController extends Controller
 
         $delivery->update([
             'title' => request('title'),
-            'contents' => request('contents'),
-            'keyword' => request('keyword'),
-            'image' => $image
+            'description' => request('description'),
+            'customer_id' => request('customer_id'),
+            'image' => $image,
         ]);
 
         toast('Data delivery berhasil diedit!', 'success');

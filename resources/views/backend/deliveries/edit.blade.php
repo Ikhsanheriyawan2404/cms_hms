@@ -74,6 +74,6 @@
         });
     });
 
-    CKEDITOR.replace('contents');
+    CKEDITOR.replace('description');
 </script>
 @endsection
