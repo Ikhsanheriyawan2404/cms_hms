@@ -41,5 +41,12 @@ class CategorySeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        Category::create([
+            'name' => 'Bisnis',
+            'slug' => 'bisnis',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 }
